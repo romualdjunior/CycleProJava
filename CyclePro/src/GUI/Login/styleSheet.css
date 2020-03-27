@@ -1,0 +1,51 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Mar 17, 2020, 8:42:46 PM
+    Author     : toshiba
+*/
+.parent{
+    -fx-background-color: transparent;
+}
+.pane{
+    -fx-background-color: black;
+}
+.trans-btn-white-border{
+    -fx-background-color: transparent;
+    -fx-background-radius: 5px;
+    -fx-border-color: #cccccc;
+    -fx-border-radius: 5px;
+    -fx-border-width: 1px;
+    -fx-text-fill: whitesmoke;
+    
+}
+.white-pane{
+    -fx-background-color: #FFFFFF;
+}
+.tf_box1{
+    -fx-background-color: transparent;
+    -fx-border-color: #DEDEE4;
+    -fx-border-width: 0px 0px 1px 0px;
+    
+}
+.tf{
+    -fx-background-color: transparent;
+}
+.-pink-btn{
+    -fx-background-color: #F78C7B;
+    -fx-background-radius: 6px;
+    -fx-text-fill: #FFFFFF;
+    
+}
+.sign-in{
+    -fx-background-color: linear-gradient(#3B79E0, #58C3DD);
+    -fx-background-radius: 6px;
+    -fx-text-fill: #FFFFFF;
+    
+}
+.vbox{
+    -fx-background-color: #FCFCFC;
+}

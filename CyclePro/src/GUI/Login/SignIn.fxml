@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXPasswordField?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox id="VBox" prefHeight="650.0" prefWidth="649.0" styleClass="vbox" stylesheets="@styleSheet.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.Login.SignInController">
+   <children>
+      <Label fx:id="SignIn" alignment="BASELINE_LEFT" prefWidth="188.0" text="SIGN IN" textFill="#707070">
+         <font>
+            <Font name="System Bold" size="37.0" />
+         </font>
+         <VBox.margin>
+            <Insets bottom="25.0" left="35.0" right="25.0" top="125.0" />
+         </VBox.margin>
+      </Label>
+      <HBox prefHeight="81.0" prefWidth="599.0">
+         <children>
+            <FontAwesomeIcon fx:id="UserIcon" glyphName="USER" glyphStyle="-fx-fill:DEDEE4" size="25" strokeWidth="5.0" text="" />
+            <JFXTextField fx:id="User" focusColor="#428adf" labelFloat="true" onAction="#typingUsername" prefHeight="25.0" prefWidth="538.0" promptText="Email or Userame" unFocusColor="#b5b1b1">
+               <HBox.margin>
+                  <Insets left="25.0" top="10.0" />
+               </HBox.margin>
+            </JFXTextField>
+         </children>
+         <VBox.margin>
+            <Insets left="25.0" right="25.0" top="60.0" />
+         </VBox.margin>
+      </HBox>
+      <HBox layoutX="35.0" layoutY="189.0" prefHeight="81.0" prefWidth="599.0">
+         <children>
+            <FontAwesomeIcon glyphName="LOCK" glyphStyle="-fx-fill:DEDEE4" size="25" strokeWidth="5.0" />
+            <JFXPasswordField focusColor="#428adf" prefHeight="25.0" prefWidth="577.0" promptText="Password" unFocusColor="#b5b1b1">
+               <HBox.margin>
+                  <Insets bottom="25.0" left="25.0" top="15.0" />
+               </HBox.margin>
+            </JFXPasswordField>
+         </children>
+         <VBox.margin>
+            <Insets left="25.0" right="25.0" top="15.0" />
+         </VBox.margin>
+      </HBox>
+      <JFXButton fx:id="connection" onAction="#connecting" prefHeight="41.0" prefWidth="122.0" ripplerFill="WHITE" styleClass="sign-in" stylesheets="@styleSheet.css" text="Sign In">
+         <VBox.margin>
+            <Insets left="50.0" top="50.0" />
+         </VBox.margin>
+      </JFXButton>
+   </children>
+</VBox>

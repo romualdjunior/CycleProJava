@@ -1,11 +1,60 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Button?>
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.171" fx:controller="GUI.Login.LoginController">
+<AnchorPane id="AnchorPane" prefHeight="698.0" prefWidth="1305.0" styleClass="parent" stylesheets="@styleSheet.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.Login.LoginController">
    <children>
-      <Button layoutX="223.0" layoutY="215.0" mnemonicParsing="false" text="Button" />
+      <Pane layoutX="3.0" layoutY="53.0" prefHeight="564.0" prefWidth="1356.0" styleClass="pane" stylesheets="@styleSheet.css">
+         <children>
+            <Label layoutX="54.0" layoutY="42.0" text="Don't have an account?" textFill="WHITE">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            <Label layoutX="54.0" layoutY="95.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="61.0" prefWidth="335.0" text="lorem ipsum is a dumy text  used as a placeholder in websites  lorem ipsum is a dumy text  used as a placeholder in websites " textFill="WHITE" wrapText="true">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <ImageView fitHeight="254.0" fitWidth="770.0" layoutX="54.0" layoutY="185.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@Group%20275.png" />
+               </image>
+            </ImageView>
+            <JFXButton layoutX="66.0" layoutY="482.0" onAction="#openSignUp" prefHeight="35.0" prefWidth="120.0" styleClass="trans-btn-white-border" stylesheets="@styleSheet.css" text="Sign Up">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </JFXButton>
+            <Label layoutX="1001.0" layoutY="42.0" text="Don't have an account?" textFill="WHITE">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="969.0" layoutY="95.0" minHeight="-Infinity" minWidth="-Infinity" nodeOrientation="RIGHT_TO_LEFT" prefHeight="61.0" prefWidth="343.0" text="lorem ipsum is a dumy text  used as a placeholder in websites  lorem ipsum is a dumy text  used as a placeholder in websites " textFill="WHITE" wrapText="true">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <ImageView fitHeight="252.0" fitWidth="542.0" layoutX="739.0" layoutY="188.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@Group%20274.png" />
+               </image>
+            </ImageView>
+            <JFXButton layoutX="1148.0" layoutY="482.0" onAction="#openSignIn" prefHeight="35.0" prefWidth="120.0" styleClass="trans-btn-white-border" stylesheets="@styleSheet.css" text="Sign In">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </JFXButton>
+            <VBox fx:id="vbox" layoutX="19.0" layoutY="-43.0" prefHeight="650.0" prefWidth="649.0" styleClass="vbox" stylesheets="@styleSheet.css" />
+         </children>
+      </Pane>
    </children>
 </AnchorPane>
