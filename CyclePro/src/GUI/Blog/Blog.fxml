@@ -1,0 +1,590 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="712.0" prefWidth="1223.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.Blog.BlogController">
+   <children>
+      <ScrollPane prefHeight="712.0" prefWidth="1223.0">
+        <content>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="1204.0" prefWidth="1216.0" style="-fx-background-color: #FBFCFE;">
+               <children>
+                  <Pane fx:id="banner" layoutX="45.0" layoutY="39.0" prefHeight="146.0" prefWidth="1095.0" styleClass="banner" stylesheets="@blog.css">
+                     <children>
+                        <Label layoutX="47.0" layoutY="14.0" text="BLOG" textFill="WHITE">
+                           <font>
+                              <Font name="Source Sans Pro Semibold" size="30.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="47.0" layoutY="50.0" prefHeight="31.0" prefWidth="309.0" text="Lorem Ipsum is simply dummy text of the printing" textFill="WHITE">
+                           <font>
+                              <Font name="Source Sans Pro" size="14.0" />
+                           </font>
+                        </Label>
+                        <JFXButton layoutX="37.0" layoutY="91.0" styleClass="visiterSiteEnLigne" stylesheets="@../Frontend/Frontend.css" text="Visiter notre site en ligne" textFill="WHITE" />
+                        <ImageView fitHeight="111.0" fitWidth="183.0" layoutX="916.0" layoutY="18.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../Images/OBJECTS.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </Pane>
+                  <Label layoutX="45.0" layoutY="224.0" text="MAGNEZ VOUS" textFill="#05050566">
+                     <font>
+                        <Font name="Source Sans Pro Semibold" size="13.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="45.0" layoutY="256.0" text="Evènements à venir">
+                     <font>
+                        <Font name="Source Sans Pro Semibold" size="22.0" />
+                     </font>
+                  </Label>
+                  <JFXButton layoutX="993.0" layoutY="244.0" ripplerFill="WHITE" style="-fx-background-color: #106AD2;" text="La Totalite" textFill="WHITE">
+                     <font>
+                        <Font name="Source Sans Pro Semibold" size="12.0" />
+                     </font>
+                  </JFXButton>
+                  <Pane layoutX="45.0" layoutY="304.0" prefHeight="379.0" prefWidth="255.0" style="-fx-background-color: white;" styleClass="EvenementSingle" stylesheets="@blog.css">
+                     <children>
+                        <ImageView fitHeight="197.0" fitWidth="255.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../Images/event_single.jpg" />
+                           </image>
+                        </ImageView>
+                        <Label layoutX="3.0" layoutY="200.0" text="Northumberland Cycling Event 2018">
+                           <font>
+                              <Font name="Source Sans Pro Semibold" size="16.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="3.0" layoutY="231.0" prefHeight="53.0" prefWidth="238.0" text="Lorem Ipsum is simply dummy text of the printing" textFill="#707070" wrapText="true">
+                           <font>
+                              <Font name="Source Sans Pro" size="14.0" />
+                           </font>
+                        </Label>
+                        <Pane layoutX="-3.0" layoutY="305.0" prefHeight="0.0" prefWidth="262.0" styleClass="dividorPane" stylesheets="@../Frontend/Frontend.css" />
+                        <StackPane layoutX="14.0" layoutY="333.0" prefHeight="17.0" prefWidth="27.0" styleClass="logo" stylesheets="@../Frontend/Frontend.css">
+                           <children>
+                              <ImageView fitHeight="21.0" fitWidth="21.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../Images/logo.png" />
+                                 </image>
+                                 <StackPane.margin>
+                                    <Insets />
+                                 </StackPane.margin>
+                              </ImageView>
+                           </children>
+                           <opaqueInsets>
+                              <Insets />
+                           </opaqueInsets>
+                        </StackPane>
+                        <Label layoutX="41.0" layoutY="335.0" text="+650">
+                           <font>
+                              <Font name="Source Sans Pro Semibold" size="13.0" />
+                           </font>
+                        </Label>
+                        <StackPane layoutX="74.0" layoutY="333.0" prefHeight="17.0" prefWidth="27.0" styleClass="logo" stylesheets="@../Frontend/Frontend.css">
+                           <opaqueInsets>
+                              <Insets />
+                           </opaqueInsets>
+                           <children>
+                              <ImageView fitHeight="21.0" fitWidth="21.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../Images/Group%20278.png" />
+                                 </image>
+                                 <StackPane.margin>
+                                    <Insets />
+                                 </StackPane.margin>
+                              </ImageView>
+                           </children>
+                        </StackPane>
+                        <Label layoutX="101.0" layoutY="335.0" text="-300">
+                           <font>
+                              <Font name="Source Sans Pro Semibold" size="13.0" />
+                           </font>
+                        </Label>
+                        <JFXButton layoutX="166.0" layoutY="332.0" onAction="#regarder" ripplerFill="WHITE" style="-fx-background-color: #106AD2;" text="Regarder" textFill="WHITE">
+                           <font>
+                              <Font name="Source Sans Pro Semibold" size="12.0" />
+                           </font>
+                        </JFXButton>
+                     </children>
+                  </Pane>
+                  <Pane layoutX="341.0" layoutY="304.0" prefHeight="379.0" prefWidth="255.0" style="-fx-background-color: white;" styleClass="EvenementSingle" stylesheets="@blog.css">
+                     <children>
+                        <ImageView fitHeight="197.0" fitWidth="255.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../Images/event_single.jpg" />
+                           </image>
+                        </ImageView>
+                        <Label layoutX="3.0" layoutY="200.0" text="Northumberland Cycling Event 2018">
+                           <font>
+                              <Font name="Source Sans Pro Semibold" size="16.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="3.0" layoutY="231.0" prefHeight="53.0" prefWidth="238.0" text="Lorem Ipsum is simply dummy text of the printing" textFill="#707070" wrapText="true">
+                           <font>
+                              <Font name="Source Sans Pro" size="14.0" />
+                           </font>
+                        </Label>
+                        <Pane layoutX="-3.0" layoutY="305.0" prefHeight="0.0" prefWidth="262.0" styleClass="dividorPane" stylesheets="@../Frontend/Frontend.css" />
+                        <StackPane layoutX="14.0" layoutY="333.0" prefHeight="17.0" prefWidth="27.0" styleClass="logo" stylesheets="@../Frontend/Frontend.css">
+                           <opaqueInsets>
+                              <Insets />
+                           </opaqueInsets>
+                           <children>
+                              <ImageView fitHeight="21.0" fitWidth="21.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../Images/logo.png" />
+                                 </image>
+                                 <StackPane.margin>
+                                    <Insets />
+                                 </StackPane.margin>
+                              </ImageView>
+                           </children>
+                        </StackPane>
+                        <Label layoutX="41.0" layoutY="335.0" text="+650">
+                           <font>
+                              <Font name="Source Sans Pro Semibold" size="13.0" />
+                           </font>
+                        </Label>
+                        <StackPane layoutX="74.0" layoutY="333.0" prefHeight="17.0" prefWidth="27.0" styleClass="logo" stylesheets="@../Frontend/Frontend.css">
+                           <opaqueInsets>
+                              <Insets />
+                           </opaqueInsets>
+                           <children>
+                              <ImageView fitHeight="21.0" fitWidth="21.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../Images/Group%20278.png" />
+                                 </image>
+                                 <StackPane.margin>
+                                    <Insets />
+                                 </StackPane.margin>
+                              </ImageView>
+                           </children>
+                        </StackPane>
+                        <Label layoutX="101.0" layoutY="335.0" text="-300">
+                           <font>
+                              <Font name="Source Sans Pro Semibold" size="13.0" />
+                           </font>
+                        </Label>
+                        <JFXButton layoutX="166.0" layoutY="332.0" ripplerFill="WHITE" style="-fx-background-color: #106AD2;" text="Regarder" textFill="WHITE">
+                           <font>
+                              <Font name="Source Sans Pro Semibold" size="12.0" />
+                           </font>
+                        </JFXButton>
+                     </children>
+                  </Pane>
+                  <Pane layoutX="645.0" layoutY="304.0" prefHeight="379.0" prefWidth="255.0" style="-fx-background-color: white;" styleClass="EvenementSingle" stylesheets="@blog.css">
+                     <children>
+                        <ImageView fitHeight="197.0" fitWidth="255.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../Images/event_single.jpg" />
+                           </image>
+                        </ImageView>
+                        <Label layoutX="3.0" layoutY="200.0" text="Northumberland Cycling Event 2018">
+                           <font>
+                              <Font name="Source Sans Pro Semibold" size="16.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="3.0" layoutY="231.0" prefHeight="53.0" prefWidth="238.0" text="Lorem Ipsum is simply dummy text of the printing" textFill="#707070" wrapText="true">
+                           <font>
+                              <Font name="Source Sans Pro" size="14.0" />
+                           </font>
+                        </Label>
+                        <Pane layoutX="-3.0" layoutY="305.0" prefHeight="0.0" prefWidth="262.0" styleClass="dividorPane" stylesheets="@../Frontend/Frontend.css" />
+                        <StackPane layoutX="14.0" layoutY="333.0" prefHeight="17.0" prefWidth="27.0" styleClass="logo" stylesheets="@../Frontend/Frontend.css">
+                           <opaqueInsets>
+                              <Insets />
+                           </opaqueInsets>
+                           <children>
+                              <ImageView fitHeight="21.0" fitWidth="21.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../Images/logo.png" />
+                                 </image>
+                                 <StackPane.margin>
+                                    <Insets />
+                                 </StackPane.margin>
+                              </ImageView>
+                           </children>
+                        </StackPane>
+                        <Label layoutX="41.0" layoutY="335.0" text="+650">
+                           <font>
+                              <Font name="Source Sans Pro Semibold" size="13.0" />
+                           </font>
+                        </Label>
+                        <StackPane layoutX="74.0" layoutY="333.0" prefHeight="17.0" prefWidth="27.0" styleClass="logo" stylesheets="@../Frontend/Frontend.css">
+                           <opaqueInsets>
+                              <Insets />
+                           </opaqueInsets>
+                           <children>
+                              <ImageView fitHeight="21.0" fitWidth="21.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../Images/Group%20278.png" />
+                                 </image>
+                                 <StackPane.margin>
+                                    <Insets />
+                                 </StackPane.margin>
+                              </ImageView>
+                           </children>
+                        </StackPane>
+                        <Label layoutX="101.0" layoutY="335.0" text="-300">
+                           <font>
+                              <Font name="Source Sans Pro Semibold" size="13.0" />
+                           </font>
+                        </Label>
+                        <JFXButton layoutX="166.0" layoutY="332.0" ripplerFill="WHITE" style="-fx-background-color: #106AD2;" text="Regarder" textFill="WHITE">
+                           <font>
+                              <Font name="Source Sans Pro Semibold" size="12.0" />
+                           </font>
+                        </JFXButton>
+                     </children>
+                  </Pane>
+                  <Pane layoutX="937.0" layoutY="304.0" prefHeight="379.0" prefWidth="255.0" style="-fx-background-color: white;" styleClass="EvenementSingle" stylesheets="@blog.css">
+                     <children>
+                        <ImageView fitHeight="197.0" fitWidth="255.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../Images/event_single.jpg" />
+                           </image>
+                        </ImageView>
+                        <Label layoutX="3.0" layoutY="200.0" text="Northumberland Cycling Event 2018">
+                           <font>
+                              <Font name="Source Sans Pro Semibold" size="16.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="3.0" layoutY="231.0" prefHeight="53.0" prefWidth="238.0" text="Lorem Ipsum is simply dummy text of the printing" textFill="#707070" wrapText="true">
+                           <font>
+                              <Font name="Source Sans Pro" size="14.0" />
+                           </font>
+                        </Label>
+                        <Pane layoutX="-3.0" layoutY="305.0" prefHeight="0.0" prefWidth="262.0" styleClass="dividorPane" stylesheets="@../Frontend/Frontend.css" />
+                        <StackPane layoutX="14.0" layoutY="333.0" prefHeight="17.0" prefWidth="27.0" styleClass="logo" stylesheets="@../Frontend/Frontend.css">
+                           <opaqueInsets>
+                              <Insets />
+                           </opaqueInsets>
+                           <children>
+                              <ImageView fitHeight="21.0" fitWidth="21.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../Images/logo.png" />
+                                 </image>
+                                 <StackPane.margin>
+                                    <Insets />
+                                 </StackPane.margin>
+                              </ImageView>
+                           </children>
+                        </StackPane>
+                        <Label layoutX="41.0" layoutY="335.0" text="+650">
+                           <font>
+                              <Font name="Source Sans Pro Semibold" size="13.0" />
+                           </font>
+                        </Label>
+                        <StackPane layoutX="74.0" layoutY="333.0" prefHeight="17.0" prefWidth="27.0" styleClass="logo" stylesheets="@../Frontend/Frontend.css">
+                           <opaqueInsets>
+                              <Insets />
+                           </opaqueInsets>
+                           <children>
+                              <ImageView fitHeight="21.0" fitWidth="21.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../Images/Group%20278.png" />
+                                 </image>
+                                 <StackPane.margin>
+                                    <Insets />
+                                 </StackPane.margin>
+                              </ImageView>
+                           </children>
+                        </StackPane>
+                        <Label layoutX="101.0" layoutY="335.0" text="-300">
+                           <font>
+                              <Font name="Source Sans Pro Semibold" size="13.0" />
+                           </font>
+                        </Label>
+                        <JFXButton layoutX="166.0" layoutY="332.0" ripplerFill="WHITE" style="-fx-background-color: #106AD2;" text="Regarder" textFill="WHITE">
+                           <font>
+                              <Font name="Source Sans Pro Semibold" size="12.0" />
+                           </font>
+                        </JFXButton>
+                     </children>
+                  </Pane>
+                  <Pane layoutX="45.0" layoutY="757.0" prefHeight="379.0" prefWidth="255.0" style="-fx-background-color: white;" styleClass="EvenementSingle" stylesheets="@blog.css">
+                     <children>
+                        <ImageView fitHeight="197.0" fitWidth="255.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../Images/event_single.jpg" />
+                           </image>
+                        </ImageView>
+                        <Label layoutX="3.0" layoutY="200.0" text="Northumberland Cycling Event 2018">
+                           <font>
+                              <Font name="Source Sans Pro Semibold" size="16.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="3.0" layoutY="231.0" prefHeight="53.0" prefWidth="238.0" text="Lorem Ipsum is simply dummy text of the printing" textFill="#707070" wrapText="true">
+                           <font>
+                              <Font name="Source Sans Pro" size="14.0" />
+                           </font>
+                        </Label>
+                        <Pane layoutX="-3.0" layoutY="305.0" prefHeight="0.0" prefWidth="262.0" styleClass="dividorPane" stylesheets="@../Frontend/Frontend.css" />
+                        <StackPane layoutX="14.0" layoutY="333.0" prefHeight="17.0" prefWidth="27.0" styleClass="logo" stylesheets="@../Frontend/Frontend.css">
+                           <children>
+                              <ImageView fitHeight="21.0" fitWidth="21.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../Images/logo.png" />
+                                 </image>
+                                 <StackPane.margin>
+                                    <Insets />
+                                 </StackPane.margin>
+                              </ImageView>
+                           </children>
+                           <opaqueInsets>
+                              <Insets />
+                           </opaqueInsets>
+                        </StackPane>
+                        <Label layoutX="41.0" layoutY="335.0" text="+650">
+                           <font>
+                              <Font name="Source Sans Pro Semibold" size="13.0" />
+                           </font>
+                        </Label>
+                        <StackPane layoutX="74.0" layoutY="333.0" prefHeight="17.0" prefWidth="27.0" styleClass="logo" stylesheets="@../Frontend/Frontend.css">
+                           <opaqueInsets>
+                              <Insets />
+                           </opaqueInsets>
+                           <children>
+                              <ImageView fitHeight="21.0" fitWidth="21.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../Images/Group%20278.png" />
+                                 </image>
+                                 <StackPane.margin>
+                                    <Insets />
+                                 </StackPane.margin>
+                              </ImageView>
+                           </children>
+                        </StackPane>
+                        <Label layoutX="101.0" layoutY="335.0" text="-300">
+                           <font>
+                              <Font name="Source Sans Pro Semibold" size="13.0" />
+                           </font>
+                        </Label>
+                        <JFXButton layoutX="166.0" layoutY="332.0" ripplerFill="WHITE" style="-fx-background-color: #106AD2;" text="Regarder" textFill="WHITE">
+                           <font>
+                              <Font name="Source Sans Pro Semibold" size="12.0" />
+                           </font>
+                        </JFXButton>
+                     </children>
+                  </Pane>
+                  <Pane layoutX="341.0" layoutY="757.0" prefHeight="379.0" prefWidth="255.0" style="-fx-background-color: white;" styleClass="EvenementSingle" stylesheets="@blog.css">
+                     <children>
+                        <ImageView fitHeight="197.0" fitWidth="255.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../Images/event_single.jpg" />
+                           </image>
+                        </ImageView>
+                        <Label layoutX="3.0" layoutY="200.0" text="Northumberland Cycling Event 2018">
+                           <font>
+                              <Font name="Source Sans Pro Semibold" size="16.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="3.0" layoutY="231.0" prefHeight="53.0" prefWidth="238.0" text="Lorem Ipsum is simply dummy text of the printing" textFill="#707070" wrapText="true">
+                           <font>
+                              <Font name="Source Sans Pro" size="14.0" />
+                           </font>
+                        </Label>
+                        <Pane layoutX="-3.0" layoutY="305.0" prefHeight="0.0" prefWidth="262.0" styleClass="dividorPane" stylesheets="@../Frontend/Frontend.css" />
+                        <StackPane layoutX="14.0" layoutY="333.0" prefHeight="17.0" prefWidth="27.0" styleClass="logo" stylesheets="@../Frontend/Frontend.css">
+                           <opaqueInsets>
+                              <Insets />
+                           </opaqueInsets>
+                           <children>
+                              <ImageView fitHeight="21.0" fitWidth="21.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../Images/logo.png" />
+                                 </image>
+                                 <StackPane.margin>
+                                    <Insets />
+                                 </StackPane.margin>
+                              </ImageView>
+                           </children>
+                        </StackPane>
+                        <Label layoutX="41.0" layoutY="335.0" text="+650">
+                           <font>
+                              <Font name="Source Sans Pro Semibold" size="13.0" />
+                           </font>
+                        </Label>
+                        <StackPane layoutX="74.0" layoutY="333.0" prefHeight="17.0" prefWidth="27.0" styleClass="logo" stylesheets="@../Frontend/Frontend.css">
+                           <opaqueInsets>
+                              <Insets />
+                           </opaqueInsets>
+                           <children>
+                              <ImageView fitHeight="21.0" fitWidth="21.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../Images/Group%20278.png" />
+                                 </image>
+                                 <StackPane.margin>
+                                    <Insets />
+                                 </StackPane.margin>
+                              </ImageView>
+                           </children>
+                        </StackPane>
+                        <Label layoutX="101.0" layoutY="335.0" text="-300">
+                           <font>
+                              <Font name="Source Sans Pro Semibold" size="13.0" />
+                           </font>
+                        </Label>
+                        <JFXButton layoutX="166.0" layoutY="332.0" ripplerFill="WHITE" style="-fx-background-color: #106AD2;" text="Regarder" textFill="WHITE">
+                           <font>
+                              <Font name="Source Sans Pro Semibold" size="12.0" />
+                           </font>
+                        </JFXButton>
+                     </children>
+                  </Pane>
+                  <Pane layoutX="645.0" layoutY="757.0" prefHeight="379.0" prefWidth="255.0" style="-fx-background-color: white;" styleClass="EvenementSingle" stylesheets="@blog.css">
+                     <children>
+                        <ImageView fitHeight="197.0" fitWidth="255.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../Images/event_single.jpg" />
+                           </image>
+                        </ImageView>
+                        <Label layoutX="3.0" layoutY="200.0" text="Northumberland Cycling Event 2018">
+                           <font>
+                              <Font name="Source Sans Pro Semibold" size="16.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="3.0" layoutY="231.0" prefHeight="53.0" prefWidth="238.0" text="Lorem Ipsum is simply dummy text of the printing" textFill="#707070" wrapText="true">
+                           <font>
+                              <Font name="Source Sans Pro" size="14.0" />
+                           </font>
+                        </Label>
+                        <Pane layoutX="-3.0" layoutY="305.0" prefHeight="0.0" prefWidth="262.0" styleClass="dividorPane" stylesheets="@../Frontend/Frontend.css" />
+                        <StackPane layoutX="14.0" layoutY="333.0" prefHeight="17.0" prefWidth="27.0" styleClass="logo" stylesheets="@../Frontend/Frontend.css">
+                           <opaqueInsets>
+                              <Insets />
+                           </opaqueInsets>
+                           <children>
+                              <ImageView fitHeight="21.0" fitWidth="21.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../Images/logo.png" />
+                                 </image>
+                                 <StackPane.margin>
+                                    <Insets />
+                                 </StackPane.margin>
+                              </ImageView>
+                           </children>
+                        </StackPane>
+                        <Label layoutX="41.0" layoutY="335.0" text="+650">
+                           <font>
+                              <Font name="Source Sans Pro Semibold" size="13.0" />
+                           </font>
+                        </Label>
+                        <StackPane layoutX="74.0" layoutY="333.0" prefHeight="17.0" prefWidth="27.0" styleClass="logo" stylesheets="@../Frontend/Frontend.css">
+                           <opaqueInsets>
+                              <Insets />
+                           </opaqueInsets>
+                           <children>
+                              <ImageView fitHeight="21.0" fitWidth="21.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../Images/Group%20278.png" />
+                                 </image>
+                                 <StackPane.margin>
+                                    <Insets />
+                                 </StackPane.margin>
+                              </ImageView>
+                           </children>
+                        </StackPane>
+                        <Label layoutX="101.0" layoutY="335.0" text="-300">
+                           <font>
+                              <Font name="Source Sans Pro Semibold" size="13.0" />
+                           </font>
+                        </Label>
+                        <JFXButton layoutX="166.0" layoutY="332.0" ripplerFill="WHITE" style="-fx-background-color: #106AD2;" text="Regarder" textFill="WHITE">
+                           <font>
+                              <Font name="Source Sans Pro Semibold" size="12.0" />
+                           </font>
+                        </JFXButton>
+                     </children>
+                  </Pane>
+                  <Pane layoutX="937.0" layoutY="757.0" prefHeight="379.0" prefWidth="255.0" style="-fx-background-color: white;" styleClass="EvenementSingle" stylesheets="@blog.css">
+                     <children>
+                        <ImageView fitHeight="197.0" fitWidth="255.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../Images/event_single.jpg" />
+                           </image>
+                        </ImageView>
+                        <Label layoutX="3.0" layoutY="200.0" text="Northumberland Cycling Event 2018">
+                           <font>
+                              <Font name="Source Sans Pro Semibold" size="16.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="3.0" layoutY="231.0" prefHeight="53.0" prefWidth="238.0" text="Lorem Ipsum is simply dummy text of the printing" textFill="#707070" wrapText="true">
+                           <font>
+                              <Font name="Source Sans Pro" size="14.0" />
+                           </font>
+                        </Label>
+                        <Pane layoutX="-3.0" layoutY="305.0" prefHeight="0.0" prefWidth="262.0" styleClass="dividorPane" stylesheets="@../Frontend/Frontend.css" />
+                        <StackPane layoutX="14.0" layoutY="333.0" prefHeight="17.0" prefWidth="27.0" styleClass="logo" stylesheets="@../Frontend/Frontend.css">
+                           <opaqueInsets>
+                              <Insets />
+                           </opaqueInsets>
+                           <children>
+                              <ImageView fitHeight="21.0" fitWidth="21.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../Images/logo.png" />
+                                 </image>
+                                 <StackPane.margin>
+                                    <Insets />
+                                 </StackPane.margin>
+                              </ImageView>
+                           </children>
+                        </StackPane>
+                        <Label layoutX="41.0" layoutY="335.0" text="+650">
+                           <font>
+                              <Font name="Source Sans Pro Semibold" size="13.0" />
+                           </font>
+                        </Label>
+                        <StackPane layoutX="74.0" layoutY="333.0" prefHeight="17.0" prefWidth="27.0" styleClass="logo" stylesheets="@../Frontend/Frontend.css">
+                           <opaqueInsets>
+                              <Insets />
+                           </opaqueInsets>
+                           <children>
+                              <ImageView fitHeight="21.0" fitWidth="21.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../Images/Group%20278.png" />
+                                 </image>
+                                 <StackPane.margin>
+                                    <Insets />
+                                 </StackPane.margin>
+                              </ImageView>
+                           </children>
+                        </StackPane>
+                        <Label layoutX="101.0" layoutY="335.0" text="-300">
+                           <font>
+                              <Font name="Source Sans Pro Semibold" size="13.0" />
+                           </font>
+                        </Label>
+                        <JFXButton layoutX="166.0" layoutY="332.0" ripplerFill="WHITE" style="-fx-background-color: #106AD2;" text="Regarder" textFill="WHITE">
+                           <font>
+                              <Font name="Source Sans Pro Semibold" size="12.0" />
+                           </font>
+                        </JFXButton>
+                     </children>
+                  </Pane>
+                  <JFXButton layoutX="1079.0" layoutY="242.0" ripplerFill="WHITE" styleClass="Pagination" stylesheets="@blog.css" text="&lt;">
+                     <font>
+                        <Font name="Source Sans Pro Semibold" size="12.0" />
+                     </font>
+                  </JFXButton>
+                  <JFXButton layoutX="1113.0" layoutY="242.0" ripplerFill="WHITE" styleClass="Pagination" stylesheets="@blog.css" text="&gt;">
+                     <font>
+                        <Font name="Source Sans Pro Semibold" size="12.0" />
+                     </font>
+                  </JFXButton>
+               </children>
+            </AnchorPane>
+        </content>
+      </ScrollPane>
+   </children>
+</AnchorPane>

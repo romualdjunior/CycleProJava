@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="712.0" prefWidth="1223.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.Reclamation.ContactController">
+   <children>
+      <ScrollPane prefHeight="712.0" prefWidth="1223.0">
+        <content>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="1600.0" prefWidth="1216.0" style="-fx-background-color: #FBFCFE;">
+               <children>
+                  <Pane fx:id="banner" layoutX="45.0" layoutY="39.0" prefHeight="146.0" prefWidth="1095.0" styleClass="banner" stylesheets="@contact.css">
+                     <children>
+                        <Label layoutX="47.0" layoutY="14.0" text="CONTACT" textFill="WHITE">
+                           <font>
+                              <Font name="Source Sans Pro Semibold" size="30.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="47.0" layoutY="50.0" prefHeight="31.0" prefWidth="309.0" text="Lorem Ipsum is simply dummy text of the printing" textFill="WHITE">
+                           <font>
+                              <Font name="Source Sans Pro" size="14.0" />
+                           </font>
+                        </Label>
+                        <JFXButton layoutX="46.0" layoutY="91.0" styleClass="visiterSiteEnLigne" stylesheets="@../Frontend/Frontend.css" text="Visiter notre site en ligne" textFill="WHITE" />
+                        <ImageView fitHeight="111.0" fitWidth="183.0" layoutX="916.0" layoutY="18.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../Images/OBJECTS.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </Pane>
+                  <Pane layoutX="39.0" layoutY="295.0" prefHeight="200.0" prefWidth="346.0">
+                     <children>
+                        <ImageView fitHeight="207.0" fitWidth="346.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../Images/con_img1.jpg" />
+                           </image>
+                        </ImageView>
+                        <Pane layoutX="-5.0" layoutY="-4.0" prefHeight="207.0" prefWidth="357.0" styleClass="contactPane" stylesheets="@contact.css">
+                           <children>
+                              <Label layoutX="129.0" layoutY="48.0" text="Phone" textFill="WHITE">
+                                 <font>
+                                    <Font name="Source Sans Pro Semibold" size="23.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="122.0" layoutY="94.0" text="0777000157" textFill="WHITE">
+                                 <font>
+                                    <Font name="Source Sans Pro Semibold" size="15.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="122.0" layoutY="126.0" text="0777082157" textFill="WHITE">
+                                 <font>
+                                    <Font name="Source Sans Pro Semibold" size="15.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </Pane>
+                     </children>
+                  </Pane>
+                  <ImageView fitHeight="389.0" fitWidth="819.0" layoutX="91.0" layoutY="593.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../Images/Capture.png" />
+                     </image>
+                  </ImageView>
+                  <TextField layoutX="124.0" layoutY="1087.0" prefHeight="33.0" prefWidth="207.0" promptText="Nom" />
+                  <TextField layoutX="413.0" layoutY="1087.0" prefHeight="33.0" prefWidth="207.0" promptText="Email" />
+                  <TextField layoutX="730.0" layoutY="1087.0" prefHeight="33.0" prefWidth="207.0" promptText="Sujet" />
+                  <TextField layoutX="124.0" layoutY="1168.0" prefHeight="261.0" prefWidth="807.0" promptText="Commentaire" />
+                  <JFXButton layoutX="130.0" layoutY="1484.0" prefHeight="36.0" prefWidth="112.0" ripplerFill="WHITE" style="-fx-background-color: #106AD2;" text="Envoyer" textFill="WHITE">
+                     <font>
+                        <Font name="Source Sans Pro Semibold" size="12.0" />
+                     </font>
+                  </JFXButton>
+                  <Label layoutX="115.0" layoutY="1000.0" text="COMMENT POUVONS NOUS VOUS AIDEZ?">
+                     <font>
+                        <Font name="Source Sans Pro Semibold" size="22.0" />
+                     </font>
+                  </Label>
+                  <Pane layoutX="417.0" layoutY="293.0" prefHeight="202.0" prefWidth="349.0">
+                     <children>
+                        <ImageView fitHeight="207.0" fitWidth="346.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../Images/con_img1.jpg" />
+                           </image>
+                        </ImageView>
+                        <Pane layoutX="-5.0" layoutY="-1.0" prefHeight="207.0" prefWidth="357.0" styleClass="contactPane" stylesheets="@contact.css">
+                           <children>
+                              <Label layoutX="151.0" layoutY="50.0" text="Email" textFill="WHITE">
+                                 <font>
+                                    <Font name="Source Sans Pro Semibold" size="23.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="94.0" layoutY="94.0" text="cycling@yourclub.com" textFill="WHITE">
+                                 <font>
+                                    <Font name="Source Sans Pro Semibold" size="15.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="102.0" layoutY="129.0" text="help@yourmail.com" textFill="WHITE">
+                                 <font>
+                                    <Font name="Source Sans Pro Semibold" size="15.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </Pane>
+                     </children>
+                  </Pane>
+                  <Pane layoutX="795.0" layoutY="292.0" prefHeight="207.0" prefWidth="357.0" styleClass="contactPane" stylesheets="@contact.css">
+                     <children>
+                        <Label layoutX="151.0" layoutY="50.0" text="Email" textFill="WHITE">
+                           <font>
+                              <Font name="Source Sans Pro Semibold" size="23.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="94.0" layoutY="94.0" text="cycling@yourclub.com" textFill="WHITE">
+                           <font>
+                              <Font name="Source Sans Pro Semibold" size="15.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="102.0" layoutY="129.0" text="help@yourmail.com" textFill="WHITE">
+                           <font>
+                              <Font name="Source Sans Pro Semibold" size="15.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </Pane>
+                  <Label layoutX="91.0" layoutY="550.0" text="NOTRE GEOLOCALISATION">
+                     <font>
+                        <Font name="Source Sans Pro Semibold" size="22.0" />
+                     </font>
+                  </Label>
+               </children>
+            </AnchorPane>
+        </content>
+      </ScrollPane>
+   </children>
+</AnchorPane>

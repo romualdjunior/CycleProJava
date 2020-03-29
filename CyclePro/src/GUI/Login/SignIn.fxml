@@ -23,7 +23,7 @@
       <HBox prefHeight="81.0" prefWidth="599.0">
          <children>
             <FontAwesomeIcon fx:id="UserIcon" glyphName="USER" glyphStyle="-fx-fill:DEDEE4" size="25" strokeWidth="5.0" text="" />
-            <JFXTextField fx:id="User" focusColor="#428adf" labelFloat="true" onAction="#typingUsername" prefHeight="25.0" prefWidth="538.0" promptText="Email or Userame" unFocusColor="#b5b1b1">
+            <JFXTextField fx:id="emailUsername" focusColor="#428adf" labelFloat="true" onAction="#typingUsername" prefHeight="25.0" prefWidth="538.0" promptText="Email or Userame" unFocusColor="#b5b1b1">
                <HBox.margin>
                   <Insets left="25.0" top="10.0" />
                </HBox.margin>
@@ -36,7 +36,7 @@
       <HBox layoutX="35.0" layoutY="189.0" prefHeight="81.0" prefWidth="599.0">
          <children>
             <FontAwesomeIcon glyphName="LOCK" glyphStyle="-fx-fill:DEDEE4" size="25" strokeWidth="5.0" />
-            <JFXPasswordField focusColor="#428adf" prefHeight="25.0" prefWidth="577.0" promptText="Password" unFocusColor="#b5b1b1">
+            <JFXPasswordField fx:id="password" focusColor="#428adf" prefHeight="25.0" prefWidth="577.0" promptText="Password" unFocusColor="#b5b1b1">
                <HBox.margin>
                   <Insets bottom="25.0" left="25.0" top="15.0" />
                </HBox.margin>

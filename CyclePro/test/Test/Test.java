@@ -11,15 +11,17 @@ package Test;
  * @author toshiba
  */
 public class Test {
-    public static void main(String[] args) {
-        // Hacher un mot de passe
-       String password="clinton";
+    public static void test(){
+  String password="lll";
 String hashed = BCrypt.hashpw(password, BCrypt.gensalt());
         System.out.println(hashed);
         System.out.println("/n");
+  }
+    public static void main(String[] args) {
+        Test:test(); 
 
 // Tester si un mot de passe est identique à un autre
-if (BCrypt.checkpw("william", "$2a$13$qGAHVOzLKH/Q2kWPyuKE.uK016u0SPLeXcnWiqT7LBu27USHTHaY2"))
+if (BCrypt.checkpw("lll", "$2a$10$/HMaE6NLvyxNOvqdrQBEUebRYKLMeuIlWaKGZbcBKHKQhvU5VsLd2"))
         System.out.println("It matched");
 else
 	System.out.println("It does not match");

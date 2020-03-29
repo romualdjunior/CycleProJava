@@ -13,12 +13,12 @@ public class Login extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception{
-        Parent root = FXMLLoader.load(getClass().getResource("Login.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("/GUI/Frontend/Frontend.fxml"));
         primaryStage.setTitle("CyclePro");
         Scene scene = new Scene(root);
         primaryStage.setScene(scene);
         scene.setFill(Color.TRANSPARENT);
-        primaryStage.initStyle(StageStyle.TRANSPARENT);
+                primaryStage.initStyle(StageStyle.TRANSPARENT);
 
         primaryStage.show();
 

@@ -25,7 +25,7 @@
             </Label>
             <ImageView fitHeight="254.0" fitWidth="770.0" layoutX="54.0" layoutY="185.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@Group%20275.png" />
+                  <Image url="@../Images/Group%20275.png" />
                </image>
             </ImageView>
             <JFXButton layoutX="66.0" layoutY="482.0" onAction="#openSignUp" prefHeight="35.0" prefWidth="120.0" styleClass="trans-btn-white-border" stylesheets="@styleSheet.css" text="Sign Up">
@@ -45,7 +45,7 @@
             </Label>
             <ImageView fitHeight="252.0" fitWidth="542.0" layoutX="739.0" layoutY="188.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@Group%20274.png" />
+                  <Image url="@../Images/Group%20274.png" />
                </image>
             </ImageView>
             <JFXButton layoutX="1148.0" layoutY="482.0" onAction="#openSignIn" prefHeight="35.0" prefWidth="120.0" styleClass="trans-btn-white-border" stylesheets="@styleSheet.css" text="Sign In">
