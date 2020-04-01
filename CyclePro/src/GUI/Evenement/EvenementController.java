@@ -51,8 +51,7 @@ public class EvenementController implements Initializable {
          centerContent.getChildren().removeAll();
                 new FadeInDown(fxml).play();
                 centerContent.getChildren().setAll(fxml);
-               new FadeInDown(fxml).play();
-                centerContent.getChildren().setAll(fxml);
+              
                 
     }
     public void redirection(AnchorPane a,String page) throws IOException{

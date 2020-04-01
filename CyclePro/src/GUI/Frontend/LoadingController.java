@@ -67,6 +67,7 @@ public class LoadingController implements Initializable {
                    Stage stage=(Stage)logo.getScene().getWindow();
         Scene scene = new Scene(root);
         stage.setScene(scene);
+        new FadeIn(root).play();
         stage.show();
             } catch (IOException ex) {
                 Logger.getLogger(LoadingController.class.getName()).log(Level.SEVERE, null, ex);
