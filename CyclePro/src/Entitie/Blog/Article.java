@@ -33,8 +33,8 @@ public class Article {
     
     
 
-    public Article(int id,String contenue, String titre, String auteur, String photo, String category,
-            int likes, Date date_art ) {
+    public Article(int id, String contenue, String titre, String auteur, String photo,
+             Date date_art,String category, int likes) {
         this.id = id;
         this.titre = titre;
         this.contenue = contenue;
@@ -45,7 +45,6 @@ public class Article {
         this.date_art = date_art;
         _serviceComt = new ServiceComt();
         Commentaires = _serviceComt.getCommentsByArticle(id);
-        
     }
 
     public int getId() {

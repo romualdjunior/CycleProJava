@@ -38,33 +38,24 @@ public class BlogMain {
     }
     public static void main(String[] args) {
         
+          ServiceArticle SS=new ServiceArticle();
         Date d1= getDate(2019,10,10);
+        Article AA=new Article(252,"contenue","titre","auteur","photo",d1,"category",10);
+         SS.createArticle(AA);
+        System.out.println("********ALL articles ORDER BY LIKES************");
+        SS.readAllArticle().forEach(System.out::println);
         
-        ServiceArticle sa = new ServiceArticle();
+               System.out.println("**********Search by category****************");
+        SS.searchByCat("sport").forEach(System.out::println);
         
-        Article A1=new Article( 1500,"contenue","titre","auteur","nada.png","Nutrition",15,d1);
-        Article A2=new Article( 4,"le sport est.........","cours","nada","cap.png","Sport",15,d1);
-        sa.createArticle(A1);
-        sa.createArticle(A2);
-        sa.deleteArticle(A2);
-       sa.updateArticle(A1);
-        System.out.println("**********All articles*********");
-        sa.readAllArticle().forEach(System.out::println);
+        System.out.println("********************Search by title****************");
+        SS.searchByTitre("Sport").forEach(System.out::println);
         
-       
-       /*System.out.println("*********Search articles by category************");
-        sa.searchByCat("sport").forEach(System.out::println);
+       System.out.println("*************Search by auteur****************");
+        SS.searchByAuteur("nada").forEach(System.out::println);
         
-        System.out.println("Search by title");
-        sa.searchByTitre("Sport").forEach(System.out::println);
-        
-        System.out.println("**********Search by auteur*************");
-        sa.searchByAuteur("nada").forEach(System.out::println);
-        
-        System.out.println("**********Search article les plus recent***********");
-        sa.searchRecent().forEach(System.out::println);   
-        */
-       
+        System.out.println("***********Search article les plus recent*************");
+        SS.searchRecent().forEach(System.out::println);     
        
        ServiceComt sc = new ServiceComt();
         CommentaireArticle C1=new CommentaireArticle(50,5,1,"mohamed");

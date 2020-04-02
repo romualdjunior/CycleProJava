@@ -23,11 +23,11 @@ import java.util.List;
 public class ServiceArticle implements IServiceArticle<Article>{    
     Connection cnx = DataSource.getInstance().getCnx();
 
+   
     @Override
     public void createArticle(Article a) {
         try {
-            String requete = "INSERT INTO article ( id,contenue,titre,auteur,photo,category,"
-                    + "likes,date_art)"
+            String requete = "INSERT INTO article ( id,contenue,titre,auteur,photo,date_art,category,likes)"
                     + " VALUES (?,?,?,?,?,?,?,?)";
             PreparedStatement pst = cnx.prepareStatement(requete);
             pst.setInt(1, a.getId());
@@ -35,10 +35,11 @@ public class ServiceArticle implements IServiceArticle<Article>{
             pst.setString(3, a.getTitre());
             pst.setString(4, a.getAuteur());
             pst.setString(5, a.getPhoto());  
-            pst.setString(6, a.getCategory());
-            pst.setInt(7, a.getLikes());
-            String date = new SimpleDateFormat("yyyy-MM-dd").format(a.getDate_art());
-            pst.setString(8,date);
+             String date = new SimpleDateFormat("yyyy-MM-dd").format(a.getDate_art());
+            pst.setString(6,date);
+            pst.setString(7, a.getCategory());
+            pst.setInt(8, a.getLikes());
+           
             pst.executeUpdate();
             System.out.println("Article Ajouté !");
 
@@ -86,16 +87,19 @@ public class ServiceArticle implements IServiceArticle<Article>{
     public List<Article> readAllArticle(){
         List<Article> list = new ArrayList<>();
         try{
-            String requete="SELECT * FROM Article ORDER BY likes";
+            String requete="SELECT * FROM Article ORDER BY likes DESC";
             PreparedStatement pst=cnx.prepareStatement(requete);
             
             ResultSet rs = pst.executeQuery();
             while (rs.next()) {
-                list.add(new Article(rs.getInt("id"), rs.getString("contenue"),
-                        rs.getString("category"), rs.getString("titre"),
+                list.add(new Article(rs.getInt("id"),
+                        rs.getString("contenue"),
+                        rs.getString("titre"),
                         rs.getString("auteur"),
                         rs.getString("photo"),
-                        rs.getInt("likes"),rs.getDate("date_art")));
+                        rs.getDate("date_art"),                        
+                        rs.getString("category"),
+                        rs.getInt("likes")));
             }
 
             
@@ -115,13 +119,13 @@ public class ServiceArticle implements IServiceArticle<Article>{
             ResultSet rs = pst.executeQuery();
             while (rs.next()) {
                 list.add(new Article(rs.getInt(1),
-                        rs.getString(2),
-                        rs.getString(3),
-                        rs.getString(4),
-                        rs.getString(5),
-                        rs.getString(6),
-                        rs.getInt(7),
-                        rs.getDate(8)));
+                        rs.getString("contenue"),
+                        rs.getString("titre"),
+                        rs.getString("auteur"),
+                        rs.getString("photo"),
+                        rs.getDate("date_art"),                        
+                        rs.getString("category"),
+                        rs.getInt("likes")));
             }
 
             
@@ -141,8 +145,14 @@ public class ServiceArticle implements IServiceArticle<Article>{
             PreparedStatement pst=cnx.prepareStatement(requete);                    
             ResultSet rs = pst.executeQuery();
             while (rs.next()) {
-                list.add(new Article(rs.getInt(1), rs.getString(2), rs.getString(3),
-                        rs.getString(4),rs.getString(5),rs.getString(6),rs.getInt(7),rs.getDate(8)));
+                list.add(new Article(rs.getInt(1),
+                        rs.getString("contenue"),
+                        rs.getString("titre"),
+                        rs.getString("auteur"),
+                        rs.getString("photo"),
+                        rs.getDate("date_art"),                        
+                        rs.getString("category"),
+                        rs.getInt("likes")));
             }
 
             
@@ -161,8 +171,14 @@ public class ServiceArticle implements IServiceArticle<Article>{
             PreparedStatement pst=cnx.prepareStatement(requete);                    
             ResultSet rs = pst.executeQuery();
             while (rs.next()) {
-                list.add(new Article(rs.getInt(1), rs.getString(2), rs.getString(3),
-                        rs.getString(4),rs.getString(5),rs.getString(6),rs.getInt(7),rs.getDate(8)));
+                list.add(new Article(rs.getInt(1),
+                        rs.getString("contenue"),
+                        rs.getString("titre"),
+                        rs.getString("auteur"),
+                        rs.getString("photo"),
+                        rs.getDate("date_art"),                        
+                        rs.getString("category"),
+                        rs.getInt("likes")));
             }
 
             
@@ -182,8 +198,14 @@ public class ServiceArticle implements IServiceArticle<Article>{
             PreparedStatement pst=cnx.prepareStatement(requete);                    
             ResultSet rs = pst.executeQuery();
             while (rs.next()) {
-                list.add(new Article(rs.getInt(1), rs.getString(2), rs.getString(3),
-                        rs.getString(4),rs.getString(5),rs.getString(6),rs.getInt(7),rs.getDate(8)));
+                list.add(new Article(rs.getInt(1),
+                        rs.getString("contenue"),
+                        rs.getString("titre"),
+                        rs.getString("auteur"),
+                        rs.getString("photo"),
+                        rs.getDate("date_art"),                        
+                        rs.getString("category"),
+                        rs.getInt("likes")));
             }
 
             
