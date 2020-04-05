@@ -54,7 +54,7 @@ public class SignInController implements Initializable{
         UserService userService=new UserService();
           System.out.println(emailUsername.getText());
           System.out.println(password.getText());
-          if (userService.connexion(emailUsername.getText(), password.getText())) {
+          if (userService.connexion(emailUsername.getText(), password.getText())!=-1) {
           Parent root = FXMLLoader.load(getClass().getResource("/GUI/Frontend/Loading.fxml"));
           Stage stage=(Stage)emailUsername.getScene().getWindow();
           stage.close();

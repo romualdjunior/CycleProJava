@@ -18,6 +18,6 @@ public interface IService<T> {
     boolean update(T t) throws SQLException;
     List<T> readAll() throws SQLException;
    String passwordEncryption(String password) ;
-   boolean connexion(String usernameEmail,String password) throws SQLException;
+   int connexion(String usernameEmail,String password) throws SQLException;
    String passwordDecryption(String password);
 }

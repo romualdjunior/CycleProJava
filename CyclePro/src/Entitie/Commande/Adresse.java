@@ -21,6 +21,18 @@ public class Adresse {
     private int pincode;
     private String adresseLivraison;
 
+    public Adresse(String nom, String prenom, int phone, String email, String pays, String ville, String etat, int pincode, String adresseLivraison) {
+        this.nom = nom;
+        this.prenom = prenom;
+        this.phone = phone;
+        this.email = email;
+        this.pays = pays;
+        this.ville = ville;
+        this.etat = etat;
+        this.pincode = pincode;
+        this.adresseLivraison = adresseLivraison;
+    }
+
     @Override
     public String toString() {
         return "Adresse{" + "id=" + id + ", nom=" + nom + ", prenom=" + prenom + ", phone=" + phone + ", email=" + email + ", pays=" + pays + ", ville=" + ville + ", etat=" + etat + ", pincode=" + pincode + ", adresseLivraison=" + adresseLivraison + '}';

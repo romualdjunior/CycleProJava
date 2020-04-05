@@ -48,7 +48,9 @@ public class LignePanier {
     public void set$idProduit(int $idProduit) {
         this.$idProduit = $idProduit;
     }
-
+public void setIdCommande(int idCommande) {
+        this.$idCommande = idCommande;
+    }
     @Override
     public int hashCode() {
         int hash = 3;
@@ -75,7 +77,7 @@ public class LignePanier {
 
     @Override
     public String toString() {
-        return "LignePanier{" + "id=" + id + ", $quantite=" + $quantite + ", $idCommande=" + $idCommande + ", $idProduit=" + $idProduit + '}';
+        return "LignePanier{ $quantite=" + $quantite + ", $idCommande=" + $idCommande + ", $idProduit=" + $idProduit + '}';
     }
     
     

@@ -82,7 +82,7 @@ public class UserService implements IService<User> {
     }
 
     @Override
-    public boolean connexion(String usernameEmail, String password) throws SQLException {
+    public int connexion(String usernameEmail, String password) throws SQLException {
         String req = "select * from user where username = ? or email = ?";
         try {
             PreparedStatement pst = cnx.prepareStatement(req);
@@ -92,17 +92,17 @@ public class UserService implements IService<User> {
             while (rs.next()) {
 
                 if (BCrypt.checkpw(password, this.passwordDecryption(rs.getString(8)))) {
-                    return true;
+                    return rs.getInt(1);
 
                 } else {
-                    return false;
+                    return -1;
                 }
             }
 
         } catch (SQLException err) {
             System.out.println(err.getMessage());
         }
-        return false;
+        return -1;
     }
  
 

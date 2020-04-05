@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.layout.AnchorPane?>
 
@@ -7,7 +8,10 @@
    <children>
       <ScrollPane prefHeight="712.0" prefWidth="1223.0">
         <content>
-          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="1095.0" prefWidth="1216.0" style="-fx-background-color: #FBFCFE;" />
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="1095.0" prefWidth="1216.0" style="-fx-background-color: #FBFCFE;">
+               <children>
+                  <Label layoutX="75.0" layoutY="50.0" text="ajouterBlog" />
+               </children></AnchorPane>
         </content>
       </ScrollPane>
    </children>

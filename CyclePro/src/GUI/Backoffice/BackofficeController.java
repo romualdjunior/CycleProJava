@@ -3,10 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package GUI.Frontend;
+package GUI.Backoffice;
 
+import GUI.Frontend.*;
 import GUI.Blog.BlogController;
 import GUI.Evenement.EvenementController;
+import animatefx.animation.FadeIn;
 import animatefx.animation.FadeInDown;
 import com.jfoenix.controls.JFXButton;
 import java.io.IOException;
@@ -30,7 +32,7 @@ import javafx.stage.StageStyle;
  *
  * @author toshiba
  */
-public class FrontendController implements Initializable {
+public class BackofficeController implements Initializable {
 
     /**
      * Initializes the controller class.
@@ -59,33 +61,14 @@ public class FrontendController implements Initializable {
     }
 
     public void topButton(String page) {
-        if (page.equals("Accueil")) {
+        if (page == "Accueil") {
             ajouter.setVisible(false);
             modifier.setVisible(false);
             supprimer.setVisible(false);
-        } else if ("Blog".equals(page)) {
+        } else {
             ajouter.setVisible(true);
             modifier.setVisible(true);
             supprimer.setVisible(true);
-            ajouter.setText("Chat");
-            modifier.setText("Autre");
-            supprimer.setText("Autre");
-           
-        }
-        else if ("Shop".equals(page)) {
-            ajouter.setVisible(true);
-            modifier.setVisible(true);
-            supprimer.setVisible(true);
-            ajouter.setText("Article");
-            modifier.setText("Autre");
-            supprimer.setText("Autre");
-           
-        }
-         else  {
-            ajouter.setVisible(false);
-            modifier.setVisible(false);
-            supprimer.setVisible(false);
-           
         }
     }
 
@@ -93,18 +76,11 @@ public class FrontendController implements Initializable {
         try {
             FXMLLoader Loader = new FXMLLoader(getClass().getResource(pageName));
             fxml = Loader.load();
-            if ("Evenement".equals(page) && pageName.equals("/GUI/Evenement/Evenement.fxml")) {
-                EvenementController e = Loader.getController();
-                e.redirection(centerContent, page);
-            } else if ("Blog".equals(page) && pageName.equals("/GUI/Blog/Blog.fxml")) {
-                BlogController e = Loader.getController();
-                e.redirection(centerContent, page);
-            }
             centerContent.getChildren().removeAll();
-            new FadeInDown(fxml).play();
+            new FadeIn(fxml).play();
             centerContent.getChildren().setAll(fxml);
         } catch (IOException ex) {
-            Logger.getLogger(FrontendController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(BackofficeController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
@@ -120,8 +96,7 @@ public class FrontendController implements Initializable {
     void blog(ActionEvent event) {
         page = "Blog";
         this.topButton(page);
-
-        this.pageLoader("/GUI/Blog/Blog.fxml");
+         this.pageLoader("/GUI/Blog/Ajouter.fxml");
 
     }
 
@@ -129,15 +104,14 @@ public class FrontendController implements Initializable {
     void boutique(ActionEvent event) {
         page = "Shop";
         this.topButton(page);
-
-        this.pageLoader("/GUI/Stock/Shop.fxml");
+         this.pageLoader("/GUI/Stock/Ajouter.fxml");
     }
 
     @FXML
     void contact(ActionEvent event) {
         page = "Contact";
         this.topButton(page);
-        this.pageLoader("/GUI/Reclamation/Contact.fxml");
+         this.pageLoader("/GUI/Reclamation/Ajouter.fxml");
 
     }
 
@@ -145,7 +119,7 @@ public class FrontendController implements Initializable {
     void evenement(ActionEvent event) {
         page = "Evenement";
         this.topButton(page);
-        this.pageLoader("/GUI/Evenement/Evenement.fxml");
+        this.pageLoader("/GUI/Evenement/Ajouter.fxml");
 
     }
 
@@ -193,13 +167,13 @@ public class FrontendController implements Initializable {
             this.pageLoader("/GUI/Evenement/Supprimer.fxml");
         }
     }
-
-    @FXML
-    void administration(ActionEvent event) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("/GUI/Backoffice/Backoffice.fxml"));
-        Stage stage = (Stage) centerContent.getScene().getWindow();
-        stage.close();
-        Stage stage2 = new Stage();
+    
+        @FXML
+    void Frontend(ActionEvent event) throws IOException {
+Parent root = FXMLLoader.load(getClass().getResource("/GUI/Frontend/Frontend.fxml"));
+          Stage stage=(Stage)centerContent.getScene().getWindow();
+          stage.close();
+          Stage stage2=new Stage();
         stage2.setTitle("CyclePro");
         Scene scene = new Scene(root);
         stage2.setScene(scene);
@@ -207,5 +181,5 @@ public class FrontendController implements Initializable {
         stage2.initStyle(StageStyle.DECORATED);
         stage2.show();
     }
-}
 
+}

@@ -15,7 +15,7 @@ public class Commande {
     private String etat;
     private String date;
     private int idUser;
-    private String adresse;
+    private int idAdresse;
 
     public void setTotal(int total) {
         this.total = total;
@@ -33,8 +33,8 @@ public class Commande {
         this.idUser = idUser;
     }
 
-    public void setAdresse(String adresse) {
-        this.adresse = adresse;
+    public void setAdresse(int idAdresse) {
+        this.idAdresse = idAdresse;
     }
 
     public int getId() {
@@ -57,21 +57,21 @@ public class Commande {
         return idUser;
     }
 
-    public String getAdresse() {
-        return adresse;
+    public int getAdresse() {
+        return idAdresse;
     }
 
-    public Commande(int total, String etat, String date, int idUser, String adresse) {
+    public Commande(int total, String etat, String date, int idUser, int idAdresse) {
         this.total = total;
         this.etat = etat;
         this.date = date;
         this.idUser = idUser;
-        this.adresse = adresse;
+        this.idAdresse = idAdresse;
     }
 
     @Override
     public String toString() {
-        return "Commande{" + "id=" + id + ", total=" + total + ", etat=" + etat + ", date=" + date + ", idUser=" + idUser + ", adresse=" + adresse + '}';
+        return "Commande{" + "id=" + id + ", total=" + total + ", etat=" + etat + ", date=" + date + ", idUser=" + idUser + ", idAdresse=" + idAdresse + '}';
     }
 
     @Override

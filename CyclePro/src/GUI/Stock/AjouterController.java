@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package GUI.Produit;
+package GUI.Stock;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -14,7 +14,7 @@ import javafx.fxml.Initializable;
  *
  * @author toshiba
  */
-public class ModifierController implements Initializable {
+public class AjouterController implements Initializable {
 
     /**
      * Initializes the controller class.
