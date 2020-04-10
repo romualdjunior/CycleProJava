@@ -33,6 +33,12 @@ public class User {
         this.roles="a:0:{}";
     }
 
+    public User(int id, String username, String email) {
+        this.id = id;
+        this.username = username;
+        this.email = email;
+    }
+
     public int getId() {
         return id;
     }

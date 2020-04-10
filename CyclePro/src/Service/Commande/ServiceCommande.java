@@ -6,8 +6,17 @@
 package Service.Commande;
 
 import Entitie.Commande.Commande;
+import Entitie.User.User;
 import IService.Commande.IServiceCommande;
 import Utils.DataSource;
+import com.itextpdf.text.Document;
+import com.itextpdf.text.DocumentException;
+import com.itextpdf.text.Element;
+import com.itextpdf.text.Paragraph;
+import com.itextpdf.text.Phrase;
+import com.itextpdf.text.pdf.PdfWriter;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -62,12 +71,12 @@ public class ServiceCommande implements IServiceCommande<Commande> {
                     ServiceLignePanier sl = new ServiceLignePanier();
                     sl.delete(rs.getInt(1));
                 }
-                
-            }catch (SQLException err) {
-              System.out.println(err.getMessage());
-   
+
+            } catch (SQLException err) {
+                System.out.println(err.getMessage());
+
             }
-             
+
             pst.executeUpdate();
             System.out.println("commande annulée");
             return true;
@@ -106,16 +115,18 @@ public class ServiceCommande implements IServiceCommande<Commande> {
             System.out.println(err.getMessage());
         }
     }
-    
-     @Override
+
+    @Override
     public void readAll2(String champ) throws SQLException {
         String req = "select c.total , c.etat,c.date,c.user_id,c.adresse_id,a.adresseLivraison,c.id from commande c inner join adresse a on c.adresse_id=a.id where  c.total like '%" + champ + "%' or  c.etat like '%" + champ + "%'or c.date like '%" + champ + "%'"
                 + "or c.user_id like '%" + champ + "%'or c.adresse_id like '%" + champ + "%'or a.adresseLivraison like '%" + champ + "%' or c.id like '%" + champ + "%' ";
         try {
             PreparedStatement pst = cnx.prepareStatement(req);
             ResultSet rs = pst.executeQuery();
+
             while (rs.next()) {
                 System.out.println(" Total :" + rs.getInt(1) + " etat :" + rs.getString(2) + " date :" + rs.getString(3) + " user_id :" + rs.getInt(4) + " addresse_id :" + rs.getString(5) + " adresseLivraison :" + rs.getString(6) + " id :" + rs.getInt(7));
+
             }
         } catch (SQLException err) {
             System.out.println(err.getMessage());
@@ -140,19 +151,42 @@ public class ServiceCommande implements IServiceCommande<Commande> {
     }
 
     @Override
-    public void historique() throws SQLException {
+    public void historique(User user, Integer Total) throws SQLException, DocumentException, FileNotFoundException {
 
         String req = "select c.total , c.etat,c.date,c.user_id,c.adresse_id,l.produit_id,l.quantite,l.id from commande c inner join ligne_Panier l on c.id=l.commande_id";
         try {
             PreparedStatement pst = cnx.prepareStatement(req);
             ResultSet rs = pst.executeQuery();
+            Document document = new Document();
+            String file_name = "E:\\3ème_année\\PiJava\\CycleProJava\\CyclePro\\src\\GUI\\Commande\\Facture.pdf";
+            PdfWriter.getInstance(document, new FileOutputStream(file_name));
+            document.open();
+            Paragraph p = new Paragraph("Ci-joint votre facture");
+            Phrase p1 = new Phrase("Utilisateur: " + user.getUsername() + " ");
+            Phrase p2 = new Phrase("Montant: " + Total + "$ ");
+            document.add(p);
+            document.add(p1); 
+            document.add(p2);
+
             while (rs.next()) {
                 System.out.println("id " + rs.getInt(7) + " Total:" + rs.getInt(1) + " etat :" + rs.getString(2) + " date:" + rs.getString(3) + " user_id :" + rs.getInt(4) + " addresse_id :" + rs.getString(4) + " produit_id :" + rs.getInt(5) + " quantite :" + rs.getInt(6));
+                document.add(new Phrase("etat: " + rs.getString(2) + " "));
+                document.add(new Phrase("etat: " + rs.getString(2) + " "));
+                document.add(new Phrase(" date:" + rs.getString(3) + " "));
+                document.add(new Phrase(" addresse_id :" + rs.getString(4) + " "));
+                document.add(new Phrase("   produit_id :" + rs.getInt(5) + " "));
+                document.add(new Phrase(" quantite : " + rs.getInt(6) + " "));
+                document.add(new Paragraph(""));
+                document.add(new Paragraph(""));
+
             }
+            document.close();
 
         } catch (SQLException err) {
             System.out.println(err.getMessage());
         }
     }
+
+ 
 
 }

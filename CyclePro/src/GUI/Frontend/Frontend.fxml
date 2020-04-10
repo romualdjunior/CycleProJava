@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXPasswordField?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.image.Image?>
@@ -13,11 +16,11 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane prefHeight="750.0" prefWidth="1446.0" stylesheets="@Frontend.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.Frontend.FrontendController">
+<BorderPane prefHeight="750.0" prefWidth="1134.0" stylesheets="@Frontend.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.Frontend.FrontendController">
    <top>
-      <HBox prefHeight="34.0" prefWidth="1446.0" style="-fx-background-color: white;" styleClass="top" stylesheets="@Frontend.css" BorderPane.alignment="CENTER">
+      <HBox prefHeight="34.0" prefWidth="1134.0" style="-fx-background-color: white;" styleClass="top" stylesheets="@Frontend.css" BorderPane.alignment="CENTER">
          <children>
-            <JFXButton graphicTextGap="0.0" prefHeight="8.0" prefWidth="22.0" styleClass="sidebarButton" stylesheets="@Frontend.css" text=" ">
+            <JFXButton graphicTextGap="0.0" onAction="#sideBar" prefHeight="8.0" prefWidth="22.0" styleClass="sidebarButton" stylesheets="@Frontend.css" text=" ">
                <graphic>
                   <ImageView fitHeight="13.0" fitWidth="19.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -172,7 +175,7 @@
             </StackPane>
             <VBox prefHeight="200.0" prefWidth="100.0">
                <children>
-                  <Label text="romuald">
+                  <Label fx:id="nomUtilisateur" text="Serge">
                      <VBox.margin>
                         <Insets left="4.0" />
                      </VBox.margin>
@@ -190,7 +193,7 @@
                   </Label>
                </children>
             </VBox>
-            <JFXButton ripplerFill="WHITE" style="-fx-background-color: #106AD2;" text="Changer" textFill="WHITE">
+            <JFXButton onAction="#changeUser" ripplerFill="WHITE" style="-fx-background-color: #106AD2;" text="Changer" textFill="WHITE">
                <HBox.margin>
                   <Insets top="5.0" />
                </HBox.margin>
@@ -201,191 +204,261 @@
          </children>
       </HBox>
    </top>
-   <left>
-      <VBox prefHeight="713.0" prefWidth="213.0" style="-fx-background-color: white;" BorderPane.alignment="CENTER">
-         <BorderPane.margin>
-            <Insets />
-         </BorderPane.margin>
-         <children>
-            <Label text="CYCLEPRO">
-               <font>
-                  <Font name="Source Code Pro Semibold" size="14.0" />
-               </font>
-               <VBox.margin>
-                  <Insets left="15.0" top="25.0" />
-               </VBox.margin>
-            </Label>
-            <Label layoutX="25.0" layoutY="35.0" text="Le cyclisme chez vous">
-               <font>
-                  <Font name="Source Sans Pro" size="14.0" />
-               </font>
-               <VBox.margin>
-                  <Insets left="15.0" top="15.0" />
-               </VBox.margin>
-            </Label>
-            <Label layoutX="25.0" layoutY="64.0" text="Menu">
-               <font>
-                  <Font name="Source Sans Pro" size="14.0" />
-               </font>
-               <VBox.margin>
-                  <Insets left="15.0" top="15.0" />
-               </VBox.margin>
-            </Label>
-            <JFXButton onAction="#accueil" prefHeight="35.0" prefWidth="213.0" styleClass="menuButton" stylesheets="@Frontend.css" text="      Accueil" textFill="#000000a6">
-               <VBox.margin>
-                  <Insets top="15.0" />
-               </VBox.margin>
-               <graphic>
-                  <ImageView fitHeight="24.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../Images/Combined%20Shape.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
-               <padding>
-                  <Insets right="70.0" />
-               </padding>
-               <font>
-                  <Font name="Source Sans Pro" size="14.0" />
-               </font>
-            </JFXButton>
-            <JFXButton layoutX="10.0" layoutY="137.0" onAction="#evenement" prefHeight="35.0" prefWidth="213.0" styleClass="menuButton" stylesheets="@Frontend.css" text="      Evènements" textFill="#000000a6">
-               <graphic>
-                  <ImageView fitHeight="24.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../Images/Shape.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
-               <padding>
-                  <Insets right="45.0" />
-               </padding>
-               <VBox.margin>
-                  <Insets top="10.0" />
-               </VBox.margin>
-               <font>
-                  <Font name="Source Sans Pro" size="14.0" />
-               </font>
-            </JFXButton>
-            <JFXButton layoutX="10.0" layoutY="172.0" onAction="#boutique" prefHeight="35.0" prefWidth="213.0" styleClass="menuButton" stylesheets="@Frontend.css" text="      Boutique" textFill="#000000a6">
-               <graphic>
-                  <ImageView fitHeight="24.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../Images/Fill%205.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
-               <padding>
-                  <Insets right="60.0" />
-               </padding>
-               <VBox.margin>
-                  <Insets top="10.0" />
-               </VBox.margin>
-               <font>
-                  <Font name="Source Sans Pro" size="14.0" />
-               </font>
-            </JFXButton>
-            <JFXButton layoutX="10.0" layoutY="207.0" onAction="#blog" prefHeight="35.0" prefWidth="213.0" styleClass="menuButton" stylesheets="@Frontend.css" text="      Blog" textFill="#000000a6">
-               <graphic>
-                  <ImageView fitHeight="24.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../Images/Fill%201.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
-               <padding>
-                  <Insets right="83.0" />
-               </padding>
-               <VBox.margin>
-                  <Insets top="10.0" />
-               </VBox.margin>
-               <font>
-                  <Font name="Source Sans Pro" size="14.0" />
-               </font>
-            </JFXButton>
-            <JFXButton layoutX="10.0" layoutY="242.0" onAction="#gallerie" prefHeight="35.0" prefWidth="213.0" styleClass="menuButton" stylesheets="@Frontend.css" text="      Gallerie" textFill="#000000a6">
-               <graphic>
-                  <ImageView fitHeight="24.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../Images/Combined%20Shape2.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
-               <padding>
-                  <Insets right="70.0" />
-               </padding>
-               <VBox.margin>
-                  <Insets top="10.0" />
-               </VBox.margin>
-               <font>
-                  <Font name="Source Sans Pro" size="14.0" />
-               </font>
-            </JFXButton>
-            <JFXButton layoutX="10.0" layoutY="277.0" onAction="#contact" prefHeight="35.0" prefWidth="213.0" styleClass="menuButton" stylesheets="@Frontend.css" text="      Contact" textFill="#000000a6">
-               <graphic>
-                  <ImageView fitHeight="24.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../Images/Combined%20Shape3.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
-               <padding>
-                  <Insets right="73.0" />
-               </padding>
-               <VBox.margin>
-                  <Insets top="10.0" />
-               </VBox.margin>
-            </JFXButton>
-            <JFXButton styleClass="menuButton2" stylesheets="@Frontend.css" text="Recommandé!">
-               <font>
-                  <Font name="Source Sans Pro" size="14.0" />
-               </font>
-               <VBox.margin>
-                  <Insets left="15.0" top="30.0" />
-               </VBox.margin>
-            </JFXButton>
-            <JFXButton layoutX="25.0" layoutY="427.0" styleClass="menuButton2" stylesheets="@Frontend.css" text="Nouveau!">
-               <font>
-                  <Font name="Source Sans Pro" size="14.0" />
-               </font>
-               <VBox.margin>
-                  <Insets left="15.0" top="15.0" />
-               </VBox.margin>
-            </JFXButton>
-            <JFXButton layoutX="10.0" layoutY="456.0" styleClass="menuButton2" stylesheets="@Frontend.css" text="Les plus demandés!">
-               <font>
-                  <Font name="Source Sans Pro" size="14.0" />
-               </font>
-               <VBox.margin>
-                  <Insets left="15.0" top="15.0" />
-               </VBox.margin>
-            </JFXButton>
-            <Pane prefHeight="0.0" prefWidth="219.0" styleClass="dividorPane" stylesheets="@Frontend.css">
-               <VBox.margin>
-                  <Insets top="15.0" />
-               </VBox.margin>
-            </Pane>
-            <JFXButton onAction="#administration" prefHeight="36.0" prefWidth="307.0" styleClass="MesEvenementsButton" stylesheets="@Frontend.css" text="        ADMINISTRATION">
-               <graphic>
-                  <ImageView fitHeight="17.0" fitWidth="17.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../Images/Combined%20Shape%204.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
-               <VBox.margin>
-                  <Insets top="15.0" />
-               </VBox.margin>
-            </JFXButton>
-            <Pane layoutX="10.0" layoutY="559.0" prefHeight="0.0" prefWidth="219.0" styleClass="dividorPane" stylesheets="@Frontend.css">
-               <VBox.margin>
-                  <Insets top="15.0" />
-               </VBox.margin>
-            </Pane>
-         </children>
-      </VBox>
-   </left>
    <center>
-      <AnchorPane fx:id="centerContent" prefHeight="712.0" prefWidth="1134.0" BorderPane.alignment="CENTER" />
+      <AnchorPane prefHeight="712.0" prefWidth="1134.0" style="-fx-background-color: #FBFCFE;" BorderPane.alignment="CENTER">
+         <children>
+            <AnchorPane fx:id="centerContent" layoutX="1.0" layoutY="-1.0" prefHeight="712.0" prefWidth="1223.0" />
+            <VBox fx:id="vbox" prefHeight="712.0" prefWidth="213.0" style="-fx-background-color: white;">
+               <children>
+                  <Label text="CYCLEPRO">
+                     <font>
+                        <Font name="Source Code Pro Semibold" size="14.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets left="15.0" top="25.0" />
+                     </VBox.margin>
+                  </Label>
+                  <Label layoutX="25.0" layoutY="35.0" text="Le cyclisme chez vous">
+                     <font>
+                        <Font name="Source Sans Pro" size="14.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets left="15.0" top="15.0" />
+                     </VBox.margin>
+                  </Label>
+                  <Label layoutX="25.0" layoutY="64.0" text="Menu">
+                     <font>
+                        <Font name="Source Sans Pro" size="14.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets left="15.0" top="15.0" />
+                     </VBox.margin>
+                  </Label>
+                  <JFXButton onAction="#accueil" prefHeight="35.0" prefWidth="213.0" styleClass="menuButton" stylesheets="@Frontend.css" text="      Accueil" textFill="#000000a6">
+                     <VBox.margin>
+                        <Insets top="15.0" />
+                     </VBox.margin>
+                     <graphic>
+                        <ImageView fitHeight="24.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../Images/Combined%20Shape.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <padding>
+                        <Insets right="70.0" />
+                     </padding>
+                     <font>
+                        <Font name="Source Sans Pro" size="14.0" />
+                     </font>
+                  </JFXButton>
+                  <JFXButton layoutX="10.0" layoutY="137.0" onAction="#evenement" prefHeight="35.0" prefWidth="213.0" styleClass="menuButton" stylesheets="@Frontend.css" text="      Evènements" textFill="#000000a6">
+                     <graphic>
+                        <ImageView fitHeight="24.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../Images/Shape.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <padding>
+                        <Insets right="45.0" />
+                     </padding>
+                     <VBox.margin>
+                        <Insets top="10.0" />
+                     </VBox.margin>
+                     <font>
+                        <Font name="Source Sans Pro" size="14.0" />
+                     </font>
+                  </JFXButton>
+                  <JFXButton layoutX="10.0" layoutY="172.0" onAction="#boutique" prefHeight="35.0" prefWidth="213.0" styleClass="menuButton" stylesheets="@Frontend.css" text="      Boutique" textFill="#000000a6">
+                     <graphic>
+                        <ImageView fitHeight="24.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../Images/Fill%205.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <padding>
+                        <Insets right="60.0" />
+                     </padding>
+                     <VBox.margin>
+                        <Insets top="10.0" />
+                     </VBox.margin>
+                     <font>
+                        <Font name="Source Sans Pro" size="14.0" />
+                     </font>
+                  </JFXButton>
+                  <JFXButton layoutX="10.0" layoutY="207.0" onAction="#blog" prefHeight="35.0" prefWidth="213.0" styleClass="menuButton" stylesheets="@Frontend.css" text="      Blog" textFill="#000000a6">
+                     <graphic>
+                        <ImageView fitHeight="24.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../Images/Fill%201.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <padding>
+                        <Insets right="83.0" />
+                     </padding>
+                     <VBox.margin>
+                        <Insets top="10.0" />
+                     </VBox.margin>
+                     <font>
+                        <Font name="Source Sans Pro" size="14.0" />
+                     </font>
+                  </JFXButton>
+                  <JFXButton layoutX="10.0" layoutY="242.0" onAction="#gallerie" prefHeight="35.0" prefWidth="213.0" styleClass="menuButton" stylesheets="@Frontend.css" text="      Gallerie" textFill="#000000a6">
+                     <graphic>
+                        <ImageView fitHeight="24.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../Images/Combined%20Shape2.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <padding>
+                        <Insets right="70.0" />
+                     </padding>
+                     <VBox.margin>
+                        <Insets top="10.0" />
+                     </VBox.margin>
+                     <font>
+                        <Font name="Source Sans Pro" size="14.0" />
+                     </font>
+                  </JFXButton>
+                  <JFXButton layoutX="10.0" layoutY="277.0" onAction="#contact" prefHeight="35.0" prefWidth="213.0" styleClass="menuButton" stylesheets="@Frontend.css" text="      Contact" textFill="#000000a6">
+                     <graphic>
+                        <ImageView fitHeight="24.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../Images/Combined%20Shape3.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <padding>
+                        <Insets right="73.0" />
+                     </padding>
+                     <VBox.margin>
+                        <Insets top="10.0" />
+                     </VBox.margin>
+                  </JFXButton>
+                  <JFXButton layoutX="10.0" layoutY="227.0" onAction="#boutique2" prefHeight="35.0" prefWidth="213.0" styleClass="menuButton" stylesheets="@Frontend.css" text="      Boutique2" textFill="#000000a6">
+                     <graphic>
+                        <ImageView fitHeight="24.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../Images/Fill%205.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <padding>
+                        <Insets right="60.0" />
+                     </padding>
+                     <font>
+                        <Font name="Source Sans Pro" size="14.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets top="10.0" />
+                     </VBox.margin>
+                  </JFXButton>
+                  <JFXButton styleClass="menuButton2" stylesheets="@Frontend.css" text="Recommandé!">
+                     <font>
+                        <Font name="Source Sans Pro" size="14.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets left="15.0" top="30.0" />
+                     </VBox.margin>
+                  </JFXButton>
+                  <JFXButton layoutX="25.0" layoutY="427.0" styleClass="menuButton2" stylesheets="@Frontend.css" text="Nouveau!">
+                     <font>
+                        <Font name="Source Sans Pro" size="14.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets left="15.0" top="15.0" />
+                     </VBox.margin>
+                  </JFXButton>
+                  <JFXButton layoutX="10.0" layoutY="456.0" styleClass="menuButton2" stylesheets="@Frontend.css" text="Les plus demandés!">
+                     <font>
+                        <Font name="Source Sans Pro" size="14.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets left="15.0" top="15.0" />
+                     </VBox.margin>
+                  </JFXButton>
+                  <Pane prefHeight="0.0" prefWidth="219.0" styleClass="dividorPane" stylesheets="@Frontend.css">
+                     <VBox.margin>
+                        <Insets top="60.0" />
+                     </VBox.margin>
+                  </Pane>
+                  <JFXButton onAction="#administration" prefHeight="36.0" prefWidth="307.0" styleClass="MesEvenementsButton" stylesheets="@Frontend.css" text="        ADMINISTRATION">
+                     <graphic>
+                        <ImageView fitHeight="17.0" fitWidth="17.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../Images/Combined%20Shape%204.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <VBox.margin>
+                        <Insets top="15.0" />
+                     </VBox.margin>
+                  </JFXButton>
+                  <Pane layoutX="10.0" layoutY="559.0" prefHeight="1.0" prefWidth="262.0" styleClass="dividorPane" stylesheets="@Frontend.css">
+                     <VBox.margin>
+                        <Insets top="15.0" />
+                     </VBox.margin>
+                  </Pane>
+               </children>
+            </VBox>
+            <Pane fx:id="blackScreen" prefHeight="712.0" prefWidth="1224.0" style="-fx-background-color: rgba(0,0,0,0.6);" />
+            <Pane fx:id="signIn2" layoutX="189.0" layoutY="74.0" prefHeight="512.0" prefWidth="888.0" style="-fx-background-color: #FCFCFC;">
+               <children>
+                  <Label alignment="BASELINE_LEFT" layoutX="93.0" layoutY="68.0" prefWidth="188.0" text="SIGN IN" textFill="#707070">
+                     <font>
+                        <Font name="Segoe UI Semibold" size="37.0" />
+                     </font>
+                  </Label>
+                  <HBox layoutX="75.0" layoutY="176.0" prefHeight="81.0" prefWidth="321.0">
+                     <children>
+                        <HBox prefHeight="81.0" prefWidth="314.0">
+                           <children>
+                              <FontAwesomeIcon glyphName="USER" glyphStyle="-fx-fill:A6A6A6" size="25" strokeWidth="5.0" />
+                              <JFXTextField fx:id="emailUsername" focusColor="#428adf" labelFloat="true" prefHeight="25.0" prefWidth="538.0" promptText="Username" unFocusColor="#898989">
+                                 <HBox.margin>
+                                    <Insets left="25.0" top="10.0" />
+                                 </HBox.margin>
+                              </JFXTextField>
+                           </children>
+                        </HBox>
+                     </children>
+                  </HBox>
+                  <HBox layoutX="75.0" layoutY="279.0" prefHeight="81.0" prefWidth="321.0">
+                     <children>
+                        <FontAwesomeIcon glyphName="LOCK" glyphStyle="-fx-fill:A6A6A6" size="25" strokeWidth="5.0" />
+                        <JFXPasswordField fx:id="password" focusColor="#428adf" prefHeight="25.0" prefWidth="577.0" promptText="Password" unFocusColor="#898989">
+                           <HBox.margin>
+                              <Insets left="25.0" right="25.0" top="15.0" />
+                           </HBox.margin>
+                        </JFXPasswordField>
+                     </children>
+                  </HBox>
+                  <JFXButton layoutX="93.0" layoutY="427.0" onAction="#connecting" prefHeight="41.0" prefWidth="122.0" ripplerFill="WHITE" styleClass="sign-in" stylesheets="@../Login/styleSheet.css" text="Sign In" />
+                  <ImageView fitHeight="282.0" fitWidth="381.0" layoutX="445.0" layoutY="145.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../Images/Group%20194.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </Pane>
+            <Pane fx:id="notification" layoutX="924.0" layoutY="29.0" prefHeight="58.0" prefWidth="263.0" style="-fx-background-color: black; -fx-background-radius: 4px;">
+               <children>
+                  <ImageView fx:id="notificationImage" fitHeight="26.0" fitWidth="41.0" layoutX="14.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../Images/Succès.png" />
+                     </image>
+                  </ImageView>
+                  <Label fx:id="notificationMessage" layoutX="74.0" layoutY="16.0" prefHeight="23.0" prefWidth="189.0" text="Label" textFill="WHITE" wrapText="true">
+                     <font>
+                        <Font name="Segoe UI Semibold" size="14.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
+         </children></AnchorPane>
    </center>
 </BorderPane>

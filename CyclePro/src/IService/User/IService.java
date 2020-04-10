@@ -5,6 +5,7 @@
  */
 package IService.User;
 
+import Entitie.User.User;
 import java.sql.SQLException;
 import java.util.List;
 
@@ -20,4 +21,5 @@ public interface IService<T> {
    String passwordEncryption(String password) ;
    int connexion(String usernameEmail,String password) throws SQLException;
    String passwordDecryption(String password);
+    public User utilisateur(int id) throws SQLException;
 }
