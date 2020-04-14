@@ -7,6 +7,7 @@ package GUI.Backoffice;
 
 import GUI.Frontend.*;
 import GUI.Blog.BlogController;
+import GUI.Blog.ModifierController;
 import GUI.Evenement.EvenementController;
 import animatefx.animation.FadeIn;
 import animatefx.animation.FadeInDown;
@@ -70,12 +71,26 @@ public class BackofficeController implements Initializable {
             modifier.setVisible(true);
             supprimer.setVisible(true);
         }
+            if (page == "ViewBack") {
+            ajouter.setVisible(false);
+            modifier.setVisible(false);
+            supprimer.setVisible(false);
+        } else {
+            ajouter.setVisible(true);
+            modifier.setVisible(true);
+            supprimer.setVisible(true);
+        }
+
     }
 
     public void pageLoader(String pageName) {
         try {
             FXMLLoader Loader = new FXMLLoader(getClass().getResource(pageName));
             fxml = Loader.load();
+            if ("Blog".equals(page) && pageName.equals("/GUI/Blog/Modifier.fxml")) {
+                ModifierController e = Loader.getController();
+                e.redirection(centerContent);
+            }
             centerContent.getChildren().removeAll();
             new FadeIn(fxml).play();
             centerContent.getChildren().setAll(fxml);
@@ -89,6 +104,14 @@ public class BackofficeController implements Initializable {
         page = "Accueil";
         this.topButton(page);
         this.pageLoader("Accueil.fxml");
+
+    }
+    
+    @FXML
+    void viewOff(ActionEvent event) {
+        page = "ViewBack";
+        this.topButton(page);
+        this.pageLoader("/GUI/Blog/ViewBack.fxml");
 
     }
 

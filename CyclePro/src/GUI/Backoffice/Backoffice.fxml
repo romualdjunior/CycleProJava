@@ -267,7 +267,9 @@
                   <Font name="Source Sans Pro" size="14.0" />
                </font>
             </JFXButton>
-            <JFXButton layoutX="10.0" layoutY="172.0" onAction="#boutique" prefHeight="35.0" prefWidth="213.0" styleClass="menuButton" stylesheets="@Backend.css" text="      Boutique" textFill="#ffffffa6">
+            <JFXButton layoutX="10.0" layoutY="172.0" onAction="#boutique" prefHeight="35.0" 
+                       prefWidth="213.0" styleClass="menuButton" stylesheets="@Backend.css" 
+                       text="      Boutique" textFill="#ffffffa6">
                <graphic>
                   <ImageView fitHeight="24.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -285,7 +287,9 @@
                   <Font name="Source Sans Pro" size="14.0" />
                </font>
             </JFXButton>
-            <JFXButton layoutX="10.0" layoutY="207.0" onAction="#blog" prefHeight="35.0" prefWidth="213.0" styleClass="menuButton" stylesheets="@Backend.css" text="      Blog" textFill="#ffffffa6">
+            
+            <JFXButton layoutX="10.0" layoutY="207.0" onAction="#blog" prefHeight="35.0" prefWidth="213.0"
+                       styleClass="menuButton" stylesheets="@Backend.css" text="      Blog" textFill="#ffffffa6">
                <graphic>
                   <ImageView fitHeight="24.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -303,6 +307,29 @@
                   <Font name="Source Sans Pro" size="14.0" />
                </font>
             </JFXButton>
+            
+            <JFXButton layoutX="10.0" layoutY="207.0" onAction="#viewOff" prefHeight="35.0" 
+                       prefWidth="213.0"
+                       styleClass="menuButton" stylesheets="@Backend.css" text="      View" textFill="#ffffffa6">
+               <graphic>
+                  <ImageView fitHeight="24.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../Images/Fill%2010.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <padding>
+                  <Insets right="83.0" />
+               </padding>
+               <VBox.margin>
+                  <Insets top="10.0" />
+               </VBox.margin>
+               <font>
+                  <Font name="Source Sans Pro" size="14.0" />
+               </font>
+            </JFXButton>
+            
+            
             <JFXButton layoutX="10.0" layoutY="242.0" onAction="#gallerie" prefHeight="35.0" prefWidth="213.0" styleClass="menuButton" stylesheets="@Backend.css" text="      Gallerie" textFill="#ffffffa6">
                <graphic>
                   <ImageView fitHeight="24.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true">

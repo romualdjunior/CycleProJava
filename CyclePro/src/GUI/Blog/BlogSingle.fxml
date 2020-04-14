@@ -2,14 +2,18 @@
 
 <?import com.jfoenix.controls.JFXButton?>
 <?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon?>
+<?import javafx.collections.FXCollections?>
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.ContextMenu?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
@@ -19,7 +23,7 @@
    <children>
       <ScrollPane prefHeight="712.0" prefWidth="1223.0">
         <content>
-          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="2500.0" prefWidth="1216.0" style="-fx-background-color: #FBFCFE;">
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="2453.0" prefWidth="1216.0" style="-fx-background-color: #FBFCFE;">
                <children>
                   <Pane fx:id="banner" layoutX="45.0" layoutY="39.0" prefHeight="146.0" prefWidth="1095.0" styleClass="banner" stylesheets="@blog.css">
                      <children>
@@ -41,6 +45,7 @@
                         </ImageView>
                      </children>
                   </Pane>
+                  
                   <Label layoutX="45.0" layoutY="224.0" text="MAGNEZ VOUS" textFill="#05050566">
                      <font>
                         <Font name="Source Sans Pro Semibold" size="13.0" />
@@ -53,61 +58,19 @@
                   </Label>
                   <Pane layoutX="45.0" layoutY="304.0" prefHeight="768.0" prefWidth="559.0" style="-fx-background-color: white;" styleClass="EvenementSingle" stylesheets="@blog.css">
                      <children>
-                        <ImageView fitHeight="435.0" fitWidth="562.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../Images/event_single.jpg" />
-                           </image>
-                        </ImageView>
-                        <Label layoutX="8.0" layoutY="441.0" text="Northumberland Cycling Event 2018">
+                        <Pane fx:id="PanePhoto" prefHeight="435.0" prefWidth="559.0" />
+                        <Label fx:id="LTitre" layoutX="8.0" layoutY="441.0" text="nada">
                            <font>
                               <Font name="Source Sans Pro Semibold" size="35.0" />
                            </font>
                         </Label>
-                        <Label layoutX="18.0" layoutY="488.0" prefHeight="176.0" prefWidth="526.0" text="Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo." textFill="#707070" wrapText="true">
+                        <Label fx:id="LCont" layoutX="18.0" layoutY="488.0" prefHeight="176.0" prefWidth="526.0" text="Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est " textFill="#707070" wrapText="true">
                            <font>
                               <Font name="Source Sans Pro" size="14.0" />
                            </font>
                         </Label>
-                        <Pane layoutX="1.0" layoutY="676.0" prefHeight="1.0" prefWidth="557.0" styleClass="dividorPane" stylesheets="@../Frontend/Frontend.css" />
-                        <StackPane layoutX="200.0" layoutY="680.0" prefHeight="17.0" prefWidth="27.0" styleClass="logo" stylesheets="@../Frontend/Frontend.css">
-                           <opaqueInsets>
-                              <Insets />
-                           </opaqueInsets>
-                           <children>
-                              <ImageView fitHeight="70.0" fitWidth="71.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@../Images/Group%20278.png" />
-                                 </image>
-                              </ImageView>
-                           </children>
-                        </StackPane>
-                        <Label layoutX="116.0" layoutY="697.0" text="+650">
-                           <font>
-                              <Font name="Source Sans Pro Semibold" size="28.0" />
-                           </font>
-                        </Label>
-                        <StackPane layoutX="52.0" layoutY="688.0" prefHeight="17.0" prefWidth="64.0" styleClass="logo" stylesheets="@../Frontend/Frontend.css">
-                           <opaqueInsets>
-                              <Insets />
-                           </opaqueInsets>
-                           <children>
-                              <ImageView fitHeight="55.0" fitWidth="57.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@../Images/logo.png" />
-                                 </image>
-                              </ImageView>
-                           </children>
-                        </StackPane>
-                        <Label layoutX="281.0" layoutY="697.0" text="-300">
-                           <font>
-                              <Font name="Source Sans Pro Semibold" size="28.0" />
-                           </font>
-                        </Label>
-                        <JFXButton layoutX="385.0" layoutY="691.0" prefHeight="52.0" prefWidth="150.0" ripplerFill="WHITE" style="-fx-background-color: #106AD2; -fx-border-radius: 6px;" text="Participer" textFill="WHITE">
-                           <font>
-                              <Font name="Source Sans Pro Semibold" size="12.0" />
-                           </font>
-                        </JFXButton>
+                        
+  
                      </children>
                   </Pane>
                   <Pane layoutX="813.0" layoutY="314.0" prefHeight="116.0" prefWidth="327.0" style="-fx-background-color: white;" styleClass="search" stylesheets="@blog.css">
@@ -126,47 +89,35 @@
                         <FontAwesomeIcon fill="#00000051" glyphName="SEARCH" layoutX="267.0" layoutY="62.0" />
                      </children>
                   </Pane>
-                  <Pane layoutX="813.0" layoutY="510.0" prefHeight="377.0" prefWidth="331.0" style="-fx-background-color: white;" styleClass="search" stylesheets="@blog.css">
+                  
+                 <!--category-->
+                  <Pane layoutX="813.0" layoutY="510.0" prefHeight="290.0" prefWidth="331.0" style="-fx-background-color: white;" styleClass="search" stylesheets="@blog.css">
                      <children>
-                        <Label layoutX="68.0" layoutY="34.0" prefHeight="28.0" prefWidth="121.0" text="CATEGORIES">
+                        <Label layoutX="68.0" layoutY="34.0" prefHeight="28.0" prefWidth="121.0" text="CATEGORY">
                            <font>
                               <Font name="Source Sans Pro" size="21.0" />
                            </font>
+                           
                         </Label>
                         <Pane layoutX="50.0" layoutY="32.0" prefHeight="32.0" prefWidth="4.0" style="-fx-background-color: #106AD2;" />
                         <VBox layoutX="54.0" layoutY="83.0" prefHeight="264.0" prefWidth="150.0">
                            <children>
-                              <JFXButton text="&gt;   Cycling">
+                              <JFXButton text="&gt;   Sport">
                                  <font>
                                     <Font name="Source Sans Pro" size="17.0" />
                                  </font>
                               </JFXButton>
-                              <JFXButton text="&gt;   Biking">
+                              <JFXButton text="&gt;   Cyclisme">
                                  <font>
                                     <Font name="Source Sans Pro" size="17.0" />
                                  </font>
                               </JFXButton>
-                              <JFXButton text="&gt;   Rider">
+                              <JFXButton text="&gt;   Bien etre">
                                  <font>
                                     <Font name="Source Sans Pro" size="17.0" />
                                  </font>
                               </JFXButton>
-                              <JFXButton text="&gt;   Sports">
-                                 <font>
-                                    <Font name="Source Sans Pro" size="17.0" />
-                                 </font>
-                              </JFXButton>
-                              <JFXButton text="&gt;   Life Style">
-                                 <font>
-                                    <Font name="Source Sans Pro" size="17.0" />
-                                 </font>
-                              </JFXButton>
-                              <JFXButton text="&gt;   Cycling">
-                                 <font>
-                                    <Font name="Source Sans Pro" size="17.0" />
-                                 </font>
-                              </JFXButton>
-                              <JFXButton layoutX="10.0" layoutY="185.0" text="&gt;   Cycling">
+                              <JFXButton text="&gt;   Nutrition">
                                  <font>
                                     <Font name="Source Sans Pro" size="17.0" />
                                  </font>
@@ -174,8 +125,77 @@
                            </children>
                         </VBox>
                      </children>
+                  </Pane> 
+                  <!--RECENT POSTS-->
+                  <Pane layoutX="813.0" layoutY="850.0" prefHeight="290.0" prefWidth="331.0" style="-fx-background-color: white;" styleClass="search" stylesheets="@blog.css">
+                     <children>
+                        <Label layoutX="68.0" layoutY="34.0" prefHeight="31.0" prefWidth="187.0" text="RECENT POSTS">
+                           <font>
+                              <Font name="Source Sans Pro" size="21.0" />
+                           </font>
+                        </Label>
+                        <Pane layoutX="50.0" layoutY="32.0" prefHeight="32.0" prefWidth="4.0" style="-fx-background-color: #106AD2;" />
+                        
+                        <Pane layoutX="14.0" layoutY="78.0" prefHeight="93.0" prefWidth="309.0">
+                           <children>
+                              <Pane fx:id="img1" layoutX="8.0" layoutY="7.0" prefHeight="93.0" prefWidth="309.0">
+                              </Pane>
+                              <Label fx:id="PStitle1" layoutX="121.0" layoutY="3.0" prefHeight="31.0" prefWidth="159.0">
+                                   <font>
+                                    <Font name="System Bold Italic" size="19.0" />
+                                   </font>
+                              </Label>
+                              <Label fx:id="PSDate1" layoutX="121.0" layoutY="35.0" prefHeight="31.0" prefWidth="159.0" />
+                           </children>
+                        </Pane>
+                        
+                        <Pane layoutX="11.0" layoutY="171.0" prefHeight="93.0" prefWidth="309.0">
+                           <children>
+                              <Pane fx:id="img2" layoutX="8.0" layoutY="7.0" prefHeight="93.0" prefWidth="309.0">
+                              </Pane>
+                              <Label fx:id="PStitle2" layoutX="121.0" layoutY="3.0" prefHeight="31.0" prefWidth="159.0">
+                                  <font>
+                                  <Font name="System Bold Italic" size="19.0" />
+                                  </font>
+                              </Label>
+                              <Label fx:id="PSDate2" layoutX="121.0" layoutY="35.0" prefHeight="31.0" prefWidth="159.0" />
+                           </children>
+                        </Pane>
+                     </children>
                   </Pane>
-                  <Pane layoutX="813.0" layoutY="947.0" prefHeight="156.0" prefWidth="331.0" style="-fx-background-color: white;" styleClass="search" stylesheets="@blog.css">
+                  
+                        <!--PDF-->
+                  <Pane layoutX="813.0" layoutY="1180.0" prefHeight="90.0" prefWidth="331.0" style="-fx-background-color: white;" styleClass="search" stylesheets="@blog.css">
+                     <children>
+                        
+                          
+            <JFXButton onAction="#createPDF" prefHeight="35.0" prefWidth="213.0"  text="    
+              PDF" textFill="#000000a6">
+               <VBox.margin>
+                  <Insets top="15.0" />
+               </VBox.margin>
+               <graphic>
+                  <ImageView fitHeight="24.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="/images/pdf.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <padding>
+                  <Insets right="70.0" />
+               </padding>
+               <font>
+                  <Font name="Source Bold Sans Pro" size="14.0" />
+               </font>
+            </JFXButton>
+                     </children>
+                  </Pane> 
+                  
+                  
+                  
+                  <!--SUIVEZ-NOUS!-->
+                  
+                  <!--<Pane layoutX="813.0" layoutY="902.0" prefHeight="156.0" prefWidth="331.0" style="-fx-background-color: white;" styleClass="search" stylesheets="@blog.css">
                      <children>
                         <Label layoutX="68.0" layoutY="34.0" prefHeight="28.0" prefWidth="166.0" text="SUIVEZ-NOUS">
                            <font>
@@ -278,21 +298,23 @@
                            </children>
                         </HBox>
                      </children>
-                  </Pane>
-                  <Pane layoutX="64.0" layoutY="1305.0" prefHeight="726.0" prefWidth="831.0" style="-fx-background-color: white;" styleClass="search" stylesheets="@blog.css">
+                  </Pane>-->
+                  
+                  <!--COMMENTAIRE-->
+             <Pane layoutX="86.0" layoutY="1590.0" prefHeight="726.0" prefWidth="826.0" style="-fx-background-color: white;" styleClass="search" stylesheets="@../Blog/blog.css">
                      <children>
                         <Label layoutX="20.0" layoutY="45.0" text="COMMENTAIRE">
                            <font>
                               <Font name="Source Sans Pro Semibold" size="22.0" />
                            </font>
                         </Label>
-                        <TextField layoutX="56.0" layoutY="341.0" prefHeight="261.0" prefWidth="677.0" promptText="Commentaire" text="Commenter" />
-                        <JFXButton layoutX="56.0" layoutY="639.0" prefHeight="36.0" prefWidth="112.0" ripplerFill="WHITE" style="-fx-background-color: #106AD2;" text="Commenter" textFill="WHITE">
+                        <TextField fx:id="txtComt" layoutX="56.0" layoutY="341.0" prefHeight="261.0" prefWidth="677.0" promptText="Commentaire" text="Commenter" />
+                        <JFXButton layoutX="56.0" layoutY="639.0" onAction="#Commenter" prefHeight="36.0" prefWidth="112.0" ripplerFill="WHITE" style="-fx-background-color: #106AD2;" text="Commenter" textFill="WHITE">
                            <font>
                               <Font name="Source Sans Pro Semibold" size="12.0" />
                            </font>
                         </JFXButton>
-                        <Pane layoutX="29.0" layoutY="92.0" prefHeight="75.0" prefWidth="419.0" styleClass="comment" stylesheets="@blog.css">
+                        <Pane layoutX="29.0" layoutY="92.0" prefHeight="75.0" prefWidth="419.0" styleClass="comment" stylesheets="@../Blog/blog.css">
                            <children>
                               <Label layoutX="68.0" layoutY="6.0" text="Lena Adams">
                                  <font>
@@ -316,7 +338,7 @@
                               </Label>
                            </children>
                         </Pane>
-                        <Pane layoutX="70.0" layoutY="194.0" prefHeight="75.0" prefWidth="419.0" styleClass="comment" stylesheets="@blog.css">
+                        <Pane layoutX="70.0" layoutY="194.0" prefHeight="75.0" prefWidth="419.0" styleClass="comment" stylesheets="@../Blog/blog.css">
                            <children>
                               <Label layoutX="68.0" layoutY="6.0" text="Lena Adams">
                                  <font>
@@ -340,8 +362,58 @@
                               </Label>
                            </children>
                         </Pane>
+                        <Button fx:id="btn" layoutX="240.0" layoutY="575.0" text="error" visible="false">
+                           <contextMenu>
+                              <ContextMenu>
+                                 <items>
+                                    <MenuItem mnemonicParsing="false" text="Unspecified Action" />
+                                 </items>
+                              </ContextMenu>
+                           </contextMenu>
+                        </Button>
+                        <Label fx:id="lbl" layoutX="528.0" layoutY="575.0" styleClass="info_lb" text="Langue :" />
+                        <ImageView fx:id="flag" fitHeight="20.0" fitWidth="31.0" layoutX="584.0" layoutY="575.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image fx:id="imgflag" url="@../../../../../../correcteur-orthographique-javafx-master/src/test_fx/flags/Français.png" />
+                           </image>
+                        </ImageView>
+                        <Label fx:id="nbMot" layoutX="71.0" layoutY="575.0" styleClass="info_lb" text="N° mot: 0" />
+                        <ComboBox fx:id="langCombo" layoutX="627.0" layoutY="570.0" prefWidth="90.0" promptText="Français">
+                           <items>
+                              <FXCollections fx:factory="observableArrayList">
+                                 <Label text="Français">
+                                    <graphic>
+                                       <StackPane prefWidth="30" style="-fx-background-color: #1d1d1d;">
+                                          <children>
+                                             <ImageView fitHeight="20" preserveRatio="true">
+                                                <image>
+                                                   <Image preserveRatio="false" smooth="false" url="@../../../../../../correcteur-orthographique-javafx-master/src/test_fx/flags/Français.png" />
+                                                </image>
+                                             </ImageView>
+                                          </children>
+                                       </StackPane>
+                                    </graphic>
+                                 </Label>
+                                 <Label text="English">
+                                    <graphic>
+                                       <StackPane prefWidth="30">
+                                          <children>
+                                             <ImageView fitHeight="20" preserveRatio="true">
+                                                <image>
+                                                   <Image preserveRatio="false" smooth="false" url="@../../../../../../correcteur-orthographique-javafx-master/src/test_fx/flags/English.png" />
+                                                </image>
+                                             </ImageView>
+                                          </children>
+                                       </StackPane>
+                                    </graphic>
+                                 </Label>
+                              </FXCollections>
+                           </items>
+                        </ComboBox>
+                        <Label layoutX="517.0" layoutY="575.0" styleClass="info_lb" text="Français - FR" visible="false" />
                      </children>
-                  </Pane>
+                  </Pane>     
+                  
                </children>
             </AnchorPane>
         </content>

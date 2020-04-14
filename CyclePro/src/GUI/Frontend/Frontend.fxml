@@ -249,6 +249,7 @@
                   <Font name="Source Sans Pro" size="14.0" />
                </font>
             </JFXButton>
+            
             <JFXButton layoutX="10.0" layoutY="137.0" onAction="#evenement" prefHeight="35.0" prefWidth="213.0" styleClass="menuButton" stylesheets="@Frontend.css" text="      Evènements" textFill="#000000a6">
                <graphic>
                   <ImageView fitHeight="24.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true">
@@ -299,6 +300,25 @@
                <VBox.margin>
                   <Insets top="10.0" />
                </VBox.margin>
+               <font>
+                  <Font name="Source Sans Pro" size="14.0" />
+               </font>
+            </JFXButton>
+             
+            <JFXButton onAction="#view" prefHeight="35.0" prefWidth="213.0" styleClass="menuButton" stylesheets="@Frontend.css" text="      View" textFill="#000000a6">
+               <VBox.margin>
+                  <Insets top="15.0" />
+               </VBox.margin>
+               <graphic>
+                  <ImageView fitHeight="24.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../Images/Combined%20Shape.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <padding>
+                  <Insets right="70.0" />
+               </padding>
                <font>
                   <Font name="Source Sans Pro" size="14.0" />
                </font>

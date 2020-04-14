@@ -1,16 +1,55 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
 <AnchorPane id="AnchorPane" prefHeight="712.0" prefWidth="1223.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.Blog.ModifierController">
    <children>
-      <ScrollPane prefHeight="712.0" prefWidth="1223.0">
-        <content>
-          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="1095.0" prefWidth="1216.0" style="-fx-background-color: #FBFCFE;" />
-        </content>
-      </ScrollPane>
-      <Label layoutX="85.0" layoutY="60.0" text="ModifierBlog" />
+      <Pane layoutX="212.0" layoutY="46.0" prefHeight="621.0" prefWidth="755.0" style="-fx-background-color: white;" styleClass="FormDesign" stylesheets="@blog.css">
+         <children>
+            <TextField fx:id="search" layoutX="23.0" layoutY="73.0" onKeyReleased="#search" prefHeight="25.0" prefWidth="235.0" text="Search...." />
+            <TableView fx:id="tabArt" layoutX="17.0" layoutY="126.0" prefHeight="419.0" prefWidth="722.0">
+               <columns>
+                  <TableColumn fx:id="tabCat" prefWidth="75.0" text="Categorie" />
+                  <TableColumn fx:id="tabTitre" prefWidth="75.0" text="Titre" />
+                  <TableColumn fx:id="tabAut" prefWidth="75.0" text="Auteur" />
+                  <TableColumn fx:id="tabCont" prefWidth="136.0" text="Contenue" />
+                  <TableColumn fx:id="tabLike" minWidth="0.0" prefWidth="71.0" text="Likes" />
+                  <TableColumn fx:id="tabComt" minWidth="0.0" prefWidth="125.0" text="Commentaire" />
+                  <TableColumn fx:id="tabDate" prefWidth="110.0" text="Date Création" />
+               </columns>
+            </TableView>
+            <Text fill="#ae2626" layoutX="296.0" layoutY="38.0" stroke="#dd2727" strokeType="OUTSIDE" strokeWidth="0.0" text="Liste des articles" textAlignment="CENTER" wrappingWidth="221.5625">
+               <font>
+                  <Font name="System Bold Italic" size="22.0" />
+               </font>
+            </Text>
+            <Button layoutX="603.0" layoutY="561.0" mnemonicParsing="false" onAction="#view" prefHeight="39.0" prefWidth="90.0" text="View">
+               <font>
+                  <Font name="System Bold Italic" size="13.0" />
+               </font>
+            </Button>
+            <Button fx:id="add1" layoutX="495.0" layoutY="561.0" mnemonicParsing="false" onAction="#modif" prefHeight="39.0" prefWidth="90.0" text="Modifier">
+               <font>
+                  <Font name="System Bold Italic" size="13.0" />
+               </font>
+            </Button>
+            <Button layoutX="385.0" layoutY="561.0" mnemonicParsing="false" onAction="#supprimer" prefHeight="39.0" prefWidth="90.0" text="Supprimer">
+               <font>
+                  <Font name="System Bold Italic" size="13.0" />
+               </font>
+            </Button>
+            <Label layoutX="680.0" layoutY="82.0" text="Articles(s)" />
+            <Label fx:id="nbrArt" layoutX="634.0" layoutY="83.0" prefWidth="23.0" />
+         </children>
+      </Pane>
+      <Pane fx:id="PanePhoto" layoutX="2.0" layoutY="40.0" prefHeight="200.0" prefWidth="200.0" />
    </children>
 </AnchorPane>

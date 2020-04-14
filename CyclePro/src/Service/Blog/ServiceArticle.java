@@ -35,7 +35,7 @@ public class ServiceArticle implements IServiceArticle<Article>{
             pst.setString(3, a.getTitre());
             pst.setString(4, a.getAuteur());
             pst.setString(5, a.getPhoto());  
-             String date = new SimpleDateFormat("yyyy-MM-dd").format(a.getDate_art());
+            String date = new SimpleDateFormat("yyyy-MM-dd").format(a.getDate_art());
             pst.setString(6,date);
             pst.setString(7, a.getCategory());
             pst.setInt(8, a.getLikes());
@@ -67,11 +67,19 @@ public class ServiceArticle implements IServiceArticle<Article>{
         @Override
     public void updateArticle(Article a){
         try{
-            String requete="UPDATE Article SET auteur=? where id=?";
-            PreparedStatement pst=cnx.prepareStatement(requete);
+            String requete="UPDATE Article SET titre=?, auteur=?, contenue=?, photo=?, category=?, date_art=? "
+                    + "where id=?";
             
-            pst.setString(1,"Leila");
-            pst.setInt(2, a.getId());
+            
+            PreparedStatement pst=cnx.prepareStatement(requete);
+            pst.setString(1,a.getTitre());
+            pst.setString(2,a.getAuteur());
+            pst.setString(3,a.getContenue());
+            pst.setString(4,a.getPhoto());
+            pst.setString(5,a.getCategory());
+            String date = new SimpleDateFormat("yyyy-MM-dd").format(a.getDate_art());
+            pst.setString(6,date);
+            pst.setInt(7, a.getId());
             
             pst.executeUpdate();
             System.out.println("Article modifié !");
@@ -171,7 +179,9 @@ public class ServiceArticle implements IServiceArticle<Article>{
             PreparedStatement pst=cnx.prepareStatement(requete);                    
             ResultSet rs = pst.executeQuery();
             while (rs.next()) {
-                list.add(new Article(rs.getInt(1),
+                list.add(new Article(
+                        rs.getInt(1),
+                        
                         rs.getString("contenue"),
                         rs.getString("titre"),
                         rs.getString("auteur"),
@@ -194,11 +204,39 @@ public class ServiceArticle implements IServiceArticle<Article>{
     public List<Article> searchRecent(){
         List<Article> list = new ArrayList<>();
         try{
-            String requete="SELECT * FROM Article order by date_art DESC Limit 3 ";
+            String requete="SELECT * FROM Article order by date_art DESC Limit 2 ";
             PreparedStatement pst=cnx.prepareStatement(requete);                    
             ResultSet rs = pst.executeQuery();
             while (rs.next()) {
                 list.add(new Article(rs.getInt(1),
+                        rs.getString("contenue"),
+                        rs.getString("titre"),
+                        rs.getString("auteur"),
+                        rs.getString("photo"),
+                        rs.getDate("date_art"),                        
+                        rs.getString("category"),
+                        rs.getInt("likes")));
+            }
+
+            
+        }catch(SQLException ex){
+            System.out.println(ex.getMessage());
+
+        }
+        return list;
+        
+    }
+    
+    @Override
+    public List<Article> readOne(int id){
+        List<Article> list = new ArrayList<>();
+        try{
+            String requete="SELECT * FROM Article where id = '"+id+"' ";
+            PreparedStatement pst=cnx.prepareStatement(requete);                    
+            ResultSet rs = pst.executeQuery();
+            while (rs.next()) {
+                list.add(new Article(
+                        rs.getInt(1),
                         rs.getString("contenue"),
                         rs.getString("titre"),
                         rs.getString("auteur"),

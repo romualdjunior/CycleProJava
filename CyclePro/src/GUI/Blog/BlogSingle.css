@@ -1,0 +1,9 @@
+/*
+ * Empty Stylesheet file.
+ */
+
+.mainFxmlClass {
+#btnPDF {
+	-fx-background-color: red;
+
+}}

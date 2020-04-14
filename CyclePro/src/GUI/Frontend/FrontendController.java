@@ -115,6 +115,14 @@ public class FrontendController implements Initializable {
         this.pageLoader("Accueil.fxml");
 
     }
+    
+    @FXML
+    void view(ActionEvent event) {
+        page = "View";
+        this.topButton(page);
+        this.pageLoader("/GUI/Blog/View.fxml");
+
+    }
 
     @FXML
     void blog(ActionEvent event) {

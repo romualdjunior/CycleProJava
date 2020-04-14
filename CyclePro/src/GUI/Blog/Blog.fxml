@@ -13,9 +13,9 @@
 
 <AnchorPane id="AnchorPane" prefHeight="712.0" prefWidth="1223.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.Blog.BlogController">
    <children>
-      <ScrollPane prefHeight="712.0" prefWidth="1223.0">
+      <ScrollPane prefHeight="2500.0" prefWidth="1500.0">
         <content>
-          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="1204.0" prefWidth="1216.0" style="-fx-background-color: #FBFCFE;">
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="1204.0" prefWidth="2500.0" style="-fx-background-color: #FBFCFE;">
                <children>
                   <Pane fx:id="banner" layoutX="45.0" layoutY="39.0" prefHeight="146.0" prefWidth="1095.0" styleClass="banner" stylesheets="@blog.css">
                      <children>
@@ -42,7 +42,7 @@
                         <Font name="Source Sans Pro Semibold" size="13.0" />
                      </font>
                   </Label>
-                  <Label layoutX="45.0" layoutY="256.0" text="Evènements à venir">
+                  <Label layoutX="45.0" layoutY="256.0" text="Nos articles">
                      <font>
                         <Font name="Source Sans Pro Semibold" size="22.0" />
                      </font>
@@ -54,17 +54,15 @@
                   </JFXButton>
                   <Pane layoutX="45.0" layoutY="304.0" prefHeight="379.0" prefWidth="255.0" style="-fx-background-color: white;" styleClass="EvenementSingle" stylesheets="@blog.css">
                      <children>
-                        <ImageView fitHeight="197.0" fitWidth="255.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../Images/event_single.jpg" />
-                           </image>
-                        </ImageView>
-                        <Label layoutX="3.0" layoutY="200.0" text="Northumberland Cycling Event 2018">
+                        <Pane fx:id="paneview" prefHeight="200.0" prefWidth="254.0" />
+                        <Label fx:id="auteur" layoutX="3.0" layoutY="200.0" prefHeight="25.0" prefWidth="63.0">
                            <font>
                               <Font name="Source Sans Pro Semibold" size="16.0" />
                            </font>
                         </Label>
-                        <Label layoutX="3.0" layoutY="231.0" prefHeight="53.0" prefWidth="238.0" text="Lorem Ipsum is simply dummy text of the printing" textFill="#707070" wrapText="true">
+                        <Label fx:id="datte" layoutX="90.0" layoutY="200.0" prefHeight="25.0" prefWidth="63.0" />
+                        <Label fx:id="category" layoutX="180.0" layoutY="200.0" prefHeight="25.0" prefWidth="63.0" />
+                        <Label fx:id="contenue" layoutX="8.0" layoutY="231.0" prefHeight="63.0" prefWidth="238.0" textFill="#707070" wrapText="true">
                            <font>
                               <Font name="Source Sans Pro" size="14.0" />
                            </font>
@@ -110,11 +108,16 @@
                               <Font name="Source Sans Pro Semibold" size="13.0" />
                            </font>
                         </Label>
-                        <JFXButton layoutX="166.0" layoutY="332.0" onAction="#regarder" ripplerFill="WHITE" style="-fx-background-color: #106AD2;" text="Regarder" textFill="WHITE">
+                        <JFXButton fx:id="regarder" layoutX="166.0" layoutY="332.0" onAction="#regarder" ripplerFill="WHITE" style="-fx-background-color: #106AD2;" text="Regarder" textFill="WHITE">
                            <font>
                               <Font name="Source Sans Pro Semibold" size="12.0" />
                            </font>
                         </JFXButton>
+                        <Label fx:id="titre" layoutY="179.0">
+                           <font>
+                              <Font name="Source Sans Pro Semibold" size="16.0" />
+                           </font>
+                        </Label>
                      </children>
                   </Pane>
                   <Pane layoutX="341.0" layoutY="304.0" prefHeight="379.0" prefWidth="255.0" style="-fx-background-color: white;" styleClass="EvenementSingle" stylesheets="@blog.css">
@@ -247,7 +250,7 @@
                         </JFXButton>
                      </children>
                   </Pane>
-                  <Pane layoutX="937.0" layoutY="304.0" prefHeight="379.0" prefWidth="255.0" style="-fx-background-color: white;" styleClass="EvenementSingle" stylesheets="@blog.css">
+                <!--  <Pane layoutX="937.0" layoutY="304.0" prefHeight="379.0" prefWidth="255.0" style="-fx-background-color: white;" styleClass="EvenementSingle" stylesheets="@blog.css">
                      <children>
                         <ImageView fitHeight="197.0" fitWidth="255.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -571,7 +574,7 @@
                            </font>
                         </JFXButton>
                      </children>
-                  </Pane>
+                  </Pane>-->
                   <JFXButton layoutX="1079.0" layoutY="242.0" ripplerFill="WHITE" styleClass="Pagination" stylesheets="@blog.css" text="&lt;">
                      <font>
                         <Font name="Source Sans Pro Semibold" size="12.0" />

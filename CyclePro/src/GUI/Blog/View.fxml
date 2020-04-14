@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.collections.FXCollections?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.ContextMenu?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Tooltip?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import org.controlsfx.control.Rating?>
+
+<AnchorPane id="AnchorPane" prefHeight="712.0" prefWidth="1223.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.Blog.ViewController">
+   <children>
+      <ScrollPane layoutX="10.0" layoutY="10.0" prefHeight="712.0" prefWidth="1223.0">
+         <content>
+            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="1095.0" prefWidth="1223.0" style="-fx-background-color: #FBFCFE;">
+               <children>
+                  <Pane fx:id="banner" layoutX="45.0" layoutY="39.0" prefHeight="146.0" prefWidth="1095.0" styleClass="banner" stylesheets="@../Frontend/Frontend.css">
+                     <children>
+                        <Label layoutX="47.0" layoutY="14.0" text="View" textFill="WHITE">
+                           <font>
+                              <Font name="Source Sans Pro Semibold" size="30.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="47.0" layoutY="50.0" prefHeight="31.0" prefWidth="309.0" text="Velo" textFill="WHITE">
+                           <font>
+                              <Font name="Source Sans Pro" size="14.0" />
+                           </font>
+                        </Label>
+                        <JFXButton layoutX="37.0" layoutY="91.0" styleClass="visiterSiteEnLigne" stylesheets="@../Frontend/Frontend.css" text="Visiter notre site en ligne" textFill="WHITE" />
+                        <ImageView fitHeight="111.0" fitWidth="183.0" layoutX="919.0" layoutY="18.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../Images/OBJECTS.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </Pane>
+                  <Label layoutX="45.0" layoutY="256.0" text="Donnez votre avis">
+                     <font>
+                        <Font name="Source Sans Pro Semibold" size="22.0" />
+                     </font>
+                  </Label>
+                  <MenuBar layoutX="14.0" layoutY="326.0" prefHeight="37.0" prefWidth="750.0" style="-fx-border-color: #666666; -fx-border-width: 6; -fx-background-color: #666666;">
+                     <menus>
+                        <Menu mnemonicParsing="false" text="Fichier">
+                           <items>
+                              <MenuItem fx:id="nouveau" mnemonicParsing="false" text="Nouveau" />
+                              <MenuItem fx:id="ouvrir" mnemonicParsing="false" text="Ouvrir" />
+                              <MenuItem fx:id="enregistrer" mnemonicParsing="false" text="Enregistrer" />
+                              <MenuItem fx:id="enregistrersous" mnemonicParsing="false" text="Enregistrer sous        " />
+                              <MenuItem fx:id="fermer" mnemonicParsing="false" text="Fermer" />
+                           </items>
+                        </Menu>
+                        <Menu mnemonicParsing="false" text="Edition">
+                           <items>
+                              <MenuItem fx:id="actualiser" mnemonicParsing="false" text="Actualiser la correction" />
+                              <MenuItem fx:id="corriger" mnemonicParsing="false" text="Corriger tous" visible="false" />
+                           </items>
+                        </Menu>
+                        <Menu mnemonicParsing="false" text="Aide">
+                           <items>
+                              <MenuItem mnemonicParsing="false" text="à propos" />
+                           </items>
+                        </Menu>
+                     </menus>
+                  </MenuBar>
+                  <Pane layoutX="14.0" layoutY="363.0" prefHeight="64.0" prefWidth="750.0" style="-fx-background-color: #d8d8d8;">
+                     <children>
+                        <HBox layoutX="20.0" layoutY="14.0" spacing="20">
+                           <children>
+                              <Button fx:id="btnNew" layoutX="59.0" layoutY="14.0" mnemonicParsing="false" styleClass="area_controls">
+                                 <tooltip>
+                                    <Tooltip text="Nouveau" />
+                                 </tooltip>
+                                 <graphic>
+                                    <ImageView fitHeight="32.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../Images/new.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                              </Button>
+                              <Button fx:id="btnOpen" layoutX="59.0" layoutY="14.0" mnemonicParsing="false" styleClass="area_controls">
+                                 <tooltip>
+                                    <Tooltip text="Ouvrir" />
+                                 </tooltip>
+                                 <graphic>
+                                    <ImageView fitHeight="32.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../Images/open.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                              </Button>
+                              <Button fx:id="btnSave" layoutX="59.0" layoutY="14.0" mnemonicParsing="false" styleClass="area_controls">
+                                 <tooltip>
+                                    <Tooltip text="Enregistrer" />
+                                 </tooltip>
+                                 <graphic>
+                                    <ImageView fitHeight="32.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../Images/save.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                              </Button>
+                              <Button fx:id="btnPrecedent" layoutX="59.0" layoutY="14.0" mnemonicParsing="false" styleClass="area_controls">
+                                 <tooltip>
+                                    <Tooltip text="Précedent" />
+                                 </tooltip>
+                                 <graphic>
+                                    <ImageView fitHeight="32.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../Images/prev.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                              </Button>
+                              <Button fx:id="btnSuivant" layoutX="104.0" layoutY="14.0" mnemonicParsing="false" styleClass="area_controls">
+                                 <tooltip>
+                                    <Tooltip text="Suivant" />
+                                 </tooltip>
+                                 <graphic>
+                                    <ImageView fitHeight="32.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../Images/next.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                              </Button>
+                              <Button fx:id="printer" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" styleClass="area_controls">
+                                 <tooltip>
+                                    <Tooltip text="Imprimer" />
+                                 </tooltip>
+                                 <graphic>
+                                    <ImageView fitHeight="32.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../Images/printer.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                              </Button>
+                           </children>
+                        </HBox>
+                     </children>
+                  </Pane>
+                  <VBox id="vbox" fx:id="vbox" layoutX="16.0" layoutY="427.0" prefHeight="227.0" prefWidth="748.0" styleClass="vbox" />
+                  <Button fx:id="btn" text="error" visible="false">
+                     <contextMenu>
+                        <ContextMenu>
+                           <items>
+                              <MenuItem mnemonicParsing="false" text="Unspecified Action" />
+                           </items>
+                        </ContextMenu>
+                     </contextMenu>
+                  </Button>
+                  <Label fx:id="lbl" layoutX="516.0" layoutY="658.0" styleClass="info_lb" text="Langue :" />
+                  <ImageView fx:id="flag" fitHeight="20.0" fitWidth="31.0" layoutX="578.0" layoutY="657.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image fx:id="imgflag" url="@../../../../../../cours%20esprit%202019-2020/semestre%202/PI%20JAVA%20projets/correcteur-orthographique-javafx-master/src/test_fx/flags/Français.png" />
+                     </image>
+                  </ImageView>
+                  <Label fx:id="nbMot" layoutX="34.0" layoutY="659.0" styleClass="info_lb" text="N° mot: 0" />
+                  <ComboBox fx:id="langCombo" layoutX="626.0" layoutY="654.0" prefWidth="90.0" promptText="Français">
+                     <items>
+                        <FXCollections fx:factory="observableArrayList">
+                           <Label text="Français">
+                              <graphic>
+                                 <StackPane prefWidth="30" style="-fx-background-color: #1d1d1d;">
+                                    <children>
+                                       <ImageView fitHeight="20" preserveRatio="true">
+                                          <image>
+                                             <Image preserveRatio="false" smooth="false" url="@../../../../../../cours%20esprit%202019-2020/semestre%202/PI%20JAVA%20projets/correcteur-orthographique-javafx-master/src/test_fx/flags/Français.png" />
+                                          </image>
+                                       </ImageView>
+                                    </children>
+                                 </StackPane>
+                              </graphic>
+                           </Label>
+                           <Label text="English">
+                              <graphic>
+                                 <StackPane prefWidth="30">
+                                    <children>
+                                       <ImageView fitHeight="20" preserveRatio="true">
+                                          <image>
+                                             <Image preserveRatio="false" smooth="false" url="@../../../../../../cours%20esprit%202019-2020/semestre%202/PI%20JAVA%20projets/correcteur-orthographique-javafx-master/src/test_fx/flags/English.png" />
+                                          </image>
+                                       </ImageView>
+                                    </children>
+                                 </StackPane>
+                              </graphic>
+                           </Label>
+                           <Label text="Spanish">
+                              <graphic>
+                                 <StackPane prefWidth="30">
+                                    <children>
+                                       <ImageView fitHeight="20" preserveRatio="true">
+                                          <image>
+                                             <Image preserveRatio="false" smooth="false" url="@../../../../../../cours%20esprit%202019-2020/semestre%202/PI%20JAVA%20projets/correcteur-orthographique-javafx-master/src/test_fx/flags/Spanish.png" />
+                                          </image>
+                                       </ImageView>
+                                    </children>
+                                 </StackPane>
+                              </graphic>
+                           </Label>
+                        </FXCollections>
+                     </items>
+                  </ComboBox>
+                  <Label styleClass="info_lb" text="Français - FR" visible="false" />
+                  <JFXButton layoutX="736.0" layoutY="649.0" onAction="#Send" prefHeight="36.0" prefWidth="112.0" ripplerFill="WHITE" style="-fx-background-color: #106AD2;" text="Send" textFill="WHITE">
+                     <font>
+                        <Font name="Source Sans Pro Semibold" size="12.0" />
+                     </font>
+                  </JFXButton>
+                  <Rating fx:id="rating" layoutX="315.0" layoutY="256.0" rating="1.0" />
+               </children>
+            </AnchorPane>
+         </content>
+      </ScrollPane>
+   </children>
+    
+</AnchorPane>
