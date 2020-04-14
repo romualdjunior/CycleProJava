@@ -99,9 +99,7 @@ public class FrontendController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        page = "Accueil";
-        this.pageLoader("Accueil.fxml");
-        this.topButton(page);
+       
         vbox.setVisible(false);
         sidebarVisible = false;
         blackScreen.setVisible(false);
@@ -139,13 +137,16 @@ public class FrontendController implements Initializable {
         }
     }
 
-    public void pageLoader(String pageName) {
+    public void pageLoader(String pageName, User u) {
         try {
             FXMLLoader Loader = new FXMLLoader(getClass().getResource(pageName));
             fxml = Loader.load();
             if ("Evenement".equals(page) && pageName.equals("/GUI/Evenement/Evenement.fxml")) {
                 EvenementController e = Loader.getController();
-                e.redirection(centerContent, page);
+                System.out.println("utilisateur dans avant EventController");
+                System.out.println(user);
+                e.redirection(centerContent, page,u);
+                System.out.println("le centerContent est envoyé depuis le FrontendController");
             } else if ("Blog".equals(page) && pageName.equals("/GUI/Blog/Blog.fxml")) {
                 BlogController e = Loader.getController();
                 e.redirection(centerContent, page);
@@ -167,7 +168,7 @@ public class FrontendController implements Initializable {
     void accueil(ActionEvent event) {
         page = "Accueil";
         this.topButton(page);
-        this.pageLoader("Accueil.fxml");
+        this.pageLoader("Accueil.fxml",user);
 
     }
 
@@ -176,7 +177,7 @@ public class FrontendController implements Initializable {
         page = "Blog";
         this.topButton(page);
 
-        this.pageLoader("/GUI/Blog/Blog.fxml");
+        this.pageLoader("/GUI/Blog/Blog.fxml",user);
 
     }
 
@@ -185,7 +186,7 @@ public class FrontendController implements Initializable {
         page = "Shop";
         this.topButton(page);
 
-        this.pageLoader("/GUI/Stock/Shop.fxml");
+        this.pageLoader("/GUI/Stock/Shop.fxml",user);
     }
     
      @FXML
@@ -193,14 +194,14 @@ public class FrontendController implements Initializable {
         page = "Shop";
         this.topButton(page);
 
-        this.pageLoader("/GUI/Stock/Shop2.fxml");
+        this.pageLoader("/GUI/Stock/Shop2.fxml",user);
     }
 
     @FXML
     void contact(ActionEvent event) {
         page = "Contact";
         this.topButton(page);
-        this.pageLoader("/GUI/Reclamation/Contact.fxml");
+        this.pageLoader("/GUI/Reclamation/Contact.fxml",user);
 
     }
 
@@ -208,7 +209,7 @@ public class FrontendController implements Initializable {
     void evenement(ActionEvent event) {
         page = "Evenement";
         this.topButton(page);
-        this.pageLoader("/GUI/Evenement/Evenement.fxml");
+        this.pageLoader("/GUI/Evenement/Evenement.fxml",user);
 
     }
 
@@ -220,13 +221,13 @@ public class FrontendController implements Initializable {
     @FXML
     void ajouter(ActionEvent event) {
         if (page.equals("Blog") || page.equals("BlogSingle")) {
-            this.pageLoader("/GUI/Blog/Ajouter.fxml");
+            this.pageLoader("/GUI/Blog/Ajouter.fxml",user);
         } else if (page.equals("Shop")) {
-            this.pageLoader("/GUI/Stock/Ajouter.fxml");
+            this.pageLoader("/GUI/Stock/Ajouter.fxml",user);
         } else if (page.equals("Contact")) {
-            this.pageLoader("/GUI/Reclamation/Ajouter.fxml");
+            this.pageLoader("/GUI/Reclamation/Ajouter.fxml",user);
         } else if (page.equals("Evenement") || page.equals("EvenementSingle")) {
-            this.pageLoader("/GUI/Evenement/Ajouter.fxml");
+            this.pageLoader("/GUI/Evenement/Ajouter.fxml",user);
         }
 
     }
@@ -234,26 +235,26 @@ public class FrontendController implements Initializable {
     @FXML
     void modifier(ActionEvent event) {
         if (page.equals("Blog") || page.equals("BlogSingle")) {
-            this.pageLoader("/GUI/Blog/Modifier.fxml");
+            this.pageLoader("/GUI/Blog/Modifier.fxml",user);
         } else if (page.equals("Shop")) {
-            this.pageLoader("/GUI/Stock/Modifier.fxml");
+            this.pageLoader("/GUI/Stock/Modifier.fxml",user);
         } else if (page.equals("Contact")) {
-            this.pageLoader("/GUI/Reclamation/Modifier.fxml");
+            this.pageLoader("/GUI/Reclamation/Modifier.fxml",user);
         } else if (page.equals("Evenement") || page.equals("EvenementSingle")) {
-            this.pageLoader("/GUI/Evenement/Modifier.fxml");
+            this.pageLoader("/GUI/Evenement/Afficher.fxml",user);
         }
     }
 
     @FXML
     void supprimer(ActionEvent event) {
         if (page.equals("Blog") || page.equals("BlogSingle")) {
-            this.pageLoader("/GUI/Blog/Supprimer.fxml");
+            this.pageLoader("/GUI/Blog/Supprimer.fxml",user);
         } else if (page.equals("Shop")) {
-            this.pageLoader("/GUI/Stock/Supprimer.fxml");
+            this.pageLoader("/GUI/Stock/Supprimer.fxml",user);
         } else if (page.equals("Contact")) {
-            this.pageLoader("/GUI/Reclamation/Supprimer.fxml");
+            this.pageLoader("/GUI/Reclamation/Supprimer.fxml",user);
         } else if (page.equals("Evenement") || page.equals("EvenementSingle")) {
-            this.pageLoader("/GUI/Evenement/Supprimer.fxml");
+            this.pageLoader("/GUI/Evenement/Supprimer.fxml",user);
         }
     }
 
@@ -292,6 +293,9 @@ public class FrontendController implements Initializable {
     public void redirection(User u) {
         user = u;
         nomUtilisateur.setText(user.getUsername());
+         page = "Accueil";
+        this.pageLoader("Accueil.fxml",user);
+        this.topButton(page);
         Timeline timeline = new Timeline(
                 new KeyFrame(Duration.seconds(3), (ActionEvent e) -> {
                     this.notification("Succès", "Bienvenue  " + u.getUsername());

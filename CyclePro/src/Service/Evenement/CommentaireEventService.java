@@ -115,6 +115,50 @@ public class CommentaireEventService implements IServices<CommentaireEvent>{
     }
     
     
+     public String getUserName(int idUser) {
+         String ch="";
+        try {
+            String requete = "SELECT username FROM  user  where id =? ";
+            PreparedStatement pst = cnx.prepareStatement(requete);
+            pst.setInt(1,idUser);
+            ResultSet rs = pst.executeQuery();
+            while (rs.next()) {
+                
+             ch =rs.getString(1);
+            }
+           return ch;
+        } catch (SQLException ex) {
+            System.err.println(ex.getMessage());
+        
+        }
+
+        return ch; 
+    
+    
+    }
+    
+       public String getEvent(int idEvent) {
+         List<CommentaireEvent> list = new ArrayList<>();
+         String ch="";
+        try {
+            String requete = "SELECT nom FROM event  where id =?";
+            PreparedStatement pst = cnx.prepareStatement(requete);
+            pst.setInt(1,idEvent);
+            ResultSet rs = pst.executeQuery();
+           while (rs.next()) {
+                
+             ch =rs.getString(1);
+            }
+           return ch;
+        } catch (SQLException ex) {
+            System.err.println(ex.getMessage());
+        }
+
+        return ch; 
+    
+    
+    }
+    
     
   
     

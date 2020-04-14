@@ -7,14 +7,21 @@ package GUI.Evenement;
 
 import java.net.URL;
 import java.util.ResourceBundle;
+import static javafx.application.Application.launch;
+import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
+import javafx.scene.layout.FlowPane;
 
 /**
  * FXML Controller class
  *
- * @author toshiba
+ * @author ASUS
  */
-public class SupprimerController implements Initializable {
+public class TestEventController implements Initializable {
+
+    @FXML
+    private FlowPane flowpane;
 
     /**
      * Initializes the controller class.
@@ -22,6 +29,15 @@ public class SupprimerController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-    }    
+        for (int i = 0; i < 20; i++) {
+		   	 	flowpane.getChildren().add(new Button("Button"));
+		    }
+        
+        
+        
+        
+    }
+
+  
     
 }

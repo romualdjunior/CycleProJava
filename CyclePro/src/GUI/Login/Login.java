@@ -15,7 +15,7 @@ public class Login extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("/GUI/Frontend/Frontend.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("/GUI/Login/Login.fxml"));
         primaryStage.setTitle("CyclePro");
         Scene scene = new Scene(root);
         primaryStage.setScene(scene);
