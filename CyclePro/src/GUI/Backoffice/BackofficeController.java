@@ -5,27 +5,43 @@
  */
 package GUI.Backoffice;
 
+import Entitie.User.User;
 import GUI.Frontend.*;
 import GUI.Blog.BlogController;
 import GUI.Evenement.EvenementController;
+import Service.User.UserService;
 import animatefx.animation.FadeIn;
 import animatefx.animation.FadeInDown;
+import animatefx.animation.FadeOut;
+import animatefx.animation.SlideInLeft;
+import animatefx.animation.SlideOutLeft;
 import com.jfoenix.controls.JFXButton;
+import com.jfoenix.controls.JFXPasswordField;
+import com.jfoenix.controls.JFXTextField;
 import java.io.IOException;
 import java.net.URL;
+import java.sql.SQLException;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.animation.KeyFrame;
+import javafx.animation.Timeline;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Label;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.Pane;
+import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
+import javafx.util.Duration;
 
 /**
  * FXML Controller class
@@ -48,7 +64,30 @@ public class BackofficeController implements Initializable {
 
     @FXML
     private JFXButton supprimer;
+    @FXML
+    private JFXTextField emailUsername;
 
+    @FXML
+    private JFXPasswordField password;
+
+    @FXML
+    private Pane notification;
+
+    @FXML
+    private Label notificationMessage;
+    @FXML
+    private ImageView notificationImage;
+    @FXML
+    private Label nomUtilisateur;
+    @FXML
+    private Pane blackScreen;
+    @FXML
+    private Pane signIn2;
+    @FXML
+    private VBox vbox;
+
+    boolean sidebarVisible;
+    User user;
     String page;
     Parent fxml;
 
@@ -57,6 +96,11 @@ public class BackofficeController implements Initializable {
         page = "Accueil";
         this.pageLoader("Accueil.fxml");
         this.topButton(page);
+        vbox.setVisible(false);
+        sidebarVisible = false;
+        blackScreen.setVisible(false);
+        signIn2.setVisible(false);
+        notification.setVisible(false);
 
     }
 
@@ -96,7 +140,7 @@ public class BackofficeController implements Initializable {
     void blog(ActionEvent event) {
         page = "Blog";
         this.topButton(page);
-         this.pageLoader("/GUI/Blog/Ajouter.fxml");
+        this.pageLoader("/GUI/Blog/AffichierFournisseur.fxml");
 
     }
 
@@ -104,14 +148,14 @@ public class BackofficeController implements Initializable {
     void boutique(ActionEvent event) {
         page = "Shop";
         this.topButton(page);
-         this.pageLoader("/GUI/Stock/AffichierFournisseur.fxml");
+        this.pageLoader("/GUI/Stock/Ajouter.fxml");
     }
 
     @FXML
     void contact(ActionEvent event) {
         page = "Contact";
         this.topButton(page);
-         this.pageLoader("/GUI/Reclamation/Ajouter.fxml");
+        this.pageLoader("/GUI/Reclamation/Ajouter.fxml");
 
     }
 
@@ -167,19 +211,103 @@ public class BackofficeController implements Initializable {
             this.pageLoader("/GUI/Evenement/Supprimer.fxml");
         }
     }
-    
-        @FXML
+
+    @FXML
     void Frontend(ActionEvent event) throws IOException {
-Parent root = FXMLLoader.load(getClass().getResource("/GUI/Frontend/Frontend.fxml"));
-          Stage stage=(Stage)centerContent.getScene().getWindow();
-          stage.close();
-          Stage stage2=new Stage();
+        FXMLLoader Loader = new FXMLLoader(getClass().getResource("/GUI/Frontend/Frontend.fxml"));
+        Parent fxml = Loader.load();
+        FrontendController e = Loader.getController();
+        e.redirection(user);
+        Stage stage = (Stage) centerContent.getScene().getWindow();
+        stage.close();
+        Stage stage2 = new Stage();
         stage2.setTitle("CyclePro");
-        Scene scene = new Scene(root);
+        Scene scene = new Scene(fxml);
         stage2.setScene(scene);
         scene.setFill(Color.TRANSPARENT);
         stage2.initStyle(StageStyle.DECORATED);
         stage2.show();
+    }
+
+    @FXML
+    void connecting(ActionEvent event) throws SQLException {
+        UserService userService = new UserService();
+        int idUser = userService.connexion(emailUsername.getText(), password.getText());
+        if (idUser != -1) {
+            Stage stage = (Stage) emailUsername.getScene().getWindow();
+            user = userService.utilisateur(idUser);
+            this.notification("Succès", "Bienvenue " + user.getUsername());
+            new FadeOut(blackScreen).play();
+            new FadeOut(signIn2).play();
+            blackScreen.setVisible(false);
+            signIn2.setVisible(false);
+            nomUtilisateur.setText(user.getUsername());
+
+        } else {
+            this.notification("Erreur", "Identifiants invalides");
+        }
+    }
+
+    public void redirection(User u) {
+        user = u;
+        nomUtilisateur.setText(user.getUsername());
+        Timeline timeline = new Timeline(
+                new KeyFrame(Duration.seconds(3), (ActionEvent e) -> {
+                    this.notification("Succès", "Bienvenue  " + u.getUsername());
+                }));
+        timeline.play();
+    }
+
+    @FXML
+    void sideBar(ActionEvent event) {
+        vbox.setVisible(true);
+        if (sidebarVisible == false) {
+            new SlideInLeft(vbox).play();
+            sidebarVisible = true;
+
+        } else {
+            new SlideOutLeft(vbox).play();
+            sidebarVisible = false;
+
+        }
+
+    }
+
+    public void notification(String Type, String message) {
+        notificationMessage.setText(message);
+
+        switch (Type) {
+            case "Succès":
+                notification.setStyle("-fx-background-color:#2E7252;-fx-background-radius:4px;-fx-effect: dropshadow(three-pass-box, rgb(2,0,252,0.7), 10, 0, 0, 0);");
+                notificationImage.setImage(new Image("/GUI/Images/Succès.png"));
+
+                break;
+            case "Erreur":
+                notification.setStyle("-fx-background-color:#702820;-fx-background-radius:4px;-fx-effect: dropshadow(three-pass-box, rgb(2,0,252,0.7), 10, 0, 0, 0);");
+                notificationImage.setImage(new Image("/GUI/Images/Icon material-error-outline.png"));
+                break;
+            default:
+
+        }
+        new FadeIn(notification).play();
+        notification.setVisible(true);
+        Timeline timeline = new Timeline(
+                new KeyFrame(Duration.seconds(3), (ActionEvent e) -> {
+                    new FadeOut(notification).play();
+
+                }));
+
+        timeline.play();
+    }
+
+    @FXML
+    void changeUser(ActionEvent event) {
+        System.out.println("manger");
+        new FadeIn(blackScreen).play();
+        new FadeInDown(signIn2).play();
+        blackScreen.setVisible(true);
+        signIn2.setVisible(true);
+
     }
 
 }

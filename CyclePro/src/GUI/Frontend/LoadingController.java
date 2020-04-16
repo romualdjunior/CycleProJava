@@ -5,6 +5,7 @@
  */
 package GUI.Frontend;
 
+import Entitie.User.User;
 import GUI.Login.LoginController;
 import animatefx.animation.FadeIn;
 import animatefx.animation.FadeInDown;
@@ -40,46 +41,51 @@ public class LoadingController implements Initializable {
     /**
      * Initializes the controller class.
      */
-        @FXML
+    @FXML
     private ImageView logo;
-             @FXML
+    @FXML
     private ImageView logo1;
-        @FXML
+    @FXML
     private Pane pane;
-        
+    User user;
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         new ZoomIn(logo).play();
         Timeline timeline = new Timeline(
-    new KeyFrame(Duration.seconds(1.3), (ActionEvent e) -> {
-        ImageView loader=new ImageView("/GUI/Images/loadBar.gif");
-        loader.setX(105.5);
-        loader.setY(530.5);
-            pane.getChildren().add(loader);
+                new KeyFrame(Duration.seconds(1.3), (ActionEvent e) -> {
+                    ImageView loader = new ImageView("/GUI/Images/loadBar.gif");
+                    loader.setX(30);
+                    loader.setY(570.5);
+                    pane.getChildren().add(loader);
 
-        }));
-     timeline.play();  
-   Timeline timeline2 = new Timeline(
-    new KeyFrame(Duration.seconds(3), (ActionEvent e) -> {
-        Parent root;
-            try {
-                root = FXMLLoader.load(getClass().getResource("/GUI/Frontend/Frontend.fxml"));
-                   Stage stage=(Stage)logo.getScene().getWindow();
-        Scene scene = new Scene(root);
-        stage.setScene(scene);
-        new FadeIn(root).play();
-        stage.show();
-            } catch (IOException ex) {
-                Logger.getLogger(LoadingController.class.getName()).log(Level.SEVERE, null, ex);
-            }
+                }));
+        timeline.play();
+        Timeline timeline2 = new Timeline(
+                new KeyFrame(Duration.seconds(3), (ActionEvent e) -> {
+                    try {
+                         FXMLLoader Loader = new FXMLLoader(getClass().getResource("/GUI/Frontend/Frontend.fxml"));
+                        Parent root = Loader.load();
+                        Stage stage = (Stage) logo.getScene().getWindow();
+                        FrontendController f=Loader.getController();
+                        f.redirection(user);
+                        Scene scene = new Scene(root);
+                        stage.setScene(scene);
+                        new FadeIn(root).play();
+                        stage.show();
+                    } catch (IOException ex) {
+                        Logger.getLogger(LoadingController.class.getName()).log(Level.SEVERE, null, ex);
+                    }
 
-        }));
-   timeline.setOnFinished((e)->{
+                }));
+        timeline.setOnFinished((e) -> {
             timeline2.play();
-        });     
-      
-       
+        });
+
     }
     
-    
+    public void redirection(User u) {
+      user=u;
+    }
+
 }

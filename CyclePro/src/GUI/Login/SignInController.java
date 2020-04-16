@@ -1,5 +1,7 @@
 package GUI.Login;
 
+import Entitie.User.User;
+import GUI.Frontend.LoadingController;
 import Service.User.UserService;
 import java.io.IOException;
 import java.net.URL;
@@ -32,42 +34,50 @@ import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import javax.swing.JOptionPane;
-public class SignInController implements Initializable{
+
+public class SignInController implements Initializable {
 
     @FXML
     private Label SignIn;
     @FXML
     private JFXTextField emailUsername;
     @FXML
-    private JFXPasswordField password;    
+    private JFXPasswordField password;
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-      
-    }   
+
+    }
 
     @FXML
     void typingUsername(ActionEvent event) {
-          System.out.println("manger");
+        System.out.println("manger");
     }
-      @FXML
-    void connecting(ActionEvent event) throws SQLException, IOException {
-        UserService userService=new UserService();
-          System.out.println(emailUsername.getText());
-          System.out.println(password.getText());
-          if (userService.connexion(emailUsername.getText(), password.getText())!=-1) {
-          Parent root = FXMLLoader.load(getClass().getResource("/GUI/Frontend/Loading.fxml"));
-          Stage stage=(Stage)emailUsername.getScene().getWindow();
-          stage.close();
-          Stage stage2=new Stage();
-        stage2.setTitle("CyclePro");
-        Scene scene = new Scene(root);
-        stage2.setScene(scene);
-        scene.setFill(Color.TRANSPARENT);
-        stage2.initStyle(StageStyle.DECORATED);
-        stage2.show();
 
-          }
-          else JOptionPane.showMessageDialog(null, "Identifianats invalides");
+    @FXML
+    void connecting(ActionEvent event) throws SQLException, IOException {
+        UserService userService = new UserService();
+        int idUser=userService.connexion(emailUsername.getText(), password.getText());
+        if (idUser!= -1) {
+            FXMLLoader Loader = new FXMLLoader(getClass().getResource("/GUI/Frontend/Loading.fxml"));
+            Parent root = Loader.load();
+          Stage stage = (Stage) emailUsername.getScene().getWindow();
+            stage.close();
+            Stage stage2 = new Stage();
+            stage2.setTitle("CyclePro");
+            Scene scene = new Scene(root);
+            stage2.setScene(scene);
+            LoadingController e = Loader.getController();
+            User user=new User();
+            user=userService.utilisateur(idUser);
+            e.redirection(user);
+            scene.setFill(Color.TRANSPARENT);
+            stage2.initStyle(StageStyle.DECORATED);
+            stage2.show();
+
+        } else {
+            JOptionPane.showMessageDialog(null, "Identifianats invalides");
+        }
 
     }
 

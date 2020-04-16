@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+
+<AnchorPane id="AnchorPane" prefHeight="440.0" prefWidth="1216.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.Evenement.ListCommentaireController">
+    <children>
+      <ScrollPane layoutX="-7.0" layoutY="41.0" prefHeight="712.0" prefWidth="1223.0">
+        <content>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="1100.0" prefWidth="1216.0" style="-fx-background-color: #FBFCFE;">
+                <children>
+      <TableView fx:id="tabEvent" layoutX="276.0" layoutY="125.0" prefHeight="364.0" prefWidth="696.0" AnchorPane.bottomAnchor="606.0" AnchorPane.leftAnchor="276.0" AnchorPane.rightAnchor="244.0" AnchorPane.topAnchor="125.0">
+        <columns>
+         <TableColumn fx:id="Contenue" prefWidth="234.99996948242188" text="Contenue" />
+         <TableColumn fx:id="DateComment" minWidth="0.0" prefWidth="162.0" text="Date" />
+            <TableColumn fx:id="Event" prefWidth="122.0" text="Evenement" />
+            <TableColumn fx:id="User" prefWidth="176.0" text="Nom d'utilisateur" />
+            
+                           
+        </columns>
+      </TableView>
+      <Pane prefHeight="479.0" prefWidth="200.0" style="-fx-background-color: #ffff;">
+         <children>
+           
+                              <Button layoutX="35.0" layoutY="160.0" mnemonicParsing="false" onAction="#deleteAction" prefHeight="25.0" prefWidth="130.0" text="Supprimer" />
+                        <Button layoutX="33.0" layoutY="215.0" mnemonicParsing="false" onAction="#Retourner" prefHeight="25.0" prefWidth="135.0" text="Retourner" />
+            
+                           </children>
+      </Pane>
+      </children>
+          </AnchorPane>
+        </content>
+      </ScrollPane>
+   </children> 
+</AnchorPane>

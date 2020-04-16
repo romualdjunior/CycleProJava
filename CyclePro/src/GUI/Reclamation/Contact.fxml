@@ -31,7 +31,7 @@
                         <JFXButton layoutX="46.0" layoutY="91.0" styleClass="visiterSiteEnLigne" stylesheets="@../Frontend/Frontend.css" text="Visiter notre site en ligne" textFill="WHITE" />
                         <ImageView fitHeight="111.0" fitWidth="183.0" layoutX="916.0" layoutY="18.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../Images/OBJECTS.png" />
+                              <Image url="@../Images/cycling-clipart-animation-2-or-unscreen.gif" />
                            </image>
                         </ImageView>
                      </children>

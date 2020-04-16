@@ -104,6 +104,23 @@ public class UserService implements IService<User> {
         }
         return -1;
     }
- 
+
+    @Override
+    public User utilisateur(int id) throws SQLException {
+        String req = "select * from user where id = ?";
+        try {
+            PreparedStatement pst = cnx.prepareStatement(req);
+            pst.setInt(1, id);
+            ResultSet rs = pst.executeQuery();
+            while (rs.next()) {
+                return new User(id, rs.getString(2), rs.getString(4));
+            }
+        } catch (SQLException err) {
+            System.out.println(err.getMessage());
+        }
+        
+        return new User();
+
+    }
 
 }
