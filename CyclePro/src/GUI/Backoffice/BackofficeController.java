@@ -104,7 +104,7 @@ public class BackofficeController implements Initializable {
     void boutique(ActionEvent event) {
         page = "Shop";
         this.topButton(page);
-         this.pageLoader("/GUI/Stock/Ajouter.fxml");
+         this.pageLoader("/GUI/Stock/AffichierFournisseur.fxml");
     }
 
     @FXML
@@ -133,7 +133,7 @@ public class BackofficeController implements Initializable {
         if (page.equals("Blog") || page.equals("BlogSingle")) {
             this.pageLoader("/GUI/Blog/Ajouter.fxml");
         } else if (page.equals("Shop")) {
-            this.pageLoader("/GUI/Stock/Ajouter.fxml");
+            this.pageLoader("/GUI/Stock/fournisseurf.fxml");
         } else if (page.equals("Contact")) {
             this.pageLoader("/GUI/Reclamation/Ajouter.fxml");
         } else if (page.equals("Evenement") || page.equals("EvenementSingle")) {
@@ -147,7 +147,7 @@ public class BackofficeController implements Initializable {
         if (page.equals("Blog") || page.equals("BlogSingle")) {
             this.pageLoader("/GUI/Blog/Modifier.fxml");
         } else if (page.equals("Shop")) {
-            this.pageLoader("/GUI/Stock/Modifier.fxml");
+            this.pageLoader("/GUI/Stock/Velo.fxml");
         } else if (page.equals("Contact")) {
             this.pageLoader("/GUI/Reclamation/Modifier.fxml");
         } else if (page.equals("Evenement") || page.equals("EvenementSingle")) {
@@ -160,7 +160,7 @@ public class BackofficeController implements Initializable {
         if (page.equals("Blog") || page.equals("BlogSingle")) {
             this.pageLoader("/GUI/Blog/Supprimer.fxml");
         } else if (page.equals("Shop")) {
-            this.pageLoader("/GUI/Stock/Supprimer.fxml");
+            this.pageLoader("/GUI/Stock/Accessoires.fxml");
         } else if (page.equals("Contact")) {
             this.pageLoader("/GUI/Reclamation/Supprimer.fxml");
         } else if (page.equals("Evenement") || page.equals("EvenementSingle")) {

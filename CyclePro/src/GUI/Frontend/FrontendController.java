@@ -49,11 +49,13 @@ public class FrontendController implements Initializable {
 
     String page;
     Parent fxml;
+    
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         page = "Accueil";
-        this.pageLoader("Accueil.fxml");
+        //this.pageLoader("Accueil.fxml");
+        this.pageLoader("/GUI/Stock/Shop.fxml");
         this.topButton(page);
 
     }
@@ -76,9 +78,9 @@ public class FrontendController implements Initializable {
             ajouter.setVisible(true);
             modifier.setVisible(true);
             supprimer.setVisible(true);
-            ajouter.setText("Article");
-            modifier.setText("Autre");
-            supprimer.setText("Autre");
+            ajouter.setText("Velo");
+            modifier.setText("Accessoire");
+            supprimer.setText("Promotion");
            
         }
          else  {
@@ -159,7 +161,7 @@ public class FrontendController implements Initializable {
         if (page.equals("Blog") || page.equals("BlogSingle")) {
             this.pageLoader("/GUI/Blog/Ajouter.fxml");
         } else if (page.equals("Shop")) {
-            this.pageLoader("/GUI/Stock/Ajouter.fxml");
+            this.pageLoader("/GUI/Stock/Shop.fxml");
         } else if (page.equals("Contact")) {
             this.pageLoader("/GUI/Reclamation/Ajouter.fxml");
         } else if (page.equals("Evenement") || page.equals("EvenementSingle")) {
@@ -173,7 +175,7 @@ public class FrontendController implements Initializable {
         if (page.equals("Blog") || page.equals("BlogSingle")) {
             this.pageLoader("/GUI/Blog/Modifier.fxml");
         } else if (page.equals("Shop")) {
-            this.pageLoader("/GUI/Stock/Modifier.fxml");
+            this.pageLoader("/GUI/Stock/ShopA.fxml");
         } else if (page.equals("Contact")) {
             this.pageLoader("/GUI/Reclamation/Modifier.fxml");
         } else if (page.equals("Evenement") || page.equals("EvenementSingle")) {
@@ -207,5 +209,6 @@ public class FrontendController implements Initializable {
         stage2.initStyle(StageStyle.DECORATED);
         stage2.show();
     }
+
 }
 
