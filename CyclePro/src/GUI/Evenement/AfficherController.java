@@ -7,7 +7,9 @@ package GUI.Evenement;
 
 import Entitie.Evenement.Event;
 import Service.Evenement.EventService;
+import Service.Evenement.ParticipantsService;
 import animatefx.animation.FadeIn;
+import com.email.durgesh.Email;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.Date;
@@ -75,6 +77,8 @@ public class AfficherController implements Initializable {
             public void handle(ActionEvent event) {
                 EventService es = new EventService();
                 Event e = tabEvent.getSelectionModel().getSelectedItem();
+                ParticipantsService ps = new ParticipantsService();
+                es.afficherParticipants(e.getId()).forEach(System.out::println);
                 es.supprimer(e);
                 tabEvent.refresh();
 
@@ -86,6 +90,7 @@ public class AfficherController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
           EventService es = new EventService();
+            ParticipantsService ps = new ParticipantsService();
             Event eventSelec = tabEvent.getSelectionModel().getSelectedItem();
       data = FXCollections.observableArrayList();
         tabEvent.setOnMouseClicked(new EventHandler<MouseEvent>(){
@@ -96,7 +101,10 @@ public class AfficherController implements Initializable {
                 imageEvent.setImage(new Image(this.getClass().getResourceAsStream(eventSelec.getPhotoEvent())));
                  }
           });
+        
      
+          Participants.setCellValueFactory(cm-> new SimpleStringProperty( Integer.toString(ps.NbparticipantsByEvent(cm.getValue().getId()))));
+       
         Nom.setCellValueFactory(
                 new PropertyValueFactory<Event, String>("nom")
         );
@@ -143,8 +151,25 @@ public class AfficherController implements Initializable {
         
         try{
         EventService es = new EventService();
-
+        ParticipantsService ps = new ParticipantsService();
         Event eventSelec = tabEvent.getSelectionModel().getSelectedItem();
+        es.afficherParticipants(eventSelec.getId()).forEach(p->{
+         try{
+        
+    Email email = new Email("cyclepro.event@gmail.com","cyclepro.event");
+   email.setFrom("cyclepro.event@gmail.com", "Annonce d'evenement");
+   email.setSubject("Bonjour "+ps.getUserName(p.getUser())+"l'evenement est repoté  ");
+   email.setContent("<h1>hello this message for test</h1>", "text/html");
+   email.addRecipient("oumaymaboudokhane12@gmail.com");
+    email.send();
+        
+    }catch(Exception ex){}
+    
+   
+        
+        
+        });
+        
         es.supprimer(eventSelec);
         tabEvent.getItems().remove(eventSelec);
         tabEvent.refresh();}
@@ -161,7 +186,7 @@ public class AfficherController implements Initializable {
     @FXML
     private void updateAction(ActionEvent event) throws IOException {
         EventService es = new EventService();
-       try{
+       
         Event eventSelec = tabEvent.getSelectionModel().getSelectedItem();
          FXMLLoader Loader = new FXMLLoader(getClass().getResource("/GUI/Evenement/Modifier.fxml"));
 
@@ -169,7 +194,7 @@ public class AfficherController implements Initializable {
         
         ModifierController e = Loader.getController();
         e.redirection(centerContent, eventSelec);
-       
+        System.out.println(centerContent);
         centerContent.getChildren().removeAll();
 
         new FadeIn(fxml).play();
@@ -180,22 +205,13 @@ public class AfficherController implements Initializable {
         tabEvent.setItems(data);
         data.forEach(System.out::println);
        
-       }
-       catch(Exception e){
-       
-            Alert alert=new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("Selection un evenement pour modifier ");
-            alert.showAndWait();
-            alert.close();
-       
-       }
        
     }
     
         @FXML
     private void commentaire(ActionEvent event) throws IOException {
         EventService es = new EventService();
-       try{
+     
         Event eventSelec = tabEvent.getSelectionModel().getSelectedItem();
          FXMLLoader Loader = new FXMLLoader(getClass().getResource("/GUI/Evenement/ListComment.fxml"));
 
@@ -209,15 +225,7 @@ public class AfficherController implements Initializable {
         new FadeIn(fxml).play();
         centerContent.getChildren().setAll(fxml);
        
-       }
-       catch(Exception e){
-       
-            Alert alert=new Alert(Alert.AlertType.ERROR);
-            alert.setContentText("Selection un evenement pour afficher les commentaires ");
-            alert.showAndWait();
-            alert.close();
-       
-       }
+      
        
     }
     @FXML

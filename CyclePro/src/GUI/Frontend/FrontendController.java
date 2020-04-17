@@ -254,7 +254,7 @@ public class FrontendController implements Initializable {
         } else if (page.equals("Contact")) {
             this.pageLoader("/GUI/Reclamation/Supprimer.fxml",user);
         } else if (page.equals("Evenement") || page.equals("EvenementSingle")) {
-            this.pageLoader("/GUI/Evenement/Supprimer.fxml",user);
+            this.pageLoader("/GUI/Evenement/PieChart.fxml",user);
         }
     }
 

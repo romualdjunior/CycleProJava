@@ -74,13 +74,14 @@ public class ListParticipantController implements Initializable {
                 
         
  
-          DatePart.setCellValueFactory(
+         
+         Event.setCellValueFactory(cm-> new SimpleStringProperty(ps.getEventP(event.getId())));
+           User.setCellValueFactory(cm-> new SimpleStringProperty(ps.getEmailUser(cm.getValue().getUser())));
+   
+           DatePart.setCellValueFactory(
                 new PropertyValueFactory<Participants, Date>("daePart")
         );
-          User.setCellValueFactory(cm-> new SimpleStringProperty(ps.getUserName(cm.getValue().getUser())));
-         Event.setCellValueFactory(cm-> new SimpleStringProperty(ps.getEventP(event.getId())));
         
-          
           Participants partSelec = tabEvent.getSelectionModel().getSelectedItem();
         data = FXCollections.observableArrayList();
         data.addAll( ps.afficherParticipantEvent(event.getId()));
