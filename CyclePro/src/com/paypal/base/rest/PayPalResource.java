@@ -18,6 +18,9 @@ import java.util.Properties;
  */
 public abstract class PayPalResource extends PayPalModel{
 
+    public PayPalResource() {
+    }
+
 	private static final Logger log = LoggerFactory.getLogger(PayPalResource.class);
 	
 	/*

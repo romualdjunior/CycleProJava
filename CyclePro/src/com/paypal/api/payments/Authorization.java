@@ -180,6 +180,70 @@ public class Authorization extends PayPalResource {
 		return configureAndExecute(apiContext, HttpMethod.POST, resourcePath, payLoad, Capture.class);
 	}
 
+    public String getId() {
+        return id;
+    }
+
+    public Amount getAmount() {
+        return amount;
+    }
+
+    public String getPaymentMode() {
+        return paymentMode;
+    }
+
+    public String getState() {
+        return state;
+    }
+
+    public String getReasonCode() {
+        return reasonCode;
+    }
+
+    public String getPendingReason() {
+        return pendingReason;
+    }
+
+    public String getProtectionEligibility() {
+        return protectionEligibility;
+    }
+
+    public String getProtectionEligibilityType() {
+        return protectionEligibilityType;
+    }
+
+    public FmfDetails getFmfDetails() {
+        return fmfDetails;
+    }
+
+    public String getParentPayment() {
+        return parentPayment;
+    }
+
+    public String getValidUntil() {
+        return validUntil;
+    }
+
+    public String getCreateTime() {
+        return createTime;
+    }
+
+    public String getUpdateTime() {
+        return updateTime;
+    }
+
+    public String getReferenceId() {
+        return referenceId;
+    }
+
+    public String getReceiptId() {
+        return receiptId;
+    }
+
+    public List<Links> getLinks() {
+        return links;
+    }
+
 
 	/**
 	 * Voids, or cancels, an authorization, by ID. You cannot void a fully captured authorization.

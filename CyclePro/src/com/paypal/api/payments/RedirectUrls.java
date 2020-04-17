@@ -21,10 +21,18 @@ public class RedirectUrls extends PayPalModel {
 	 */
 	private String cancelUrl;
 
-	/**
-	 * Default Constructor
-	 */
-	public RedirectUrls() {
+	public void setReturnUrl(String returnUrl) {
+        this.returnUrl = returnUrl;
 	}
+
+    /**
+     * Default Constructor
+     */
+    public void setCancelUrl(String cancelUrl) {
+        this.cancelUrl = cancelUrl;
+    }
+
+    public RedirectUrls() {
+    }
 
 }

@@ -6,11 +6,15 @@
 package IService.Commande;
 
 import Entitie.Commande.Commande;
+import Entitie.Commande.CommandeAdresse;
+import Entitie.Commande.Panier;
 import Entitie.User.User;
 import com.itextpdf.text.DocumentException;
 import java.io.FileNotFoundException;
 import java.sql.SQLException;
 import java.util.List;
+import java.util.Map;
+import javafx.collections.ObservableList;
 
 /**
  *
@@ -28,7 +32,9 @@ public interface IServiceCommande<Commande> {
 
     int getLastCommande() throws SQLException;
 
-    public void historique(User user, Integer Total) throws SQLException, DocumentException, FileNotFoundException;
+    public void historique(User user, int idCommande, ObservableList<Panier> panier) throws SQLException, DocumentException, FileNotFoundException;
 
-    public void readAll2(String champ) throws SQLException;
+    public Commande getCommande(int idCommande) throws SQLException;
+    public List<CommandeAdresse> readAll2() throws SQLException;
+     public int[] statistiques() throws SQLException;
 }

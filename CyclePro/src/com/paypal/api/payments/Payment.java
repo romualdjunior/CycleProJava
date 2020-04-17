@@ -44,6 +44,158 @@ public class Payment extends PayPalResource {
 	 */
 	private String cart;
 
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public void setIntent(String intent) {
+        this.intent = intent;
+    }
+
+    public void setPayer(Payer payer) {
+        this.payer = payer;
+    }
+
+    public void setPotentialPayerInfo(PotentialPayerInfo potentialPayerInfo) {
+        this.potentialPayerInfo = potentialPayerInfo;
+    }
+
+    public void setPayee(Payee payee) {
+        this.payee = payee;
+    }
+
+    public void setCart(String cart) {
+        this.cart = cart;
+    }
+
+    public void setTransactions(List<Transaction> transactions) {
+        this.transactions = transactions;
+    }
+
+    public void setFailedTransactions(List<Error> failedTransactions) {
+        this.failedTransactions = failedTransactions;
+    }
+
+    public void setBillingAgreementTokens(List<BillingAgreementToken> billingAgreementTokens) {
+        this.billingAgreementTokens = billingAgreementTokens;
+    }
+
+    public void setCreditFinancingOffered(CreditFinancingOffered creditFinancingOffered) {
+        this.creditFinancingOffered = creditFinancingOffered;
+    }
+
+    public void setPaymentInstruction(PaymentInstruction paymentInstruction) {
+        this.paymentInstruction = paymentInstruction;
+    }
+
+    public void setState(String state) {
+        this.state = state;
+    }
+
+    public void setExperienceProfileId(String experienceProfileId) {
+        this.experienceProfileId = experienceProfileId;
+    }
+
+    public void setNoteToPayer(String noteToPayer) {
+        this.noteToPayer = noteToPayer;
+    }
+
+    public void setRedirectUrls(RedirectUrls redirectUrls) {
+        this.redirectUrls = redirectUrls;
+    }
+
+    public void setFailureReason(String failureReason) {
+        this.failureReason = failureReason;
+    }
+
+    public void setCreateTime(String createTime) {
+        this.createTime = createTime;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public String getIntent() {
+        return intent;
+    }
+
+    public Payer getPayer() {
+        return payer;
+    }
+
+    public PotentialPayerInfo getPotentialPayerInfo() {
+        return potentialPayerInfo;
+    }
+
+    public Payee getPayee() {
+        return payee;
+    }
+
+    public String getCart() {
+        return cart;
+    }
+
+    public List<Transaction> getTransactions() {
+        return transactions;
+    }
+
+    public List<Error> getFailedTransactions() {
+        return failedTransactions;
+    }
+
+    public List<BillingAgreementToken> getBillingAgreementTokens() {
+        return billingAgreementTokens;
+    }
+
+    public CreditFinancingOffered getCreditFinancingOffered() {
+        return creditFinancingOffered;
+    }
+
+    public PaymentInstruction getPaymentInstruction() {
+        return paymentInstruction;
+    }
+
+    public String getState() {
+        return state;
+    }
+
+    public String getExperienceProfileId() {
+        return experienceProfileId;
+    }
+
+    public String getNoteToPayer() {
+        return noteToPayer;
+    }
+
+    public RedirectUrls getRedirectUrls() {
+        return redirectUrls;
+    }
+
+    public String getFailureReason() {
+        return failureReason;
+    }
+
+    public String getCreateTime() {
+        return createTime;
+    }
+
+    public String getUpdateTime() {
+        return updateTime;
+    }
+
+    public List<Links> getLinks() {
+        return links;
+    }
+
+    public void setUpdateTime(String updateTime) {
+        this.updateTime = updateTime;
+    }
+
+    public void setLinks(List<Links> links) {
+        this.links = links;
+    }
+
 	/**
 	 * Transactional details including the amount and item details.
 	 */
@@ -113,6 +265,7 @@ public class Payment extends PayPalResource {
 	 * Default Constructor
 	 */
 	public Payment() {
+            
 	}
 
 	/**

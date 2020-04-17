@@ -21,6 +21,18 @@ public class Amount extends PayPalModel {
 	 */
 	private String total;
 
+    public void setCurrency(String currency) {
+        this.currency = currency;
+    }
+
+    public void setTotal(String total) {
+        this.total = total;
+    }
+
+    public void setDetails(Details details) {
+        this.details = details;
+    }
+
 	/**
 	 * Additional details of the payment amount.
 	 */

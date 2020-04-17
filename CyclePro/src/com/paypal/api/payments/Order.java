@@ -178,6 +178,66 @@ public class Order extends PayPalResource {
 		return configureAndExecute(apiContext, HttpMethod.POST, resourcePath, payLoad, Capture.class);
 	}
 
+    public String getId() {
+        return id;
+    }
+
+    public String getPurchaseUnitReferenceId() {
+        return purchaseUnitReferenceId;
+    }
+
+    public String getReferenceId() {
+        return referenceId;
+    }
+
+    public Amount getAmount() {
+        return amount;
+    }
+
+    public String getPaymentMode() {
+        return paymentMode;
+    }
+
+    public String getState() {
+        return state;
+    }
+
+    public String getReasonCode() {
+        return reasonCode;
+    }
+
+    public String getPendingReason() {
+        return pendingReason;
+    }
+
+    public String getProtectionEligibility() {
+        return protectionEligibility;
+    }
+
+    public String getProtectionEligibilityType() {
+        return protectionEligibilityType;
+    }
+
+    public String getParentPayment() {
+        return parentPayment;
+    }
+
+    public FmfDetails getFmfDetails() {
+        return fmfDetails;
+    }
+
+    public String getCreateTime() {
+        return createTime;
+    }
+
+    public String getUpdateTime() {
+        return updateTime;
+    }
+
+    public List<Links> getLinks() {
+        return links;
+    }
+
 
 	/**
 	 * Voids, or cancels, an order, by ID. You cannot void an order if a payment has already been partially or fully captured.

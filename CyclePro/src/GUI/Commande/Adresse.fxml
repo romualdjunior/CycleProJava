@@ -37,7 +37,7 @@
                         </ImageView>
                      </children>
                   </Pane>
-                  <JFXButton layoutX="692.0" layoutY="971.0" onAction="#commanderAction" prefHeight="33.0" prefWidth="158.0" ripplerFill="WHITE" style="-fx-background-color: #106AD2;" text="Passer à la commande" textFill="WHITE">
+                  <JFXButton layoutX="692.0" layoutY="971.0" onAction="#commanderAction" prefHeight="33.0" prefWidth="158.0" ripplerFill="WHITE" style="-fx-background-color: #106AD2;" text="Commander" textFill="WHITE">
                      <font>
                         <Font name="Source Sans Pro Semibold" size="12.0" />
                      </font>

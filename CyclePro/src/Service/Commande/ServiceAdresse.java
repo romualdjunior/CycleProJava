@@ -21,18 +21,19 @@ import java.util.List;
  *
  * @author toshiba
  */
-public class ServiceAdresse implements IServiceAdresse<Adresse>{
+public class ServiceAdresse implements IServiceAdresse<Adresse> {
 
-       private Connection cnx;
+    private Connection cnx;
     private Statement ste;
 
     public ServiceAdresse() {
         cnx = DataSource.getInstance().getCnx();
     }
+
     @Override
     public void ajouter(Adresse a) throws SQLException {
 
-    String req = "insert into adresse (nom,prenom,phone,email,pays,ville,etat,pincode,adresseLivraison) values (?,?,?,?,?,?,?,?,?)";
+        String req = "insert into adresse (nom,prenom,phone,email,pays,ville,etat,pincode,adresseLivraison) values (?,?,?,?,?,?,?,?,?)";
 
         try {
             PreparedStatement pst = cnx.prepareStatement(req);
@@ -49,11 +50,12 @@ public class ServiceAdresse implements IServiceAdresse<Adresse>{
             System.out.println("adresse ajoutée");
         } catch (SQLException err) {
             System.out.println(err.getMessage());
-        }    }
+        }
+    }
 
     @Override
     public boolean delete(Adresse a) throws SQLException {
-   String req = "delete from adresse where id=?";
+        String req = "delete from adresse where id=?";
         try {
             PreparedStatement pst = cnx.prepareStatement(req);
             pst.setInt(1, a.getId());
@@ -63,56 +65,85 @@ public class ServiceAdresse implements IServiceAdresse<Adresse>{
         } catch (SQLException err) {
             System.out.println(err.getMessage());
         }
-        return false;    }
+        return false;
+    }
 
     @Override
-    public boolean update(Adresse a) throws SQLException {
- String req = "update adresse set ville='Tunis' where id=?";
+    public boolean update(int idAdresse,String adresseLivraison,int pincode,String ville,String pays,String etat) throws SQLException {
+        String req = "update adresse set ville=?, pincode=?,pays=?,etat=?,adresseLivraison=? where id=?";
 
         try {
             PreparedStatement pst = cnx.prepareStatement(req);
-            pst.setInt(1, a.getId());
+            pst.setString(1, ville);
+            pst.setInt(2, pincode);
+            pst.setString(3, pays);
+            pst.setString(4, etat);
+            pst.setString(5, adresseLivraison);
+            pst.setInt(6, idAdresse);
             pst.executeUpdate();//uniqument avec l'ajout,la suppression et la modification dans la base de données
-            System.out.println("Commande mis à jour avec success");
+            System.out.println("Adresse mise à jour avec success");
             return true;
         } catch (SQLException err) {
             System.out.println(err.getMessage());
         }
-        return false;    }
+        return false;
+    }
 
     @Override
     public List<Adresse> readAll() throws SQLException {
-List<Adresse> list = new ArrayList();
+        List<Adresse> list = new ArrayList();
         String req = "select * from adresse ";
         try {
             PreparedStatement pst = cnx.prepareStatement(req);
             ResultSet rs = pst.executeQuery();
 
             while (rs.next()) {
-                 Adresse p = new Adresse(rs.getString(1),rs.getString(2),rs.getInt(3),rs.getString(4),rs.getString(5),rs.getString(6),rs.getString(7),rs.getInt(8),rs.getString(9));
+                Adresse p = new Adresse(rs.getString(1), rs.getString(2), rs.getInt(3), rs.getString(4), rs.getString(5), rs.getString(6), rs.getString(7), rs.getInt(8), rs.getString(9));
                 list.add(p);
             }
 
         } catch (SQLException err) {
             System.out.println(err.getMessage());
         }
-            return list;    }
+        return list;
+    }
 
     @Override
     public int getLastAdresse() throws SQLException {
-String req = "select * from adresse order by id desc limit 1";
+        String req = "select * from adresse order by id desc limit 1";
         try {
             PreparedStatement pst = cnx.prepareStatement(req);
+
             ResultSet rs = pst.executeQuery();
             while (rs.next()) {
 
-               return rs.getInt(1);
+                return rs.getInt(1);
             }
 
         } catch (SQLException err) {
             System.out.println(err.getMessage());
         }
-        return -1;    
+        return -1;
     }
-    
+
+    @Override
+    public Adresse getAdresse(int idAdresse) throws SQLException {
+        String req = "select * from adresse where id=?";
+        try {
+            PreparedStatement pst = cnx.prepareStatement(req);
+            pst.setInt(1, idAdresse);
+
+            ResultSet rs = pst.executeQuery();
+            while (rs.next()) {
+                System.out.println("oui");
+                return new Adresse(rs.getString(2), rs.getString(3), rs.getInt(4), rs.getString(5), rs.getString(6), rs.getString(7), rs.getString(8), rs.getInt(9), rs.getString(10));
+            }
+
+        } catch (SQLException err) {
+            System.out.println(err.getMessage());
+        }
+        System.out.println("non");
+        return new Adresse();
+    }
+
 }

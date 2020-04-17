@@ -177,4 +177,48 @@ public class Capture extends PayPalResource {
 		return configureAndExecute(apiContext, HttpMethod.POST, resourcePath, payLoad, DetailedRefund.class);
 	}
 
+    public String getId() {
+        return id;
+    }
+
+    public Amount getAmount() {
+        return amount;
+    }
+
+    public Boolean getIsFinalCapture() {
+        return isFinalCapture;
+    }
+
+    public String getState() {
+        return state;
+    }
+
+    public String getReasonCode() {
+        return reasonCode;
+    }
+
+    public String getParentPayment() {
+        return parentPayment;
+    }
+
+    public String getInvoiceNumber() {
+        return invoiceNumber;
+    }
+
+    public Currency getTransactionFee() {
+        return transactionFee;
+    }
+
+    public String getCreateTime() {
+        return createTime;
+    }
+
+    public String getUpdateTime() {
+        return updateTime;
+    }
+
+    public List<Links> getLinks() {
+        return links;
+    }
+
 }

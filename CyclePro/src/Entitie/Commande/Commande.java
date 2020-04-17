@@ -17,6 +17,9 @@ public class Commande {
     private int idUser;
     private int idAdresse;
 
+    public Commande() {
+    }
+
     public void setTotal(int total) {
         this.total = total;
     }

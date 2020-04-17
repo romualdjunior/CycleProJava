@@ -339,6 +339,21 @@
                         <Insets top="10.0" />
                      </VBox.margin>
                   </JFXButton>
+                  <JFXButton layoutX="10.0" layoutY="362.0" onAction="#commandeAction" prefHeight="35.0" prefWidth="213.0" styleClass="menuButton" stylesheets="@Backend.css" text="    Commande" textFill="#ffffffa6">
+                     <graphic>
+                        <ImageView fitHeight="24.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../Images/Icon%20awesome-cart-arrow-down.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <padding>
+                        <Insets right="60.0" />
+                     </padding>
+                     <VBox.margin>
+                        <Insets top="10.0" />
+                     </VBox.margin>
+                  </JFXButton>
                   <JFXButton styleClass="menuButton2" stylesheets="@Backend.css" text="Recommandé!" textFill="#ffffffa1">
                      <font>
                         <Font name="Source Sans Pro" size="14.0" />
@@ -387,7 +402,7 @@
                   </Pane>
                </children>
             </VBox>
-            <Pane fx:id="blackScreen" prefHeight="712.0" prefWidth="1121.0" style="-fx-background-color: rgba(0,0,0,0.6);" />
+            <Pane fx:id="blackScreen" layoutX="160.0" prefHeight="712.0" prefWidth="1121.0" style="-fx-background-color: rgba(0,0,0,0.6);" />
             <Pane fx:id="signIn2" layoutX="249.0" layoutY="110.0" prefHeight="512.0" prefWidth="888.0" style="-fx-background-color: #FCFCFC;">
                <children>
                   <Label alignment="BASELINE_LEFT" layoutX="93.0" layoutY="68.0" prefWidth="188.0" text="SIGN IN" textFill="#707070">

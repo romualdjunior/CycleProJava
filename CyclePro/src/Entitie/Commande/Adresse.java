@@ -33,6 +33,9 @@ public class Adresse {
         this.adresseLivraison = adresseLivraison;
     }
 
+    public Adresse() {
+    }
+
     @Override
     public String toString() {
         return "Adresse{" + "id=" + id + ", nom=" + nom + ", prenom=" + prenom + ", phone=" + phone + ", email=" + email + ", pays=" + pays + ", ville=" + ville + ", etat=" + etat + ", pincode=" + pincode + ", adresseLivraison=" + adresseLivraison + '}';

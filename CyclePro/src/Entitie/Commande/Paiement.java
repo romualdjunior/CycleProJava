@@ -9,7 +9,7 @@ package Entitie.Commande;
  *
  * @author toshiba
  */
-public class Payment {
+public class Paiement {
     private int id;
     private String cardHolderName;
     private int cardNumber;
@@ -18,7 +18,7 @@ public class Payment {
      private int anneeExpiration;
     private int idCommande;
 
-    public Payment(String cardHolderName, int cardNumber, int securityCode, int moiExpiration, int anneeExpiration, int idCommande) {
+    public Paiement(String cardHolderName, int cardNumber, int securityCode, int moiExpiration, int anneeExpiration, int idCommande) {
         this.cardHolderName = cardHolderName;
         this.cardNumber = cardNumber;
         this.securityCode = securityCode;
@@ -73,7 +73,7 @@ public class Payment {
         if (getClass() != obj.getClass()) {
             return false;
         }
-        final Payment other = (Payment) obj;
+        final Paiement other = (Paiement) obj;
         if (this.id != other.id) {
             return false;
         }

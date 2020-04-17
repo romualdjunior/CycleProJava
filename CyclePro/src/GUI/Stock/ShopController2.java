@@ -104,5 +104,10 @@ public class ShopController2 implements Initializable {
         }
         user=u;
     }
+      public void redirectionFromPayment(AnchorPane c,User u) {
+        centerContent = c;
+        panier.clear();
+        user=u;
+    }
 
 }

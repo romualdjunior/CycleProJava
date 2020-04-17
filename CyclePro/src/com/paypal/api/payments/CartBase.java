@@ -18,6 +18,62 @@ public class CartBase extends PayPalModel {
 	 */
 	private String referenceId;
 
+    public void setReferenceId(String referenceId) {
+        this.referenceId = referenceId;
+    }
+
+    public void setAmount(Amount amount) {
+        this.amount = amount;
+    }
+
+    public void setPayee(Payee payee) {
+        this.payee = payee;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public void setNoteToPayee(String noteToPayee) {
+        this.noteToPayee = noteToPayee;
+    }
+
+    public void setCustom(String custom) {
+        this.custom = custom;
+    }
+
+    public void setInvoiceNumber(String invoiceNumber) {
+        this.invoiceNumber = invoiceNumber;
+    }
+
+    public void setSoftDescriptor(String softDescriptor) {
+        this.softDescriptor = softDescriptor;
+    }
+
+    public void setSoftDescriptorCity(String softDescriptorCity) {
+        this.softDescriptorCity = softDescriptorCity;
+    }
+
+    public void setPaymentOptions(PaymentOptions paymentOptions) {
+        this.paymentOptions = paymentOptions;
+    }
+
+    public void setItemList(ItemList itemList) {
+        this.itemList = itemList;
+    }
+
+    public void setNotifyUrl(String notifyUrl) {
+        this.notifyUrl = notifyUrl;
+    }
+
+    public void setOrderUrl(String orderUrl) {
+        this.orderUrl = orderUrl;
+    }
+
+    public void setExternalFunding(List<ExternalFunding> externalFunding) {
+        this.externalFunding = externalFunding;
+    }
+
 	/**
 	 * Amount being collected.
 	 */

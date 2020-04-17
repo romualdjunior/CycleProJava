@@ -152,7 +152,6 @@ public class ProductSingleController implements Initializable {
         centerContent.getChildren().removeAll();
         new FadeInDown(fxml).play();
         centerContent.getChildren().setAll(fxml);
-
     }
 
 }

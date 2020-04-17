@@ -16,6 +16,8 @@ import Service.Commande.ServiceAdresse;
 import Service.Commande.ServiceCommande;
 import Service.Commande.ServiceLignePanier;
 import Service.User.UserService;
+import animatefx.animation.Bounce;
+import animatefx.animation.FadeInDown;
 import com.itextpdf.text.Document;
 import com.itextpdf.text.DocumentException;
 import com.itextpdf.text.Element;
@@ -27,6 +29,7 @@ import com.jfoenix.validation.RequiredFieldValidator;
 import com.jfoenix.validation.base.ValidatorBase;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
+import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
 import java.text.DateFormat;
@@ -34,16 +37,27 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.geometry.Pos;
+import javafx.geometry.Side;
+import javafx.scene.Parent;
+import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.Pane;
+import javafx.util.Duration;
 import javax.swing.JOptionPane;
+import org.controlsfx.control.Notifications;
 
 /**
  * FXML Controller class
@@ -57,6 +71,8 @@ public class AdresseController implements Initializable {
      */
     @FXML
     private JFXTextField prenom;
+    @FXML
+    private Pane banner;
 
     @FXML
     private JFXTextField nom;
@@ -93,6 +109,8 @@ public class AdresseController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
+        new Bounce(banner).play();
+
         etat.setValue("Hiroshima");
         pays.setValue("Japan");
         ville.setValue("Tokyo");
@@ -131,7 +149,7 @@ public class AdresseController implements Initializable {
         ValidatorBase phoneNumberValidator = new ValidatorBase() {
             @Override
             protected void eval() {
-                setMessage("entrer un numéro conforme Svp");
+                setMessage("Ne doit contenir que des chiffres ");
                 if (phone.getText().matches("^[1-9]+$")) {
                     hasErrors.set(false);
                     phoneBool = true;
@@ -144,7 +162,7 @@ public class AdresseController implements Initializable {
         ValidatorBase pinCodeValidator = new ValidatorBase() {
             @Override
             protected void eval() {
-                setMessage("Ecrivez un code postal conforme svp");
+                setMessage("Ecrivez un code postal conforme svp 6 chiffres uniquement ");
                 if (pincode.getText().matches("[1-9]{1}[0-9]{2}\\s{0,1}[0-9]{3}$")) {
                     hasErrors.set(false);
                     pincodeBool = true;
@@ -211,6 +229,14 @@ public class AdresseController implements Initializable {
             ServiceAdresse serviceAdresse = new ServiceAdresse();
             Adresse a = new Adresse(nom.getText(), prenom.getText(), Integer.parseInt(phone.getText()), email.getText(), pays.getValue(), ville.getValue(), etat.getValue().toString(), Integer.parseInt(pincode.getText()), adresse.getText());
             serviceAdresse.ajouter(a);
+            Notifications notificationBuilder = Notifications.create()
+                    .title("Confrimation Ajout Adresse")
+                    .text("Adresse ajoutée avec succès")
+                    .graphic(null)
+                    .hideAfter(Duration.seconds(5))
+                    .position(Pos.BOTTOM_RIGHT);
+            notificationBuilder.showConfirm();
+
 //            f.notification("Succès", "Adresse ajoutée avec succès");
             ServiceCommande serviceCommande = new ServiceCommande();
             Date date = Calendar.getInstance().getTime();
@@ -218,22 +244,65 @@ public class AdresseController implements Initializable {
             String dateCommande = dateFormat.format(date);
             Commande commande = new Commande(Total, "non paye", dateCommande, user.getId(), serviceAdresse.getLastAdresse());
             serviceCommande.ajouter(commande);
+            Notifications notificationBuilder2 = Notifications.create()
+                    .title("Confrimation Commande")
+                    .text("Commande ajoutée avec succès")
+                    .graphic(null)
+                    .hideAfter(Duration.seconds(5))
+                    .position(Pos.BOTTOM_RIGHT);
+            notificationBuilder2.showConfirm();
             // f.notification("Succès", "Votre commande a été validée avec succès");
-            JOptionPane.showMessageDialog(null, "votre commande a été validée avec succès ");
-
             SendEmail sm;
             sm = new SendEmail("romuald.motchehokamguia@esprit.tn", "validation de commande", "votre commande chez cyclepro a été validée avec "
                     + "success");
+            Notifications notificationBuilder3 = Notifications.create()
+                    .title("Confrimation Envoi Mail")
+                    .text("Mail envoyée avec succès consulter votre boîte mail")
+                    .graphic(null)
+                    .hideAfter(Duration.seconds(5))
+                    .position(Pos.BOTTOM_RIGHT);
+            notificationBuilder3.showConfirm();
             //f.notification("Succès", "Vérifiez votre boite mail ");
-            JOptionPane.showMessageDialog(null, "Vérifiez votre boîte mail");
 
             ServiceLignePanier serviceLignePanier = new ServiceLignePanier();
             for (Panier p : panier) {
                 serviceLignePanier.ajouter(new LignePanier(p.getQuantite(), serviceCommande.getLastCommande(), p.getIdProduit()));
             }
-            JOptionPane.showMessageDialog(null, "Produit ajouté au panier");
-            serviceCommande.historique( user, Total);
-            JOptionPane.showMessageDialog(null, "Facture générée");
+            Notifications notificationBuilder4 = Notifications.create()
+                    .title("Confrimation Ajout des produits au panier")
+                    .text("produits du panier ont été ajoutés dans la base de données")
+                    .graphic(null)
+                    .hideAfter(Duration.seconds(5))
+                    .position(Pos.BOTTOM_RIGHT);
+            notificationBuilder4.showConfirm();
+            //JOptionPane.showMessageDialog(null, "Produits ajoutés au panier");
+
+            Alert dg = new Alert(Alert.AlertType.CONFIRMATION);
+            dg.setTitle("ConfrimationDialogbox");
+            dg.setContentText("Paiement Paypal");
+            dg.setHeaderText("Effectuer le paiement");
+            dg.showAndWait().ifPresent(response -> {
+                if (response == ButtonType.OK) {
+                    FXMLLoader Loader = new FXMLLoader(getClass().getResource("/GUI/Commande/Payment.fxml"));
+                    Parent fxml;
+                    try {
+                        fxml = Loader.load();
+                        PaymentController e = Loader.getController();
+                        e.redirection(centerContent, panier, user, Total, serviceCommande.getLastCommande());
+                        centerContent.getChildren().removeAll();
+                        new FadeInDown(fxml).play();
+                        centerContent.getChildren().setAll(fxml);
+                    } catch (IOException ex) {
+                        Logger.getLogger(AdresseController.class.getName()).log(Level.SEVERE, null, ex);
+                    } catch (SQLException ex) {
+                        Logger.getLogger(AdresseController.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+
+                }
+            }
+            );
+            //serviceCommande.historique(user, Total);// génération de la facture 
+            //JOptionPane.showMessageDialog(null, "Facture générée");
 
             try {
 
@@ -244,6 +313,7 @@ public class AdresseController implements Initializable {
         } else {
             //f.notification("Erreur", "problème dans les champs");
             JOptionPane.showMessageDialog(null, "Erreur dans les champs");
+            
 
         }
     }

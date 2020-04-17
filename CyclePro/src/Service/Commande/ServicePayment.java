@@ -5,7 +5,7 @@
  */
 package Service.Commande;
 
-import Entitie.Commande.Payment;
+import Entitie.Commande.Paiement;
 import IService.Commande.IServicePayment;
 import Utils.DataSource;
 import java.sql.Connection;
@@ -18,7 +18,7 @@ import java.util.List;
  *
  * @author toshiba
  */
-public class ServicePayment implements IServicePayment<Payment>{
+public class ServicePayment implements IServicePayment<Paiement>{
  private Connection cnx;
     private Statement ste;
 
@@ -26,7 +26,7 @@ public class ServicePayment implements IServicePayment<Payment>{
         cnx = DataSource.getInstance().getCnx();
     }
     @Override
-    public void ajouter(Payment p) throws SQLException {
+    public void ajouter(Paiement p) throws SQLException {
 
         String req = "insert into Payment (cardHolderName,cardNumber,securityCode,moisExpiration,anneeExpiration,commande_id) values (?,?,?,?,?,?)";
 
@@ -60,17 +60,17 @@ public class ServicePayment implements IServicePayment<Payment>{
     
     
     @Override
-    public boolean delete(Payment p) throws SQLException {
+    public boolean delete(Paiement p) throws SQLException {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public boolean update(Payment p) throws SQLException {
+    public boolean update(Paiement p) throws SQLException {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public List<Payment> readAll() throws SQLException {
+    public List<Paiement> readAll() throws SQLException {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     

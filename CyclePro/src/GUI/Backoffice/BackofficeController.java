@@ -8,6 +8,7 @@ package GUI.Backoffice;
 import Entitie.User.User;
 import GUI.Frontend.*;
 import GUI.Blog.BlogController;
+import GUI.Commande.AfficherCommandeAdresseController;
 import GUI.Evenement.EvenementController;
 import Service.User.UserService;
 import animatefx.animation.FadeIn;
@@ -105,7 +106,7 @@ public class BackofficeController implements Initializable {
     }
 
     public void topButton(String page) {
-        if (page == "Accueil") {
+        if (page == "Accueil" || page=="Commande") {
             ajouter.setVisible(false);
             modifier.setVisible(false);
             supprimer.setVisible(false);
@@ -120,6 +121,10 @@ public class BackofficeController implements Initializable {
         try {
             FXMLLoader Loader = new FXMLLoader(getClass().getResource(pageName));
             fxml = Loader.load();
+            if(page=="Commande"){
+                AfficherCommandeAdresseController e= Loader.getController();
+                e.redirection(centerContent,page);
+            }
             centerContent.getChildren().removeAll();
             new FadeIn(fxml).play();
             centerContent.getChildren().setAll(fxml);
@@ -308,6 +313,13 @@ public class BackofficeController implements Initializable {
         blackScreen.setVisible(true);
         signIn2.setVisible(true);
 
+    }
+
+    @FXML
+    void commandeAction(ActionEvent event) {
+        page = "Commande";
+        this.topButton(page);
+        this.pageLoader("/GUI/Commande/AfficherCommandeAdresse.fxml");
     }
 
 }

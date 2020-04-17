@@ -70,4 +70,44 @@ public class Payer extends PayPalModel {
 	public Payer() {
 	}
 
+    public void setPaymentMethod(String paymentMethod) {
+        this.paymentMethod = paymentMethod;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    public void setAccountType(String accountType) {
+        this.accountType = accountType;
+    }
+
+    public void setAccountAge(String accountAge) {
+        this.accountAge = accountAge;
+    }
+
+    public void setFundingInstruments(List<FundingInstrument> fundingInstruments) {
+        this.fundingInstruments = fundingInstruments;
+    }
+
+    public void setFundingOptionId(String fundingOptionId) {
+        this.fundingOptionId = fundingOptionId;
+    }
+
+    public void setFundingOption(FundingOption fundingOption) {
+        this.fundingOption = fundingOption;
+    }
+
+    public void setExternalSelectedFundingInstrumentType(String externalSelectedFundingInstrumentType) {
+        this.externalSelectedFundingInstrumentType = externalSelectedFundingInstrumentType;
+    }
+
+    public void setRelatedFundingOption(FundingOption relatedFundingOption) {
+        this.relatedFundingOption = relatedFundingOption;
+    }
+
+    public void setPayerInfo(PayerInfo payerInfo) {
+        this.payerInfo = payerInfo;
+    }
+
 }

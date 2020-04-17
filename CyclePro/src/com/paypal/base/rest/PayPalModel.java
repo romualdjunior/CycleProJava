@@ -14,6 +14,9 @@ public class PayPalModel {
 		return JSONFormatter.toJSON(this);
 	}
 
+    public PayPalModel() {
+    }
+
 	@Override
 	public String toString() {
 		return toJSON();

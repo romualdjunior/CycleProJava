@@ -17,6 +17,7 @@ import com.paypal.api.payments.Payer;
 import com.paypal.api.payments.Payment;
 import com.paypal.api.payments.RedirectUrls;
 import com.paypal.api.payments.Transaction;
+import com.paypal.base.exception.*;
 import com.paypal.base.rest.*;
 import java.util.ArrayList;
 

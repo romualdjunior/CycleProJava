@@ -245,4 +245,92 @@ public class Sale extends PayPalResource {
 		return configureAndExecute(apiContext, HttpMethod.POST, resourcePath, payLoad, DetailedRefund.class);
 	}
 
+    public String getId() {
+        return id;
+    }
+
+    public String getPurchaseUnitReferenceId() {
+        return purchaseUnitReferenceId;
+    }
+
+    public Amount getAmount() {
+        return amount;
+    }
+
+    public String getPaymentMode() {
+        return paymentMode;
+    }
+
+    public String getState() {
+        return state;
+    }
+
+    public String getReasonCode() {
+        return reasonCode;
+    }
+
+    public String getProtectionEligibility() {
+        return protectionEligibility;
+    }
+
+    public String getProtectionEligibilityType() {
+        return protectionEligibilityType;
+    }
+
+    public String getClearingTime() {
+        return clearingTime;
+    }
+
+    public String getPaymentHoldStatus() {
+        return paymentHoldStatus;
+    }
+
+    public List<String> getPaymentHoldReasons() {
+        return paymentHoldReasons;
+    }
+
+    public Currency getTransactionFee() {
+        return transactionFee;
+    }
+
+    public Currency getReceivableAmount() {
+        return receivableAmount;
+    }
+
+    public String getExchangeRate() {
+        return exchangeRate;
+    }
+
+    public FmfDetails getFmfDetails() {
+        return fmfDetails;
+    }
+
+    public String getReceiptId() {
+        return receiptId;
+    }
+
+    public String getParentPayment() {
+        return parentPayment;
+    }
+
+    public ProcessorResponse getProcessorResponse() {
+        return processorResponse;
+    }
+
+    public String getBillingAgreementId() {
+        return billingAgreementId;
+    }
+
+    public String getCreateTime() {
+        return createTime;
+    }
+
+    public String getUpdateTime() {
+        return updateTime;
+    }
+
+    public List<Links> getLinks() {
+        return links;
+    }
+
 }

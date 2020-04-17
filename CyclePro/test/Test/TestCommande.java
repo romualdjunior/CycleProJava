@@ -3,7 +3,7 @@ package Test;
 import Entitie.Commande.Adresse;
 import Entitie.Commande.Commande;
 import Entitie.Commande.LignePanier;
-import Entitie.Commande.Payment;
+import Entitie.Commande.Paiement;
 import Entitie.Produit.Velo;
 import Service.Commande.ServiceAdresse;
 import Service.Commande.ServiceCommande;
@@ -297,7 +297,7 @@ public class TestCommande {
                 ServiceLignePanier sl = new ServiceLignePanier();
                 sl.delete(id);
                 ServiceCommande sc = new ServiceCommande();
-                sc.historique();
+                //sc.historique();
                 break;
             case 0:
 
@@ -323,12 +323,12 @@ public class TestCommande {
                 int anneeExpiration = scanner.nextInt();
 
                 ServiceCommande s = new ServiceCommande();
-                Payment paiement = new Payment(cardHolderName, cardNumber, securityCode, moiExpiration, anneeExpiration, s.getLastCommande());
+                Paiement paiement = new Paiement(cardHolderName, cardNumber, securityCode, moiExpiration, anneeExpiration, s.getLastCommande());
                 ServicePayment sp = new ServicePayment();
                 sp.ajouter(paiement);
                 s.update(s.getLastCommande());
                 System.out.println("Votre historique des commandes ");
-                s.historique();
+                //s.historique();
                 System.out.println("1-Supprimer un produit de la commande?");
                 System.out.println("0-non");
                 System.out.println("Entrer l'id du produitdans la commande ");
@@ -336,12 +336,12 @@ public class TestCommande {
                 ServiceLignePanier sl = new ServiceLignePanier();
                 sl.delete(idLignePanier);
                 System.out.println("produit supprimee");
-                s.historique();
+                //s.historique();
                 break;
             case 2:
                 System.out.println("Votre historique des commandes ");
                 ServiceCommande s2 = new ServiceCommande();
-                s2.historique();
+                //s2.historique();
                 System.out.println("1-Supprimer un produit de la commande?");
                 System.out.println("0-non");
 
