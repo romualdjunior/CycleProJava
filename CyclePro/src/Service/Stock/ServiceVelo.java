@@ -13,6 +13,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import static javax.swing.UIManager.getString;
 
 /**
@@ -69,24 +71,34 @@ public class ServiceVelo {
         }
     }
      
-      public List<Velo> afficher (){
-    List<Velo> list = new ArrayList <>();
-    
-    String reg ="select * from Velo ";
+      public ObservableList<Velo> affichier() {
+         ObservableList<Velo> c = FXCollections.observableArrayList();
+       List<Velo> list = new ArrayList<>();
         try {
-            PreparedStatement pst=cnx.prepareStatement(reg);
-            ResultSet rs = pst.executeQuery(); //matrice
-            while (rs.next()){
-               Velo v ;
-                v = new Velo(rs.getInt(1)/*("id")*/, rs.getString(2),rs.getString(3),rs.getInt(4), rs.getString(5),rs.getInt(6),rs.getInt(7),rs.getDouble(8),rs.getDouble(9),rs.getString(10),rs.getInt(11), rs.getString(12),getString(13),rs.getString(14),rs.getInt(15),rs.getString(16),rs.getString(17),rs.getString(18),rs.getString(19),rs.getString(20));
-               list.add(v);
-            }
+            String requete = "SELECT * FROM Velo";
+            PreparedStatement pst = cnx.prepareStatement(requete);
+            ResultSet rs = pst.executeQuery();
+            while (rs.next()) {
+                c.add(new Velo (rs.getInt(1)/*("id")*/, rs.getString(2),rs.getString(3),rs.getInt(4), rs.getString(5),rs.getInt(6),rs.getInt(7),rs.getDouble(8),rs.getDouble(9),rs.getString(10),rs.getInt(11), rs.getString(12),getString(13),rs.getString(14),rs.getInt(15),rs.getString(16),rs.getString(17),rs.getString(18),rs.getString(19),rs.getString(20)));}
         } catch (SQLException ex) {
-            System.out.println(ex.getMessage());
-        }
-    return list;
-    } 
-      public void modifier(Velo v) {
+            System.err.println(ex.getMessage());
+        }return c;}
+      
+      public ObservableList<Velo> afficherType(String type) {
+         ObservableList<Velo> c = FXCollections.observableArrayList();
+       List<Velo> list = new ArrayList<>();
+        try {
+            String requete = "SELECT * FROM Velo where type=?";
+            PreparedStatement pst = cnx.prepareStatement(requete);
+            pst.setString(1, type);
+            ResultSet rs = pst.executeQuery();
+            while (rs.next()) {
+                c.add(new Velo (rs.getInt(1)/*("id")*/, rs.getString(2),rs.getString(3),rs.getInt(4), rs.getString(5),rs.getInt(6),rs.getInt(7),rs.getDouble(8),rs.getDouble(9),rs.getString(10),rs.getInt(11), rs.getString(12),getString(13),rs.getString(14),rs.getInt(15),rs.getString(16),rs.getString(17),rs.getString(18),rs.getString(19),rs.getString(20)));}
+        } catch (SQLException ex) {
+            System.err.println(ex.getMessage());
+        }return c;}
+      public void modifier(Velo v) 
+      {
         try {
             String requete = "UPDATE velo SET marque=?,  couleur=?,  nbrDePlace=?,  taille=?, qtEnStock=?, qtStockSecurite=?, prixAchat=?, prixLocH=?,photoV=?,  Fournisseur=?, categorie=?,description=?, etat=?,  soldee=?,   type=?, photoV1=?,  photoV2=?,  photoV3=?, Caracteristiques=? WHERE id=?";
             PreparedStatement pst = cnx.prepareStatement(requete);
@@ -115,6 +127,72 @@ public class ServiceVelo {
 
         } catch (SQLException ex) {
             System.err.println(ex.getMessage());
+        }}
+public ObservableList<Velo> search(String input) {
+           ObservableList<Velo> c = FXCollections.observableArrayList();
+List<Velo> list = new ArrayList<>();
+        try {
+            String requete = "SELECT * FROM Velo where marque like '%"+input+"%' OR couleur like '%"+input+"%' OR categorie LIKE '%"+input+"%' ";
+            PreparedStatement pst = cnx.prepareStatement(requete);
+            ResultSet rs = pst.executeQuery();
+            while (rs.next()) {
+                c.add(new Velo(rs.getInt(1)/*("id")*/, rs.getString(2),rs.getString(3),rs.getInt(4), rs.getString(5),rs.getInt(6),rs.getInt(7),rs.getDouble(8),rs.getDouble(9),rs.getString(10),rs.getInt(11), rs.getString(12),getString(13),rs.getString(14),rs.getInt(15),rs.getString(16),rs.getString(17),rs.getString(18),rs.getString(19),rs.getString(20)));
+            }
+        } catch (SQLException ex) {
+            System.err.println(ex.getMessage());
+        }
+
+        return c;
+    
+        }
+
+public int NbVelo() {
+        int nV=0;
+
+        try {
+            String requete = "SELECT COUNT(*) FROM Velo ";
+            PreparedStatement pst = cnx.prepareStatement(requete);
+            ResultSet rs = pst.executeQuery();
+            while (rs.next()) {
+                
+              nV =rs.getInt(1);
+            }
+           return nV;
+        } catch (SQLException ex) {
+            System.err.println(ex.getMessage());
+            return 0;
         }
     }
+
+      public void modifierQnt(int id,int qnt) 
+      {
+        try {
+            String requete = "UPDATE velo SET qtEnStock=? WHERE id=?";
+            PreparedStatement pst = cnx.prepareStatement(requete);
+            pst.setInt(2,id);
+            pst.setInt(1,qnt);
+            pst.executeUpdate();
+        }
+        catch (SQLException ex) {
+            System.err.println(ex.getMessage());
+        }
+      }
+      public Velo getVelo(int id)
+      {
+          try {
+            String requete = "SELECT * FROM Velo where id="+id;
+            PreparedStatement pst = cnx.prepareStatement(requete);
+            ResultSet rs = pst.executeQuery();
+            while (rs.next()) {
+                Velo v=new Velo(rs.getInt(1)/*("id")*/, rs.getString(2),rs.getString(3),rs.getInt(4), rs.getString(5),rs.getInt(6),rs.getInt(7),rs.getDouble(8),rs.getDouble(9),rs.getString(10),rs.getInt(11), rs.getString(12),getString(13),rs.getString(14),rs.getInt(15),rs.getString(16),rs.getString(17),rs.getString(18),rs.getString(19),rs.getString(20));
+                return v;
+            }
+            
+        } catch (SQLException ex) {
+            System.err.println(ex.getMessage());
+        }
+
+        return null;
+      }
+
 }

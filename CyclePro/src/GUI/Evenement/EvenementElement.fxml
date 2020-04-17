@@ -13,13 +13,10 @@
 <HBox prefHeight="390.0" prefWidth="1090.0" style="-fx-background-color: #FBFCFE;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.Evenement.EvenementElementController">
 
    <children>
-      <Pane prefHeight="364.0" prefWidth="250.0" style="-fx-background-color: white;" styleClass="EvenementSingle" stylesheets="@evenement.css">
+      <Pane prefHeight="364.0" prefWidth="264.0" style="-fx-background-color: white;" styleClass="EvenementSingle" stylesheets="@evenement.css">
          <children>
             <Label fx:id="idEvenement1" layoutX="42.0" layoutY="38.0" text="identifiant" />
-            <ImageView fx:id="imageEvenement1" fitHeight="188.0" fitWidth="255.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@event1.jpg" />
-               </image></ImageView>
+            <ImageView fx:id="imageEvenement1" fitHeight="188.0" fitWidth="250.0" pickOnBounds="true" preserveRatio="true" />
             <Label fx:id="EvenementTitre1" layoutX="3.0" layoutY="200.0" prefWidth="246.0" text="Northumberland Cycling Event 2018">
                <font>
                   <Font name="Source Sans Pro Semibold" size="16.0" />
@@ -78,10 +75,10 @@
             </JFXButton>
          </children>
       </Pane>
-      <Pane layoutX="10.0" layoutY="10.0" prefHeight="364.0" prefWidth="250.0" style="-fx-background-color: white;" styleClass="EvenementSingle" stylesheets="@evenement.css">
+      <Pane layoutX="10.0" layoutY="10.0" prefHeight="390.0" prefWidth="264.0" style="-fx-background-color: white;" styleClass="EvenementSingle" stylesheets="@evenement.css">
          <children>
             <Label fx:id="idEvenement2" text="identifiant" />
-            <ImageView fx:id="imageEvenement2" fitHeight="188.0" fitWidth="255.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="imageEvenement2" fitHeight="173.0" fitWidth="250.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@event6.jpg" />
                </image></ImageView>
@@ -146,10 +143,10 @@
             <Insets left="30.0" />
          </HBox.margin>
       </Pane>
-      <Pane layoutX="290.0" layoutY="10.0" prefHeight="364.0" prefWidth="250.0" style="-fx-background-color: white;" styleClass="EvenementSingle" stylesheets="@evenement.css">
+      <Pane layoutX="290.0" layoutY="10.0" prefHeight="364.0" prefWidth="264.0" style="-fx-background-color: white;" styleClass="EvenementSingle" stylesheets="@evenement.css">
          <children>
             <Label fx:id="idEvenement3" text="identifiant" />
-            <ImageView fx:id="imageEvenement3" fitHeight="188.0" fitWidth="255.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fx:id="imageEvenement3" fitHeight="188.0" fitWidth="250.0" pickOnBounds="true" preserveRatio="true" />
             <Label fx:id="EvenementTitre3" layoutX="3.0" layoutY="200.0" prefWidth="246.0" text="Northumberland Cycling Event 2018">
                <font>
                   <Font name="Source Sans Pro Semibold" size="16.0" />
@@ -211,10 +208,10 @@
             <Insets left="30.0" />
          </HBox.margin>
       </Pane>
-      <Pane layoutX="570.0" layoutY="10.0" prefHeight="364.0" prefWidth="250.0" style="-fx-background-color: white;" styleClass="EvenementSingle" stylesheets="@evenement.css">
+      <Pane layoutX="570.0" layoutY="10.0" prefHeight="364.0" prefWidth="264.0" style="-fx-background-color: white;" styleClass="EvenementSingle" stylesheets="@evenement.css">
          <children>
             <Label fx:id="idEvenement4" text="identifiant" />
-            <ImageView fx:id="imageEvenement4" fitHeight="188.0" fitWidth="255.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fx:id="imageEvenement4" fitHeight="188.0" fitWidth="250.0" pickOnBounds="true" preserveRatio="true" />
             <Label fx:id="EvenementTitre4" layoutX="3.0" layoutY="200.0" prefWidth="246.0" text="Northumberland Cycling Event 2018">
                <font>
                   <Font name="Source Sans Pro Semibold" size="16.0" />

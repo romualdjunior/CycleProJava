@@ -143,12 +143,16 @@ public class FrontendController implements Initializable {
             fxml = Loader.load();
             if ("Evenement".equals(page) && pageName.equals("/GUI/Evenement/Evenement.fxml")) {
                 EvenementController e = Loader.getController();
+                System.out.println("utilisateur dans avant EventController");
+                System.out.println(user);
                 e.redirection(centerContent, page,u);
+                System.out.println("le centerContent est envoyé depuis le FrontendController");
             } else if ("Blog".equals(page) && pageName.equals("/GUI/Blog/Blog.fxml")) {
                 BlogController e = Loader.getController();
-                e.redirection(centerContent, page,u);
+                e.redirection(centerContent, page,user);
             }
             else if ("Shop".equals(page) && pageName.equals("/GUI/Stock/Shop2.fxml")) {
+                System.out.println("la redirection est bonne");
                 ShopController2 e = Loader.getController();
                 e.redirection(centerContent,user);
             }
@@ -219,7 +223,7 @@ public class FrontendController implements Initializable {
         if (page.equals("Blog") || page.equals("BlogSingle")) {
             this.pageLoader("/GUI/Blog/Ajouter.fxml",user);
         } else if (page.equals("Shop")) {
-            this.pageLoader("/GUI/Stock/Ajouter.fxml",user);
+            this.pageLoader("/GUI/Stock/Shop.fxml",user);
         } else if (page.equals("Contact")) {
             this.pageLoader("/GUI/Reclamation/Ajouter.fxml",user);
         } else if (page.equals("Evenement") || page.equals("EvenementSingle")) {
@@ -233,7 +237,7 @@ public class FrontendController implements Initializable {
         if (page.equals("Blog") || page.equals("BlogSingle")) {
             this.pageLoader("/GUI/Blog/Modifier.fxml",user);
         } else if (page.equals("Shop")) {
-            this.pageLoader("/GUI/Stock/Modifier.fxml",user);
+            this.pageLoader("/GUI/Stock/ShopA.fxml",user);
         } else if (page.equals("Contact")) {
             this.pageLoader("/GUI/Reclamation/Modifier.fxml",user);
         } else if (page.equals("Evenement") || page.equals("EvenementSingle")) {

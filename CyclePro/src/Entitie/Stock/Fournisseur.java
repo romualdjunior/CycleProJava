@@ -17,6 +17,9 @@ public class Fournisseur {
    public String matricule ;
    public String addresse;
 
+    public Fournisseur() {
+    }
+
 
     public int getId() {
         return id;
@@ -67,7 +70,7 @@ public class Fournisseur {
     }
 
 
-    public Fournisseur(int id, String raisonSociale, String telephone, String mail, String matricule, String addresse) {
+    public Fournisseur(int id, String raisonSociale, String matricule, String addresse, String mail, String telephone) {
         this.id = id;
         this.raisonSociale = raisonSociale;
         this.telephone = telephone;
@@ -91,7 +94,7 @@ public class Fournisseur {
 
     @Override
     public String toString() {
-        return "Fournisseur{" + "id=" + id + ", RaisonSociale=" + raisonSociale + ", telephone=" + telephone + ", Mail=" + mail + ", Matricule=" + matricule + ", addresse=" + addresse +  '}';
+        return "Fournisseur{" + "id=" + id + ", RaisonSociale=" + raisonSociale +", Matricule=" + matricule + ", addresse=" + addresse + ", Mail=" + mail +  ", telephone=" + telephone +  '}';
     }
 
 }

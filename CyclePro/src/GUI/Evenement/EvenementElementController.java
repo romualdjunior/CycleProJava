@@ -116,16 +116,16 @@ public class EvenementElementController implements Initializable {
         EvenementTexte1.setText(e1.getDescription());
         imageEvenement1.setImage(new Image(this.getClass().getResourceAsStream(e1.getPhotoEvent())));
         regarder1.setOnAction((ActionEvent e)->{
-           this.EvenementSingleLoader(e1.getId(),c,u);
+           this.EvenementSingleLoader(e1,c,u);
         });
         regarder2.setOnAction((ActionEvent e)->{
-           this.EvenementSingleLoader(e2.getId(),c,u);
+           this.EvenementSingleLoader(e2,c,u);
         });
         regarder3.setOnAction((ActionEvent e)->{
-           this.EvenementSingleLoader(e3.getId(),c,u);
+           this.EvenementSingleLoader(e3,c,u);
         });
         regarder4.setOnAction((ActionEvent e)->{
-           this.EvenementSingleLoader(e4.getId(),c,u);
+           this.EvenementSingleLoader(e4,c,u);
         });
         EvenementTitre2.setText(e2.getNom());
         EvenementTexte2.setText(e2.getDescription());
@@ -140,12 +140,12 @@ public class EvenementElementController implements Initializable {
     }
 
    
-    public void EvenementSingleLoader(int id,AnchorPane c, User u){ 
+    public void EvenementSingleLoader(Event e,AnchorPane c, User u){ 
               try {
             FXMLLoader Loader = new FXMLLoader(getClass().getResource("/GUI/Evenement/EvenementSingle.fxml"));
             Parent fxml = Loader.load();
             EvenementSingleController es = Loader.getController();
-            es.redirection(c, id,u);
+            es.redirection(c, e,u);
             c.getChildren().removeAll();
             new FadeInDown(fxml).play();
             c.getChildren().setAll(fxml);

@@ -145,7 +145,7 @@ Connection cnx=DataSource.getInstance().getCnx();
             ResultSet rs = pst.executeQuery();
             while (rs.next()) {
                 
-                list.add(new Participants(rs.getInt(2), rs.getDate(3), rs.getInt(4)));
+                list.add(new Participants(rs.getInt(1),rs.getInt(2),rs.getDate(3),rs.getInt(4)));
             }
 
         } catch (SQLException ex) {
@@ -260,6 +260,29 @@ Connection cnx=DataSource.getInstance().getCnx();
         
      
     }
+     public int NbparticipantsByEvent(int idEvent) {
+        int deb=0;
+
+        try {
+            String requete = "SELECT COUNT(*) FROM participants where event=? ";
+            PreparedStatement pst = cnx.prepareStatement(requete);
+            pst.setInt(1, idEvent);
+            ResultSet rs = pst.executeQuery();
+            while (rs.next()) {
+                
+              deb =rs.getInt(1);
+            }
+           return deb;
+        } catch (SQLException ex) {
+            System.err.println(ex.getMessage());
+            return 0;
+        }
+
+        
+     
+    }
+    
+    
          
     public int getEvent(int idPart) {
         int id=0;
@@ -327,6 +350,29 @@ Connection cnx=DataSource.getInstance().getCnx();
          String ch="";
         try {
             String requete = "SELECT username FROM  user  where id =? ";
+            PreparedStatement pst = cnx.prepareStatement(requete);
+            pst.setInt(1,idUser);
+            ResultSet rs = pst.executeQuery();
+            while (rs.next()) {
+                
+             ch =rs.getString(1);
+            }
+           return ch;
+        } catch (SQLException ex) {
+            System.err.println(ex.getMessage());
+        
+        }
+
+        return ch; 
+    
+    
+    }
+    
+    
+     public String getEmailUser(int idUser) {
+         String ch="";
+        try {
+            String requete = "SELECT email FROM  user  where id =? ";
             PreparedStatement pst = cnx.prepareStatement(requete);
             pst.setInt(1,idUser);
             ResultSet rs = pst.executeQuery();

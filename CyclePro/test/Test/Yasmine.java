@@ -38,7 +38,7 @@ public class Yasmine {
    // int id = sc.nextInt();Fournisseur FS = new Fournisseur (id) ;SF.supprimer(FS);
    //int id = sc.nextInt();Velo VS = new Velo (id) ;SV.supprimer(VS);
  //SA.afficher().forEach(System.out::println);
- //SF.afficher().forEach(System.out::println);
+// SF.affichier().forEach(System.out::println);
 //SV.afficher().forEach(System.out::println);
 //Accessoires AM = new Accessoires (7,"photo", "sonnette", "atala", "casque",120,"des",  "photo", "photo",  "photo", 0,"vitesse",20) ;SA.modifier(AM);
 //Fournisseur FM = new Fournisseur(21,"ZALTA", "1223665", "ffg@hh.TN","1324", "ADRESSE");SF.modifier(FM);

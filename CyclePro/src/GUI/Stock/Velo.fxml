@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.Group?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane id="AnchorPane" fx:id="blur" prefHeight="669.0" prefWidth="1211.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.Stock.VeloController">
+   <children>
+      <AnchorPane fx:id="blr" prefHeight="669.0" prefWidth="1211.0">
+         <children>
+            <Label fx:id="label_id" />
+            <TextField fx:id="txt1" layoutX="38.0" layoutY="48.0" promptText="Marque" />
+            <TextField fx:id="txt3" layoutX="38.0" layoutY="132.0" promptText="Nombre De Place" />
+            <TextField fx:id="txt5" layoutX="38.0" layoutY="252.0" promptText="Quantité En Stock" />
+            <TextField fx:id="txt6" layoutX="38.0" layoutY="291.0" promptText="Quantité De Securité" />
+            <TextField fx:id="txt7" layoutX="38.0" layoutY="407.0" promptText="Prix d'Achat" />
+            <TextField fx:id="txt8" layoutX="38.0" layoutY="445.0" promptText="Prix De Location /h" />
+            <TextField fx:id="txt12" layoutX="226.0" layoutY="210.0" prefHeight="68.0" prefWidth="149.0" promptText="Description" />
+            <TextField fx:id="txt14" layoutX="38.0" layoutY="483.0" promptText="prix soldee" />
+            <TextField fx:id="txt19" layoutX="226.0" layoutY="291.0" prefHeight="68.0" prefWidth="149.0" promptText="Caracteristique" />
+            <Button fx:id="btn" layoutX="226.0" layoutY="386.0" mnemonicParsing="false" onAction="#AjouterVelo" prefHeight="46.0" prefWidth="149.0" text="Ajouter" textFill="RED">
+               <font>
+                  <Font size="18.0" />
+               </font></Button>
+            <Text fill="#910101" layoutX="702.0" layoutY="118.0" strokeType="OUTSIDE" strokeWidth="0.0" text=" Velo">
+               <font>
+                  <Font name="System Bold Italic" size="40.0" />
+               </font>
+            </Text>
+            <TableView fx:id="table2" layoutX="458.0" layoutY="307.0" onMouseClicked="#commandeajout" prefHeight="277.0" prefWidth="582.0">
+               <columns>
+                  <TableColumn fx:id="I1" prefWidth="18.333343505859375" text="id" />
+                  <TableColumn fx:id="T10" minWidth="0.0" prefWidth="101.0" text="photoV" />
+                  <TableColumn fx:id="T2" prefWidth="47.66668701171875" text="marque" />
+                  <TableColumn fx:id="T3" prefWidth="47.33331298828125" text="couleur" />
+                  <TableColumn fx:id="I4" minWidth="0.0" prefWidth="0.0" text="nbrDePlace" />
+                  <TableColumn fx:id="T5" minWidth="0.0" prefWidth="32.6666259765625" text="taille" />
+                  <TableColumn fx:id="I6" minWidth="0.0" prefWidth="27.6666259765625" text="QS" />
+                  <TableColumn fx:id="I7" minWidth="0.0" prefWidth="26.66668701171875" text="QSS" />
+                  <TableColumn fx:id="D8" prefWidth="46.33331298828125" text="prixAchat" />
+                  <TableColumn fx:id="D9" prefWidth="46.33343505859375" text="prixLocH" />
+                  <TableColumn fx:id="I11" prefWidth="31.99993896484375" text="Fournisseur" />
+                  <TableColumn fx:id="T12" prefWidth="57.66650390625" text="categorie" />
+                  <TableColumn fx:id="T13" minWidth="0.0" prefWidth="0.0" text="description" />
+                  <TableColumn fx:id="T14" minWidth="0.0" prefWidth="27.666748046875" text="etat" />
+                  <TableColumn fx:id="I15" minWidth="0.0" prefWidth="29.0" text="soldee" />
+                  <TableColumn fx:id="T16" minWidth="6.333251953125" prefWidth="33.666748046875" text="type" />
+                  <TableColumn fx:id="T17" minWidth="0.0" prefWidth="0.0" text="photoV1" />
+                  <TableColumn fx:id="T18" minWidth="0.0" prefWidth="0.0" text="photoV2" />
+                  <TableColumn fx:id="T19" minWidth="0.0" prefWidth="0.0" text="photoV3" />
+                  <TableColumn fx:id="T20" minWidth="0.0" prefWidth="0.0" text="Caracteristiques" />
+               </columns>
+            </TableView>
+            <Button fx:id="Photo" layoutX="226.0" layoutY="48.0" mnemonicParsing="false" onAction="#uploadPhoto1" prefHeight="25.0" prefWidth="149.0" text="Photo1" />
+            <ComboBox fx:id="combobox_fournisseur" layoutX="38.0" layoutY="525.0" prefHeight="25.0" prefWidth="149.0" promptText="Fournisseur" />
+            <ComboBox fx:id="combobox_categorie" layoutX="38.0" layoutY="210.0" prefHeight="25.0" prefWidth="149.0" promptText="Categorie" />
+            <ComboBox fx:id="combobox_couleur" layoutX="38.0" layoutY="90.0" prefHeight="25.0" prefWidth="149.0" promptText="Couleur" />
+            <ComboBox fx:id="combobox_taille" layoutX="38.0" layoutY="170.0" prefHeight="17.0" prefWidth="149.0" promptText="Taille" />
+            <Button fx:id="supprimer" layoutX="226.0" layoutY="515.0" mnemonicParsing="false" onAction="#supprimerVelo" prefHeight="46.0" prefWidth="149.0" text="Supprimer" textFill="RED">
+               <font>
+                  <Font size="18.0" />
+               </font></Button>
+            <Button fx:id="modifier" layoutX="226.0" layoutY="452.0" mnemonicParsing="false" onAction="#modifierVelo" prefHeight="46.0" prefWidth="149.0" text="Modifier" textFill="RED">
+               <font>
+                  <Font size="18.0" />
+               </font></Button>
+            <Button fx:id="Photo1" layoutX="226.0" layoutY="90.0" mnemonicParsing="false" onAction="#uploadPhoto2" prefHeight="25.0" prefWidth="149.0" text="Photo2" />
+            <Button fx:id="Photo2" layoutX="226.0" layoutY="132.0" mnemonicParsing="false" onAction="#uploadPhoto3" prefHeight="25.0" prefWidth="149.0" text="Photo3" />
+            <Button fx:id="Photo3" layoutX="226.0" layoutY="170.0" mnemonicParsing="false" onAction="#uploadPhoto4" prefHeight="25.0" prefWidth="149.0" text="Photo4" />
+            <ComboBox fx:id="combobox_type" layoutX="38.0" layoutY="367.0" prefHeight="17.0" prefWidth="149.0" promptText="Type" />
+            <ComboBox fx:id="combobox_etat" layoutX="38.0" layoutY="329.0" prefHeight="25.0" prefWidth="149.0" promptText="Etat" />
+            <TextField fx:id="recherche" layoutX="612.0" layoutY="234.0" prefHeight="36.0" prefWidth="274.0" promptText="Recherche par marque / categorie / type" />
+            <Label fx:id="label_photo" layoutX="226.0" layoutY="52.0" prefHeight="17.0" prefWidth="86.0" textFill="#989696">
+               <font>
+                  <Font size="1.0" />
+               </font>
+            </Label>
+            <Label fx:id="label_photo1" layoutX="226.0" layoutY="94.0" prefHeight="17.0" prefWidth="47.0" textFill="#8f8e8e">
+               <font>
+                  <Font size="1.0" />
+               </font>
+            </Label>
+            <Label fx:id="label_photo11" layoutX="225.0" layoutY="136.0" textFill="#c0baba">
+               <font>
+                  <Font size="1.0" />
+               </font>
+            </Label>
+            <Label fx:id="label_photo12" layoutX="225.0" layoutY="174.0" textFill="#b7aeae">
+               <font>
+                  <Font size="1.0" />
+               </font>
+            </Label>
+            <Button fx:id="offre" layoutX="432.0" layoutY="48.0" mnemonicParsing="false" onAction="#offreclick" prefHeight="82.0" prefWidth="52.0" text="Offre" />
+         </children>
+      </AnchorPane>
+      <StackPane fx:id="trans" layoutX="355.0" layoutY="114.0" opacity="0.0">
+         <children>
+            <Group fx:id="groups">
+               <children>
+                  <AnchorPane fx:id="loadPane" prefHeight="366.0" prefWidth="322.0" />
+                  <JFXButton focusTraversable="false" layoutX="291.0" onAction="#tombolClose" prefHeight="25.0" prefWidth="24.0" text="X">
+                     <font>
+                        <Font name="Segoe UI Black" size="14.0" />
+                     </font>
+                  </JFXButton>
+               </children>
+            </Group>
+         </children>
+      </StackPane>
+   </children>
+</AnchorPane>
