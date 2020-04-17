@@ -5,6 +5,8 @@
  */
 package Entitie.Stock;
 
+import javafx.scene.image.ImageView;
+
 /**
  *
  * @author Yasmine
@@ -24,6 +26,22 @@ public class Accessoires {
    public int soldee;
    public String categorie;
    public String description;
+   private ImageView image;
+
+    public ImageView getImage() {
+        return image;
+    }
+
+    public void setImage(ImageView image) {
+        this.image = image;
+    }
+
+    public Accessoires(int id, String photoA, double prix, ImageView image) {
+        this.id = id;
+        this.photoA = photoA;
+        this.prix = prix;
+        this.image = image;
+    }
 
     public int getId() {
         return id;
@@ -167,6 +185,23 @@ public class Accessoires {
     @Override
     public String toString() {
         return "Accessoires{" + "id=" + id + ", photoA=" + photoA + ", nom=" + nom + ", marque=" + marque +  ", categorie=" + categorie +  ", prix=" + prix + ", description=" + description +  ", photoA1=" + photoA1 + ", photoA2=" + photoA2 + ", photoA3=" + photoA3 + ", soldee=" + soldee + ", Caracteristiques=" + Caracteristiques +  ", qtEnStock=" + qtEnStock +   '}';
+    }
+
+    public Accessoires(int id, String photoA,String nom, String marque,  String categorie,double prix,  String description, String photoA1, String photoA2, String photoA3,int soldee, String Caracteristiques, int qtEnStock, ImageView image) {
+        this.id = id;
+        this.photoA = photoA;
+        this.photoA1 = photoA1;
+        this.photoA2 = photoA2;
+        this.photoA3 = photoA3;
+        this.nom = nom;
+        this.marque = marque;
+        this.qtEnStock = qtEnStock;
+        this.Caracteristiques = Caracteristiques;
+        this.prix = prix;
+        this.soldee = soldee;
+        this.categorie = categorie;
+        this.description = description;
+        this.image = image;
     }
 
     

@@ -223,7 +223,7 @@ public class FrontendController implements Initializable {
         if (page.equals("Blog") || page.equals("BlogSingle")) {
             this.pageLoader("/GUI/Blog/Ajouter.fxml",user);
         } else if (page.equals("Shop")) {
-            this.pageLoader("/GUI/Stock/Ajouter.fxml",user);
+            this.pageLoader("/GUI/Stock/Shop.fxml",user);
         } else if (page.equals("Contact")) {
             this.pageLoader("/GUI/Reclamation/Ajouter.fxml",user);
         } else if (page.equals("Evenement") || page.equals("EvenementSingle")) {
@@ -237,7 +237,7 @@ public class FrontendController implements Initializable {
         if (page.equals("Blog") || page.equals("BlogSingle")) {
             this.pageLoader("/GUI/Blog/Modifier.fxml",user);
         } else if (page.equals("Shop")) {
-            this.pageLoader("/GUI/Stock/Modifier.fxml",user);
+            this.pageLoader("/GUI/Stock/ShopA.fxml",user);
         } else if (page.equals("Contact")) {
             this.pageLoader("/GUI/Reclamation/Modifier.fxml",user);
         } else if (page.equals("Evenement") || page.equals("EvenementSingle")) {
@@ -254,7 +254,7 @@ public class FrontendController implements Initializable {
         } else if (page.equals("Contact")) {
             this.pageLoader("/GUI/Reclamation/Supprimer.fxml",user);
         } else if (page.equals("Evenement") || page.equals("EvenementSingle")) {
-            this.pageLoader("/GUI/Evenement/PieChart.fxml",user);
+            this.pageLoader("/GUI/Evenement/Supprimer.fxml",user);
         }
     }
 

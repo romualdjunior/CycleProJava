@@ -117,35 +117,11 @@ public class BackofficeController implements Initializable {
         }
     }
 
-    public void pageLoader(String pageName) {
-        try {
-            FXMLLoader Loader = new FXMLLoader(getClass().getResource(pageName));
-            fxml = Loader.load();
-            if ("Evenement".equals(page) && pageName.equals("/GUI/Evenement/Afficher.fxml")) {
-                AfficherController e = Loader.getController();
-               e.redirection(centerContent);
-            }
-            centerContent.getChildren().removeAll();
-            new FadeIn(fxml).play();
-            centerContent.getChildren().setAll(fxml);
-        } catch (IOException ex) {
-            Logger.getLogger(BackofficeController.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }
-
     @FXML
     void accueil(ActionEvent event) {
         page = "Accueil";
         this.topButton(page);
         this.pageLoader("Accueil.fxml");
-
-    }
-
-    @FXML
-    void blog(ActionEvent event) {
-        page = "Blog";
-        this.topButton(page);
-        this.pageLoader("/GUI/Blog/Ajouter.fxml");
 
     }
 
@@ -182,7 +158,7 @@ public class BackofficeController implements Initializable {
         if (page.equals("Blog") || page.equals("BlogSingle")) {
             this.pageLoader("/GUI/Blog/Ajouter.fxml");
         } else if (page.equals("Shop")) {
-            this.pageLoader("/GUI/Stock/Ajouter.fxml");
+            this.pageLoader("/GUI/Stock/fournisseurf.fxml");
         } else if (page.equals("Contact")) {
             this.pageLoader("/GUI/Reclamation/Ajouter.fxml");
         } else if (page.equals("Evenement") || page.equals("EvenementSingle")) {
@@ -196,7 +172,7 @@ public class BackofficeController implements Initializable {
         if (page.equals("Blog") || page.equals("BlogSingle")) {
             this.pageLoader("/GUI/Blog/Modifier.fxml");
         } else if (page.equals("Shop")) {
-            this.pageLoader("/GUI/Stock/Modifier.fxml");
+            this.pageLoader("/GUI/Stock/Velo.fxml");
         } else if (page.equals("Contact")) {
             this.pageLoader("/GUI/Reclamation/Modifier.fxml");
         } else if (page.equals("Evenement") || page.equals("EvenementSingle")) {
@@ -209,7 +185,7 @@ public class BackofficeController implements Initializable {
         if (page.equals("Blog") || page.equals("BlogSingle")) {
             this.pageLoader("/GUI/Blog/Supprimer.fxml");
         } else if (page.equals("Shop")) {
-            this.pageLoader("/GUI/Stock/Supprimer.fxml");
+            this.pageLoader("/GUI/Stock/Accessoires.fxml");
         } else if (page.equals("Contact")) {
             this.pageLoader("/GUI/Reclamation/Supprimer.fxml");
         } else if (page.equals("Evenement") || page.equals("EvenementSingle")) {
@@ -312,6 +288,30 @@ public class BackofficeController implements Initializable {
         new FadeInDown(signIn2).play();
         blackScreen.setVisible(true);
         signIn2.setVisible(true);
+
+    }
+
+    public void pageLoader(String pageName) {
+        try {
+            FXMLLoader Loader = new FXMLLoader(getClass().getResource(pageName));
+            fxml = Loader.load();
+            if ("Evenement".equals(page) && pageName.equals("/GUI/Evenement/Afficher.fxml")) {
+                AfficherController e = Loader.getController();
+                e.redirection(centerContent);
+            }
+            centerContent.getChildren().removeAll();
+            new FadeIn(fxml).play();
+            centerContent.getChildren().setAll(fxml);
+        } catch (IOException ex) {
+            Logger.getLogger(BackofficeController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    @FXML
+    void blog(ActionEvent event) {
+        page = "Blog";
+        this.topButton(page);
+        this.pageLoader("/GUI/Blog/Ajouter.fxml");
 
     }
 
