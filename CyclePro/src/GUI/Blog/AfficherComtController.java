@@ -14,6 +14,7 @@ import java.net.URL;
 import java.sql.Date;
 import java.util.Optional;
 import java.util.ResourceBundle;
+import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -75,16 +76,12 @@ public class AfficherComtController implements Initializable {
     public void redirection(AnchorPane c,Article ar ){
         centerContent=c;
         article=ar;
-        
        
         ServiceComt sc= new ServiceComt();
         
-          tabTitre.setCellValueFactory(
-            new PropertyValueFactory<CommentaireArticle,String>("titre")
-        );
-         tabUser.setCellValueFactory(
-            new PropertyValueFactory<CommentaireArticle,Integer>("user")
-        );
+         tabTitre.setCellValueFactory(cm-> new SimpleStringProperty(ar.getTitre()));
+        // tabUser.setCellValueFactory(cm-> new SimpleStringProperty()
+        //);
          tabDate.setCellValueFactory(
             new PropertyValueFactory<CommentaireArticle,Date>("date_comt")
         );

@@ -21,6 +21,8 @@ public interface IServiceComt <C> {
     public List<C> readComt();
     public List<C> readComtByUser(int id);
     public ArrayList<CommentaireArticle> getCommentsByArticle(int idArticle);
+    public List<C> readComtDeux();
+   
    // public List<C> searchByName(C c);
 
 }

@@ -34,13 +34,14 @@ import java.util.Date;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javax.swing.JOptionPane;
-public class SignUpController implements Initializable{
+
+public class SignUpController implements Initializable {
 
     @FXML
     private Label SignIn;
 
     @FXML
-    private JFXTextField user;  
+    private JFXTextField user;
     @FXML
     private JFXTextField email;
     @FXML
@@ -49,95 +50,95 @@ public class SignUpController implements Initializable{
     private boolean emailbool;
     private boolean passwordbool;
 
-    
-        @FXML
+    @FXML
     private JFXButton connection;
-        
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        userbool=emailbool=passwordbool=false;
-        RequiredFieldValidator requiredFieldValidator=new RequiredFieldValidator(); 
+        userbool = emailbool = passwordbool = false;
+        RequiredFieldValidator requiredFieldValidator = new RequiredFieldValidator();
         requiredFieldValidator.setMessage("Champ obligatoire");
-             ValidatorBase specialCharacter = new ValidatorBase() {
-                @Override
-                protected void eval() {
-                    setMessage("Pas de caractères spéciaux ");
-                    if (user.getText().matches("^[a-zA-Z0-9éèà]+$")) {
-                        userbool=true;
-                        hasErrors.set(false);
-                    } else 
-                     {
-                         hasErrors.set(true);
-                         userbool=false;
-                     }
+        ValidatorBase specialCharacter = new ValidatorBase() {
+            @Override
+            protected void eval() {
+                setMessage("Pas de caractères spéciaux ");
+                if (user.getText().matches("^[a-zA-Z0-9éèà]+$")) {
+                    userbool = true;
+                    hasErrors.set(false);
+                } else {
+                    hasErrors.set(true);
+                    userbool = false;
                 }
-            };
-             ValidatorBase emailValidator = new ValidatorBase() {
-                @Override
-                protected void eval() {
-                    setMessage("entrer une adresse mail valide");
-                    if (email.getText().matches("^[\\w-\\.]+@([\\w-]+\\.)+[\\w-]{2,4}$")) {
-                        hasErrors.set(false);
-                        emailbool=true;
-                    } else {
-                        hasErrors.set(true);
-                        emailbool=false;
-                    }
+            }
+        };
+        ValidatorBase emailValidator = new ValidatorBase() {
+            @Override
+            protected void eval() {
+                setMessage("entrer une adresse mail valide");
+                if (email.getText().matches("^[\\w-\\.]+@([\\w-]+\\.)+[\\w-]{2,4}$")) {
+                    hasErrors.set(false);
+                    emailbool = true;
+                } else {
+                    hasErrors.set(true);
+                    emailbool = false;
                 }
-            };
-             ValidatorBase passWordValidator = new ValidatorBase() {
-                @Override
-                protected void eval() {
-                    setMessage("longueur supérieure ou égale à 10 ");
-                    if (password.getText().length()<3) {
-                        hasErrors.set(true);
-                        passwordbool=false;
-                    } else {
-                        hasErrors.set(false);
-                        passwordbool=true;
-                    }
+            }
+        };
+        ValidatorBase passWordValidator = new ValidatorBase() {
+            @Override
+            protected void eval() {
+                setMessage("longueur supérieure ou égale à 10 ");
+                if (password.getText().length() < 3) {
+                    hasErrors.set(true);
+                    passwordbool = false;
+                } else {
+                    hasErrors.set(false);
+                    passwordbool = true;
                 }
-            };
-             user.getValidators().addAll(requiredFieldValidator,specialCharacter); 
-             password.getValidators().addAll(requiredFieldValidator,passWordValidator);
-             email.getValidators().addAll(requiredFieldValidator,emailValidator);
+            }
+        };
+        user.getValidators().addAll(requiredFieldValidator, specialCharacter);
+        password.getValidators().addAll(requiredFieldValidator, passWordValidator);
+        email.getValidators().addAll(requiredFieldValidator, emailValidator);
 
         user.focusedProperty().addListener((ObservableValue<? extends Boolean> observable, Boolean oldValue, Boolean newValue) -> {
-            if(!newValue){
+            if (!newValue) {
                 user.validate();
             }
         });
         email.focusedProperty().addListener((ObservableValue<? extends Boolean> observable, Boolean oldValue, Boolean newValue) -> {
-            if(!newValue){
+            if (!newValue) {
                 email.validate();
             }
         });
         password.focusedProperty().addListener((ObservableValue<? extends Boolean> observable, Boolean oldValue, Boolean newValue) -> {
-            if(!newValue){
+            if (!newValue) {
                 password.validate();
             }
         });
-       
-    }   
+
+    }
 
     @FXML
     void typingUsername(ActionEvent event) {
-          System.out.println("manger");
+        System.out.println("manger");
     }
-      @FXML
+
+    @FXML
     void connecting(ActionEvent event) throws SQLException {
-        if(emailbool && userbool && passwordbool){
-        UserService userService=new UserService();
-String hashed=userService.passwordEncryption(password.getText());
- Date date = Calendar.getInstance().getTime();  
-                DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");  
-                String last_login = dateFormat.format(date);  
-                System.out.println(last_login);
-        User u=new User(user.getText(),user.getText(),email.getText(),email.getText(),1, "", hashed,  last_login, "", "", "");
-       userService.ajouter(u);
+        if (emailbool && userbool && passwordbool) {
+            UserService userService = new UserService();
+            String hashed = userService.passwordEncryption(password.getText());
+            Date date = Calendar.getInstance().getTime();
+            DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
+            String last_login = dateFormat.format(date);
+            System.out.println(last_login);
+            User u = new User(user.getText(), user.getText(), email.getText(), email.getText(), 1, "", hashed, last_login, "", "", "");
+            userService.ajouter(u);
+        } else {
+            JOptionPane.showMessageDialog(null, "Vous devez remplir correctement les champs");
         }
-        else JOptionPane.showMessageDialog(null, "Vous devez remplir correctement les champs");
-        
+
     }
 
 }

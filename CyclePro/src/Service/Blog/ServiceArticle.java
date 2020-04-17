@@ -204,7 +204,7 @@ public class ServiceArticle implements IServiceArticle<Article>{
     public List<Article> searchRecent(){
         List<Article> list = new ArrayList<>();
         try{
-            String requete="SELECT * FROM Article order by date_art DESC Limit 2 ";
+            String requete="SELECT * FROM Article order by date_art limit 2 ";
             PreparedStatement pst=cnx.prepareStatement(requete);                    
             ResultSet rs = pst.executeQuery();
             while (rs.next()) {
@@ -228,30 +228,44 @@ public class ServiceArticle implements IServiceArticle<Article>{
     }
     
     @Override
-    public List<Article> readOne(int id){
-        List<Article> list = new ArrayList<>();
+    public Article readOne(int id){
+        Article ar=new Article();
         try{
             String requete="SELECT * FROM Article where id = '"+id+"' ";
             PreparedStatement pst=cnx.prepareStatement(requete);                    
             ResultSet rs = pst.executeQuery();
             while (rs.next()) {
-                list.add(new Article(
-                        rs.getInt(1),
+                ar=new Article( rs.getInt(1),
                         rs.getString("contenue"),
                         rs.getString("titre"),
                         rs.getString("auteur"),
                         rs.getString("photo"),
                         rs.getDate("date_art"),                        
                         rs.getString("category"),
-                        rs.getInt("likes")));
+                        rs.getInt("likes"));
+                
+                       
             }
-
             
         }catch(SQLException ex){
             System.out.println(ex.getMessage());
 
         }
-        return list;
+        return ar;
         
+    }
+    
+    @Override 
+    public String readTitre(int idArt){
+        String titre="";
+        try{
+        String req="select titre from article where id ='"+idArt+"' ";
+        PreparedStatement pst=cnx.prepareStatement(req);                    
+        ResultSet rs = pst.executeQuery();
+        titre=rs.getString(1);
+        }catch(SQLException ex){
+            System.out.println(ex.getMessage());
+        }
+        return titre;
     }
 }

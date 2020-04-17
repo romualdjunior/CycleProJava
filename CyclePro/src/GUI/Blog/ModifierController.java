@@ -117,6 +117,21 @@ public class ModifierController implements Initializable {
             
             else{
             }
+            
+             
+        try{String req="Select count(Likes)from Article ";
+        Connection cnx = DataSource.getInstance().getCnx();
+        PreparedStatement pst = cnx.prepareStatement(req);
+        ResultSet rs = pst.executeQuery();
+                    if (rs.next()) {
+                       String nbr=rs.getString("count(Likes)");
+                       nbrArt.setText(nbr);
+                    }
+        
+            }
+        catch(Exception e){
+            System.out.println(e.getMessage());
+        }       
 
     }   
     
@@ -202,9 +217,6 @@ public class ModifierController implements Initializable {
             System.out.println(e.getMessage());
         }
 
-
-
-   
     }  
     
    public void redirection(AnchorPane c){

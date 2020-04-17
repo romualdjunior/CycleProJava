@@ -49,7 +49,7 @@
                               <Font name="System Bold Italic" size="13.0" />
                            </font>
                         </Text>
-                        <Text layoutX="36.0" layoutY="350.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Contenue">
+                        <Text layoutX="36.0" layoutY="350.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Contenu">
                            <font>
                               <Font name="System Bold Italic" size="13.0" />
                            </font>

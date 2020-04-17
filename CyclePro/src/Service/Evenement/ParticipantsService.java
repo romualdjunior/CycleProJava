@@ -135,7 +135,25 @@ Connection cnx=DataSource.getInstance().getCnx();
 
         return list;
     }
-    
+     public List<Participants> afficherParticipantEvent(int id ) {
+         List<Participants> list = new ArrayList<>();
+
+        try {
+            String requete = "SELECT * FROM participants where event=?";
+            PreparedStatement pst = cnx.prepareStatement(requete);
+            pst.setInt(1, id);
+            ResultSet rs = pst.executeQuery();
+            while (rs.next()) {
+                
+                list.add(new Participants(rs.getInt(2), rs.getDate(3), rs.getInt(4)));
+            }
+
+        } catch (SQLException ex) {
+            System.err.println(ex.getMessage());
+        }
+
+        return list;
+    }
     
     //les metiers
     
@@ -282,6 +300,48 @@ Connection cnx=DataSource.getInstance().getCnx();
             System.err.println(ex.getMessage());
             return nbr;
         }
+    
+    }
+     public String getEventP(int idEvent) {
+        
+         String ch="";
+        try {
+            String requete = "SELECT nom FROM event  where id =?";
+            PreparedStatement pst = cnx.prepareStatement(requete);
+            pst.setInt(1,idEvent);
+            ResultSet rs = pst.executeQuery();
+           while (rs.next()) {
+                
+             ch =rs.getString(1);
+            }
+           return ch;
+        } catch (SQLException ex) {
+            System.err.println(ex.getMessage());
+        }
+
+        return ch; 
+    
+    
+    }
+    public String getUserName(int idUser) {
+         String ch="";
+        try {
+            String requete = "SELECT username FROM  user  where id =? ";
+            PreparedStatement pst = cnx.prepareStatement(requete);
+            pst.setInt(1,idUser);
+            ResultSet rs = pst.executeQuery();
+            while (rs.next()) {
+                
+             ch =rs.getString(1);
+            }
+           return ch;
+        } catch (SQLException ex) {
+            System.err.println(ex.getMessage());
+        
+        }
+
+        return ch; 
+    
     
     }
     

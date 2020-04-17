@@ -32,7 +32,7 @@ import javafx.stage.Stage;
 /**
  * FXML Controller class
  *
- * @author MAROUANE
+ * @author nada
  */
 public class LoadingController implements Initializable {
 
@@ -82,10 +82,10 @@ public class LoadingController implements Initializable {
                 stage1.setScene(scene1);
                 stage1.show();
             } catch (IOException ex) {
-                Logger.getLogger(ViewController.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(BlogSingleController.class.getName()).log(Level.SEVERE, null, ex);
             }
-            ViewController controller
-                    = fxmlLoader.<ViewController>getController();
+            BlogSingleController controller
+                    = fxmlLoader.<BlogSingleController>getController();
            // controller.setDico(dic);
 //            controller..setLangue("Français");
 //            controller.setCode("FR-fr");

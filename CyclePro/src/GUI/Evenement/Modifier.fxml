@@ -1,17 +1,150 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Accordion?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
 <AnchorPane id="AnchorPane" prefHeight="712.0" prefWidth="1223.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.Evenement.ModifierController">
-   <children>
+ <children>
       <ScrollPane prefHeight="712.0" prefWidth="1223.0">
         <content>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="1095.0" prefWidth="1216.0" style="-fx-background-color: #FBFCFE;">
-               <children>
-                  <Label text="ModifierEvenement" />
-               </children></AnchorPane>
+                 <children>
+                  <Accordion layoutX="476.0" layoutY="171.0" />
+                  <Text layoutX="260.0" layoutY="50.0" stroke="#dd2727" strokeType="OUTSIDE" strokeWidth="0.0" text="MODIFIER EVENEMENT" textAlignment="CENTER" wrappingWidth="221.5625">
+                     <font>
+                        <Font name="System Bold Italic" size="19.0" />
+                     </font>
+      
+                  </Text>
+                  <DatePicker fx:id="dateDebut" layoutX="150.0" layoutY="172.0" prefHeight="25.0" prefWidth="206.0" promptText="Date Debut" />
+                  <Button fx:id="add" layoutX="139.0" layoutY="639.0" mnemonicParsing="false" onAction="#modifier" prefHeight="39.0" prefWidth="90.0" text="Modifier ">
+                     <font>
+                        <Font name="System Bold" size="11.0" />
+                     </font>
+                  </Button>
+                  <TextArea fx:id="Description" layoutX="149.0" layoutY="311.0" prefHeight="48.0" prefWidth="210.0" promptText="Description" />
+                  <Text layoutX="31.0" layoutY="146.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nom">
+                     <font>
+                        <Font size="13.0" />
+                     </font>
+                  </Text>
+                  <Text layoutX="31.0" layoutY="238.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Date Fin">
+                     <font>
+                        <Font size="13.0" />
+                     </font>
+                  </Text>
+                  <Text layoutX="31.0" layoutY="396.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Type">
+                     <font>
+                        <Font size="13.0" />
+                     </font>
+                  </Text>
+                  <TextField fx:id="Nom" layoutX="151.0" layoutY="125.0" prefHeight="25.0" prefWidth="202.0" promptText="Nom" />
+                  <Text layoutX="31.0" layoutY="191.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Date Debut">
+                     <font>
+                        <Font size="13.0" />
+                     </font>
+                  </Text>
+                  <TextField fx:id="emailt" layoutX="152.0" layoutY="266.0" prefHeight="25.0" prefWidth="207.0" promptText="email" />
+                  <Text layoutX="30.0" layoutY="283.0" strokeType="OUTSIDE" strokeWidth="0.0" text="email">
+                     <font>
+                        <Font size="13.0" />
+                     </font>
+                  </Text>
+                  <Button fx:id="clear" layoutX="256.0" layoutY="639.0" mnemonicParsing="false" onAction="#clearEvent" prefHeight="39.0" prefWidth="90.0" text="Annuler">
+                     <font>
+                        <Font name="System Bold" size="11.0" />
+                     </font>
+                  </Button>
+                  <DatePicker fx:id="dateFin" layoutX="152.0" layoutY="220.0" prefHeight="25.0" prefWidth="206.0" promptText="Date Fin" />
+                  <ComboBox fx:id="Niveau" layoutX="595.0" layoutY="354.0" prefHeight="25.0" prefWidth="209.0" />
+                  <ComboBox fx:id="Membre" layoutX="151.0" layoutY="379.0" prefHeight="25.0" prefWidth="209.0" />
+                  <TextField fx:id="Prix" layoutX="595.0" layoutY="220.0" prefHeight="25.0" prefWidth="202.0" promptText="Prix" />
+                  <TextField fx:id="Adresse" layoutX="595.0" layoutY="172.0" prefHeight="25.0" prefWidth="202.0" promptText="Adresse" />
+                  <TextField fx:id="NbrPlace" layoutX="595.0" layoutY="119.0" prefHeight="25.0" prefWidth="202.0" promptText="Nombre de place" />
+                  <TextField fx:id="AtDep" layoutX="151.0" layoutY="431.0" prefHeight="25.0" prefWidth="202.0" promptText="Latitude de départ" />
+                  <TextField fx:id="Tel" layoutX="595.0" layoutY="266.0" prefHeight="25.0" prefWidth="202.0" promptText="Téléphone" />
+                  <ComboBox fx:id="Type" layoutX="594.0" layoutY="311.0" prefHeight="25.0" prefWidth="204.0" />
+                  <TextField fx:id="AtAr" layoutX="151.0" layoutY="479.0" prefHeight="25.0" prefWidth="202.0" promptText="Latitude d'arrivé" />
+                  <TextField fx:id="LongAr" layoutX="599.0" layoutY="479.0" prefHeight="25.0" prefWidth="202.0" promptText="Longitude d'arrivé" />
+                  <TextField fx:id="LongDep" layoutX="599.0" layoutY="431.0" prefHeight="25.0" prefWidth="202.0" promptText="Longitude de départ" />
+                  <TextField fx:id="Photo" layoutX="149.0" layoutY="544.0" prefHeight="25.0" prefWidth="504.0" promptText="Photo" />
+                  <Text layoutX="31.0" layoutY="340.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Description">
+                     <font>
+                        <Font size="13.0" />
+                     </font>
+                  </Text>
+                  <Text layoutX="25.0" layoutY="448.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Latitude de départ">
+                     <font>
+                        <Font size="13.0" />
+                     </font>
+                  </Text>
+                  <Text layoutX="25.0" layoutY="496.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Latitude d'arrivé">
+                     <font>
+                        <Font size="13.0" />
+                     </font>
+                  </Text>
+                  <Text layoutX="457.0" layoutY="448.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Longitude de départ">
+                     <font>
+                        <Font size="13.0" />
+                     </font>
+                  </Text>
+                  <Text layoutX="457.0" layoutY="496.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Longitude d'arrivé">
+                     <font>
+                        <Font size="13.0" />
+                     </font>
+                  </Text>
+                  <Text layoutX="463.0" layoutY="136.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nombre de place">
+                     <font>
+                        <Font size="13.0" />
+                     </font>
+                  </Text>
+                  <Text layoutX="466.0" layoutY="191.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Adresse">
+                     <font>
+                        <Font size="13.0" />
+                     </font>
+                  </Text>
+                  <Text layoutX="465.0" layoutY="237.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Prix">
+                     <font>
+                        <Font size="13.0" />
+                     </font>
+                  </Text>
+                  <Text layoutX="460.0" layoutY="283.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Téléphone">
+                     <font>
+                        <Font size="13.0" />
+                     </font>
+                  </Text>
+                  <Text layoutX="462.0" layoutY="371.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Pour">
+                     <font>
+                        <Font size="13.0" />
+                     </font>
+                  </Text>
+                  <Text layoutX="462.0" layoutY="328.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Niveau">
+                     <font>
+                        <Font size="13.0" />
+                     </font>
+                  </Text>
+                  <Text layoutX="25.0" layoutY="561.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Photo">
+                     <font>
+                        <Font size="13.0" />
+                     </font>
+                  </Text>
+                  
+                   <Button layoutX="150.0" layoutY="589.0" mnemonicParsing="false" onAction="#Load" text="choisir Image" />
+                  <ImageView fx:id="Image" fitHeight="150.0" fitWidth="200.0" layoutX="674.0" layoutY="514.0" pickOnBounds="true" preserveRatio="true" />
+            
+               </children>
+             
+                
+          </AnchorPane>
         </content>
       </ScrollPane>
    </children>

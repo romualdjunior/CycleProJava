@@ -14,6 +14,11 @@ public class FavoriArticle {
     private int user;
     private int article;
 
+    public FavoriArticle() {
+    }
+
+    
+    
     public FavoriArticle(int id, int user, int article) {
         this.id = id;
         this.user = user;

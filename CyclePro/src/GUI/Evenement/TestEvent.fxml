@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.FlowPane?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.Evenement.TestEventController">
+   <children>
+      <FlowPane fx:id="flowpane" hgap="4.0" layoutX="7.0" layoutY="13.0" prefHeight="371.0" prefWidth="591.0" vgap="6.0" />
+   </children>
+</AnchorPane>

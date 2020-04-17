@@ -11,11 +11,11 @@
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="712.0" prefWidth="1223.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.Frontend.AccueilController">
+<AnchorPane id="AnchorPane" prefHeight="712.0" prefWidth="1223.0" style="-fx-border-color: transparent;" styleClass="CenterContent" stylesheets="@Frontend.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.Frontend.AccueilController">
    <children>
-      <ScrollPane prefHeight="712.0" prefWidth="1223.0">
+      <ScrollPane prefHeight="712.0" prefWidth="1223.0" style="-fx-background-color: transparent;" styleClass="CenterContent" stylesheets="@Frontend.css">
         <content>
-          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="1095.0" prefWidth="1216.0" style="-fx-background-color: #FBFCFE;">
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="1095.0" prefWidth="1216.0" style="-fx-background-color: #FBFCFE; -fx-border-width: 0px 0px 0px 0px;" styleClass="CenterContent" stylesheets="@Frontend.css">
                <children>
                   <Pane fx:id="banner" layoutX="45.0" layoutY="39.0" prefHeight="146.0" prefWidth="1095.0" styleClass="banner" stylesheets="@Frontend.css">
                      <children>
@@ -32,7 +32,7 @@
                         <JFXButton layoutX="37.0" layoutY="91.0" styleClass="visiterSiteEnLigne" stylesheets="@Frontend.css" text="Visiter notre site en ligne" textFill="WHITE" />
                         <ImageView fitHeight="111.0" fitWidth="183.0" layoutX="919.0" layoutY="18.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../Images/OBJECTS.png" />
+                              <Image url="@../Images/cycling-clipart-animation-2-or-unscreen.gif" />
                            </image>
                         </ImageView>
                      </children>

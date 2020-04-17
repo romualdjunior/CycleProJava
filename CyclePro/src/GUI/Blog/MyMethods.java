@@ -10,6 +10,10 @@ package GUI.Blog;
 import javafx.print.PrinterJob;
 import javafx.scene.Node;
 
+/**
+ *
+ * @author nada
+ */
 public class MyMethods {
      
     static String before(String value, int a) {
@@ -26,9 +30,9 @@ public class MyMethods {
             }
         }
         
-        ViewController.positionStartWordBefore=posPremierSeparateur;
-        ViewController.positionEndWordBefore=a+1;
-	return value.substring(ViewController.positionStartWordBefore, ViewController.positionEndWordBefore);
+        BlogSingleController.positionStartWordBefore=posPremierSeparateur;
+        BlogSingleController.positionEndWordBefore=a+1;
+	return value.substring(BlogSingleController.positionStartWordBefore, BlogSingleController.positionEndWordBefore);
     }        
         
     static String after(String value, int posPremierSeparateur) {
@@ -48,15 +52,15 @@ public class MyMethods {
         try
         {            
             //retourne la position du separateur le plus proche
-            ViewController.positionEndWordAfter=getIndexSeparateurSuivant(value,posPremierSeparateur);    
-            ViewController.positionStartWordAfter=posPremierSeparateur;
+           BlogSingleController.positionEndWordAfter=getIndexSeparateurSuivant(value,posPremierSeparateur);    
+            BlogSingleController.positionStartWordAfter=posPremierSeparateur;
              
-            return value.substring(ViewController.positionStartWordAfter,  ViewController.positionEndWordAfter);
+            return value.substring(BlogSingleController.positionStartWordAfter,  BlogSingleController.positionEndWordAfter);
         }
         catch(Exception ex)//cas dernier mot
         {
-            ViewController.positionStartWordAfter=posPremierSeparateur;
-            ViewController.positionEndWordAfter=value.length();
+            BlogSingleController.positionStartWordAfter=posPremierSeparateur;
+            BlogSingleController.positionEndWordAfter=value.length();
             return value.substring(posPremierSeparateur);
         }
         
@@ -94,16 +98,16 @@ public class MyMethods {
         try
         {
              
-            ViewController.positionEndWord=getIndexSeparateurSuivant(value,posPremierSeparateur);            
-            ViewController.positionStartWord=posPremierSeparateur;
+            BlogSingleController.positionEndWord=getIndexSeparateurSuivant(value,posPremierSeparateur);            
+            BlogSingleController.positionStartWord=posPremierSeparateur;
             //retourne la position du separateur le plus proche
             
-            return value.substring(ViewController.positionStartWord, ViewController.positionEndWord);
+            return value.substring(BlogSingleController.positionStartWord, BlogSingleController.positionEndWord);
         }
         catch(Exception ex)//cas dernier mot
         {
-            ViewController.positionStartWord=posPremierSeparateur;
-            ViewController.positionEndWord=value.length();
+            BlogSingleController.positionStartWord=posPremierSeparateur;
+            BlogSingleController.positionEndWord=value.length();
             return value.substring(posPremierSeparateur);
         }
         

@@ -18,6 +18,7 @@
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
+<?import org.controlsfx.control.Rating?>
 
 <AnchorPane id="AnchorPane" prefHeight="712.0" prefWidth="1223.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.Blog.BlogSingleController">
    <children>
@@ -40,7 +41,7 @@
                         <JFXButton layoutX="46.0" layoutY="91.0" styleClass="visiterSiteEnLigne" stylesheets="@../Frontend/Frontend.css" text="Visiter notre site en ligne" textFill="WHITE" />
                         <ImageView fitHeight="111.0" fitWidth="183.0" layoutX="916.0" layoutY="18.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../Images/OBJECTS.png" />
+                              <Image url="@../Images/cycling-clipart-animation-2-or-unscreen.gif" />
                            </image>
                         </ImageView>
                      </children>
@@ -59,16 +60,21 @@
                   <Pane layoutX="45.0" layoutY="304.0" prefHeight="768.0" prefWidth="559.0" style="-fx-background-color: white;" styleClass="EvenementSingle" stylesheets="@blog.css">
                      <children>
                         <Pane fx:id="PanePhoto" prefHeight="435.0" prefWidth="559.0" />
-                        <Label fx:id="LTitre" layoutX="8.0" layoutY="441.0" text="nada">
+                        <Label fx:id="LTitre" layoutX="8.0" layoutY="441.0" prefHeight="51.0" prefWidth="542.0">
                            <font>
                               <Font name="Source Sans Pro Semibold" size="35.0" />
                            </font>
                         </Label>
-                        <Label fx:id="LCont" layoutX="18.0" layoutY="488.0" prefHeight="176.0" prefWidth="526.0" text="Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est " textFill="#707070" wrapText="true">
+                        <Label fx:id="LCont" layoutX="18.0" layoutY="488.0" prefHeight="176.0" prefWidth="526.0" textFill="#707070" wrapText="true">
                            <font>
                               <Font name="Source Sans Pro" size="14.0" />
                            </font>
                         </Label>
+                        <JFXButton layoutX="432.0" layoutY="435.0" onAction="#createFavorie" prefHeight="36.0" prefWidth="112.0" ripplerFill="WHITE" style="-fx-background-color: #106AD2;" text="ADD Favorite" textFill="WHITE">
+                           <font>
+                              <Font name="Source Sans Pro Semibold" size="12.0" />
+                           </font>
+                        </JFXButton>
                         
   
                      </children>
@@ -167,30 +173,38 @@
                         <!--PDF-->
                   <Pane layoutX="813.0" layoutY="1180.0" prefHeight="90.0" prefWidth="331.0" style="-fx-background-color: white;" styleClass="search" stylesheets="@blog.css">
                      <children>
-                        
                           
-            <JFXButton onAction="#createPDF" prefHeight="35.0" prefWidth="213.0"  text="    
-              PDF" textFill="#000000a6">
+            <JFXButton layoutX="39.0" layoutY="28.0" onAction="#createPDF" prefHeight="35.0" prefWidth="213.0" text="                   PDF" textFill="#2811bca6">
                <VBox.margin>
                   <Insets top="15.0" />
                </VBox.margin>
-               <graphic>
-                  <ImageView fitHeight="24.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="/images/pdf.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
                <padding>
                   <Insets right="70.0" />
                </padding>
                <font>
-                  <Font name="Source Bold Sans Pro" size="14.0" />
+                  <Font name="System Bold" size="14.0" />
                </font>
             </JFXButton>
                      </children>
                   </Pane> 
                   
+            <!--MES FAVORIT-->
+                  <Pane layoutX="813.0" layoutY="1305.0" prefHeight="90.0" prefWidth="331.0" style="-fx-background-color: white;" styleClass="search" stylesheets="@blog.css">
+                     <children>
+                          
+            <JFXButton layoutX="27.0" layoutY="28.0" onAction="#favorite" prefHeight="35.0" prefWidth="259.0" text="                   My favorite" textFill="#2811bca6">
+               <VBox.margin>
+                  <Insets top="15.0" />
+               </VBox.margin>
+               <padding>
+                  <Insets right="70.0" />
+               </padding>
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </JFXButton>
+                     </children>
+                  </Pane> 
                   
                   
                   <!--SUIVEZ-NOUS!-->
@@ -308,7 +322,6 @@
                               <Font name="Source Sans Pro Semibold" size="22.0" />
                            </font>
                         </Label>
-                        <TextField fx:id="txtComt" layoutX="56.0" layoutY="341.0" prefHeight="261.0" prefWidth="677.0" promptText="Commentaire" text="Commenter" />
                         <JFXButton layoutX="56.0" layoutY="639.0" onAction="#Commenter" prefHeight="36.0" prefWidth="112.0" ripplerFill="WHITE" style="-fx-background-color: #106AD2;" text="Commenter" textFill="WHITE">
                            <font>
                               <Font name="Source Sans Pro Semibold" size="12.0" />
@@ -316,7 +329,7 @@
                         </JFXButton>
                         <Pane layoutX="29.0" layoutY="92.0" prefHeight="75.0" prefWidth="419.0" styleClass="comment" stylesheets="@../Blog/blog.css">
                            <children>
-                              <Label layoutX="68.0" layoutY="6.0" text="Lena Adams">
+                              <Label fx:id="nameUser" layoutX="68.0" layoutY="6.0" prefHeight="17.0" prefWidth="110.0">
                                  <font>
                                     <Font name="Source Sans Pro Semibold" size="12.0" />
                                  </font>
@@ -326,21 +339,21 @@
                                     <Image url="@../Images/avatar.png" />
                                  </image>
                               </ImageView>
-                              <Label layoutX="156.0" layoutY="6.0" text="- Apr 18, 2018 at 10:30pm">
-                                 <font>
-                                    <Font name="Source Sans Pro Semibold" size="11.0" />
-                                 </font>
-                              </Label>
-                              <Label layoutX="62.0" layoutY="18.0" prefHeight="47.0" prefWidth="325.0" text="Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo." wrapText="true">
+                              <Label fx:id="affComt" layoutX="62.0" layoutY="18.0" prefHeight="47.0" prefWidth="325.0" wrapText="true">
                                  <font>
                                     <Font name="Source Sans Pro" size="14.0" />
                                  </font>
                               </Label>
+                              <Label fx:id="DateComt" layoutX="188.0" layoutY="6.0" prefHeight="21.0" prefWidth="161.0">
+                                 <font>
+                                    <Font name="Source Sans Pro Semibold" size="11.0" />
+                                 </font>
+                              </Label>
                            </children>
                         </Pane>
-                        <Pane layoutX="70.0" layoutY="194.0" prefHeight="75.0" prefWidth="419.0" styleClass="comment" stylesheets="@../Blog/blog.css">
+                        <Pane layoutX="28.0" layoutY="194.0" prefHeight="75.0" prefWidth="419.0" styleClass="comment" stylesheets="@../Blog/blog.css">
                            <children>
-                              <Label layoutX="68.0" layoutY="6.0" text="Lena Adams">
+                              <Label fx:id="nameUser2" layoutX="68.0" layoutY="6.0" prefHeight="17.0" prefWidth="114.0">
                                  <font>
                                     <Font name="Source Sans Pro Semibold" size="12.0" />
                                  </font>
@@ -350,12 +363,12 @@
                                     <Image url="@../Images/avatar.png" />
                                  </image>
                               </ImageView>
-                              <Label layoutX="156.0" layoutY="6.0" text="- Apr 18, 2018 at 10:30pm">
+                              <Label fx:id="DateComt2" layoutX="188.0" layoutY="6.0" prefHeight="16.0" prefWidth="141.0">
                                  <font>
                                     <Font name="Source Sans Pro Semibold" size="11.0" />
                                  </font>
                               </Label>
-                              <Label layoutX="62.0" layoutY="18.0" prefHeight="47.0" prefWidth="325.0" text="Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo." wrapText="true">
+                              <Label fx:id="affComt2" layoutX="62.0" layoutY="18.0" prefHeight="47.0" prefWidth="325.0" wrapText="true">
                                  <font>
                                     <Font name="Source Sans Pro" size="14.0" />
                                  </font>
@@ -371,46 +384,62 @@
                               </ContextMenu>
                            </contextMenu>
                         </Button>
-                        <Label fx:id="lbl" layoutX="528.0" layoutY="575.0" styleClass="info_lb" text="Langue :" />
-                        <ImageView fx:id="flag" fitHeight="20.0" fitWidth="31.0" layoutX="584.0" layoutY="575.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image fx:id="imgflag" url="@../../../../../../correcteur-orthographique-javafx-master/src/test_fx/flags/Français.png" />
-                           </image>
-                        </ImageView>
-                        <Label fx:id="nbMot" layoutX="71.0" layoutY="575.0" styleClass="info_lb" text="N° mot: 0" />
-                        <ComboBox fx:id="langCombo" layoutX="627.0" layoutY="570.0" prefWidth="90.0" promptText="Français">
-                           <items>
-                              <FXCollections fx:factory="observableArrayList">
-                                 <Label text="Français">
-                                    <graphic>
-                                       <StackPane prefWidth="30" style="-fx-background-color: #1d1d1d;">
-                                          <children>
-                                             <ImageView fitHeight="20" preserveRatio="true">
-                                                <image>
-                                                   <Image preserveRatio="false" smooth="false" url="@../../../../../../correcteur-orthographique-javafx-master/src/test_fx/flags/Français.png" />
-                                                </image>
-                                             </ImageView>
-                                          </children>
-                                       </StackPane>
-                                    </graphic>
-                                 </Label>
-                                 <Label text="English">
-                                    <graphic>
-                                       <StackPane prefWidth="30">
-                                          <children>
-                                             <ImageView fitHeight="20" preserveRatio="true">
-                                                <image>
-                                                   <Image preserveRatio="false" smooth="false" url="@../../../../../../correcteur-orthographique-javafx-master/src/test_fx/flags/English.png" />
-                                                </image>
-                                             </ImageView>
-                                          </children>
-                                       </StackPane>
-                                    </graphic>
-                                 </Label>
-                              </FXCollections>
-                           </items>
-                        </ComboBox>
                         <Label layoutX="517.0" layoutY="575.0" styleClass="info_lb" text="Français - FR" visible="false" />
+                        <Rating fx:id="rating" layoutX="599.0" layoutY="36.0" rating="0.0" />
+                        <AnchorPane id="main_windows" layoutX="81.0" layoutY="314.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="287.0" minWidth="548.0" prefHeight="295.0" prefWidth="626.0" styleClass="main_windows" stylesheets="@../../../../../../cours%20esprit%202019-2020/semestre%202/PI%20JAVA%20projets/correcteur-orthographique-javafx-master/src/test_fx/area.css">
+                           <children>
+                              <VBox id="vbox" fx:id="vbox" layoutX="15.0" layoutY="101.0" prefHeight="291.0" prefWidth="750.0" styleClass="vbox" AnchorPane.bottomAnchor="58.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="101.0" />
+                              <Button fx:id="btn1" layoutX="157.0" layoutY="411.0" text="error" visible="false" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="157.0">
+                                 <contextMenu>
+                                    <ContextMenu>
+                                       <items>
+                                          <MenuItem mnemonicParsing="false" text="Unspecified Action" />
+                                       </items>
+                                    </ContextMenu>
+                                 </contextMenu>
+                              </Button>
+                              <Label fx:id="lbl" layoutX="14.0" layoutY="408.0" styleClass="info_lb" text="Langue :" AnchorPane.bottomAnchor="14.0" AnchorPane.rightAnchor="150.5" />
+                              <ImageView fx:id="flag" fitHeight="20.0" fitWidth="31.0" layoutX="399.0" layoutY="412.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="18.0" AnchorPane.rightAnchor="105.5">
+                                 <image>
+                                    <Image fx:id="imgflag" url="@../Images/Français.png" />
+                                 </image>
+                              </ImageView>
+                              <Label fx:id="nbMot" layoutX="14.0" layoutY="408.0" styleClass="info_lb" text="N° mot: 0" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="14.0" />
+                              <ComboBox fx:id="langCombo" layoutX="434.0" layoutY="409.0" prefWidth="90.0" promptText="Français" AnchorPane.bottomAnchor="16.0" AnchorPane.rightAnchor="10.0">
+                                 <items>
+                                    <FXCollections fx:factory="observableArrayList">
+                                       <Label text="Français">
+                                          <graphic>
+                                             <StackPane prefWidth="30" style="-fx-background-color: #1d1d1d;">
+                                                <children>
+                                                   <ImageView fitHeight="20" preserveRatio="true">
+                                                      <image>
+                                                         <Image preserveRatio="false" smooth="false" url="@../Images/Français.png" />
+                                                      </image>
+                                                   </ImageView>
+                                                </children>
+                                             </StackPane>
+                                          </graphic>
+                                       </Label>
+                                       <Label text="English">
+                                          <graphic>
+                                             <StackPane prefWidth="30">
+                                                <children>
+                                                   <ImageView fitHeight="20" preserveRatio="true">
+                                                      <image>
+                                                         <Image preserveRatio="false" smooth="false" url="@../Images/English.png" />
+                                                      </image>
+                                                   </ImageView>
+                                                </children>
+                                             </StackPane>
+                                          </graphic>
+                                       </Label>
+                                    </FXCollections>
+                                 </items>
+                              </ComboBox>
+                              <Label layoutX="434.0" layoutY="409.0" styleClass="info_lb" text="Français - FR" visible="false" AnchorPane.bottomAnchor="16.0" AnchorPane.rightAnchor="226.0" />
+                           </children>
+                        </AnchorPane>
                      </children>
                   </Pane>     
                   

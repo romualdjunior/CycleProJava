@@ -5,13 +5,10 @@
  */
 package GUI.Blog;
 
-import GUI.Blog.Dictionnaire;
-
 /**
  *
  * @author 
- * BOUARRHA Ayoub
- * LAMINE Marouane 
+ * nada
  */
 
 class MotCorrect implements Comparable<MotCorrect> {

@@ -52,7 +52,7 @@ public class TestCommande {
                     sc.delete(id);
                     sc.readAll();
                     System.out.println("entrer un champ pour la recherche trie");
-                    String champ=scanner.next();
+                    String champ = scanner.next();
                     sc.readAll2(champ);
 
                 } else {
@@ -222,7 +222,7 @@ public class TestCommande {
                         }
                         SendEmail sm;
                         sm = new SendEmail("romuald.motchehokamguia@esprit.tn", "validation de commande", "votre commande chez cyclepro a été validée avec "
-                + "success");
+                                + "success");
                         System.out.println("1-Proceder au paiement ");
                         System.out.println("2-Payer à la livraison");
                         menuIndex = scanner.nextInt();
@@ -297,7 +297,7 @@ public class TestCommande {
                 ServiceLignePanier sl = new ServiceLignePanier();
                 sl.delete(id);
                 ServiceCommande sc = new ServiceCommande();
-                sc.historique();
+                //sc.historique();
                 break;
             case 0:
 
@@ -328,20 +328,20 @@ public class TestCommande {
                 sp.ajouter(paiement);
                 s.update(s.getLastCommande());
                 System.out.println("Votre historique des commandes ");
-                s.historique();
+                //s.historique();
                 System.out.println("1-Supprimer un produit de la commande?");
                 System.out.println("0-non");
                 System.out.println("Entrer l'id du produitdans la commande ");
-                int idLignePanier=scanner.nextInt();
-                ServiceLignePanier sl=new ServiceLignePanier();
+                int idLignePanier = scanner.nextInt();
+                ServiceLignePanier sl = new ServiceLignePanier();
                 sl.delete(idLignePanier);
                 System.out.println("produit supprimee");
-                s.historique();
+                //s.historique();
                 break;
             case 2:
                 System.out.println("Votre historique des commandes ");
                 ServiceCommande s2 = new ServiceCommande();
-                s2.historique();
+                //s2.historique();
                 System.out.println("1-Supprimer un produit de la commande?");
                 System.out.println("0-non");
 
