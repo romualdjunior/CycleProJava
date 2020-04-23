@@ -26,6 +26,12 @@ public class CommentaireEvent {
         this.user = user;
     }
 
+    public CommentaireEvent(String contenue, int event, int user) {
+        this.contenue = contenue;
+        this.event = event;
+        this.user = user;
+    }
+
     public CommentaireEvent(int id, String contenue, Date dateComment, int event, int user) {
         this.id = id;
         this.contenue = contenue;

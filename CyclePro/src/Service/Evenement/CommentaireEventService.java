@@ -28,7 +28,7 @@ public class CommentaireEventService implements IServices<CommentaireEvent>{
     public void ajouter(CommentaireEvent t) {
         long millis=System.currentTimeMillis();  
          Date date=new Date(millis);  
-         String req="insert into commentaire_event(likes,contenue,DateComment,Event_id,user) values ('"+t.getLikes()+"','"+t.getContenue()+"','"+date+"','"+t.getEvent()+"','"+t.getUser()+"')";
+         String req="insert into commentaire_event(likes,contenue,DateComment,Event_id,user) values ('"+0+"','"+t.getContenue()+"','"+date+"','"+t.getEvent()+"','"+t.getUser()+"')";
     try{
      Statement st =cnx.createStatement();
      st.executeUpdate(req);
@@ -71,12 +71,13 @@ public class CommentaireEventService implements IServices<CommentaireEvent>{
     
     //metiers
     //getComments recent limit 5
-    public List<CommentaireEvent> getComments() {
+    public List<CommentaireEvent> getComments(int id) {
          List<CommentaireEvent> list = new ArrayList<>();
 
         try {
-            String requete = "SELECT * FROM commentaire_event Order by dateComment DESC limit 5";
+            String requete = "SELECT * FROM commentaire_event where Event_id=? Order by dateComment DESC limit 3";
             PreparedStatement pst = cnx.prepareStatement(requete);
+            pst.setInt(1, id);
             ResultSet rs = pst.executeQuery();
             while (rs.next()) {
                 
@@ -96,13 +97,13 @@ public class CommentaireEventService implements IServices<CommentaireEvent>{
          List<CommentaireEvent> list = new ArrayList<>();
 
         try {
-            String requete = "SELECT * FROM commentaire_event Order by dateComment where id =?";
+            String requete = "SELECT * FROM commentaire_event  where Event_id =?";
             PreparedStatement pst = cnx.prepareStatement(requete);
             pst.setInt(1,idEvent);
             ResultSet rs = pst.executeQuery();
             while (rs.next()) {
                 
-                list.add(new CommentaireEvent(rs.getInt(1), rs.getString(3), rs.getDate(4), rs.getByte(5), rs.getInt(6)));
+                list.add(new CommentaireEvent(rs.getInt(1),rs.getString(3),rs.getDate(4),rs.getInt(4),rs.getInt(6)));
             }
 
         } catch (SQLException ex) {
@@ -114,6 +115,50 @@ public class CommentaireEventService implements IServices<CommentaireEvent>{
     
     }
     
+    
+     public String getUserName(int idUser) {
+         String ch="";
+        try {
+            String requete = "SELECT username FROM  user  where id =? ";
+            PreparedStatement pst = cnx.prepareStatement(requete);
+            pst.setInt(1,idUser);
+            ResultSet rs = pst.executeQuery();
+            while (rs.next()) {
+                
+             ch =rs.getString(1);
+            }
+           return ch;
+        } catch (SQLException ex) {
+            System.err.println(ex.getMessage());
+        
+        }
+
+        return ch; 
+    
+    
+    }
+    
+       public String getEvent(int idEvent) {
+         List<CommentaireEvent> list = new ArrayList<>();
+         String ch="";
+        try {
+            String requete = "SELECT nom FROM event  where id =?";
+            PreparedStatement pst = cnx.prepareStatement(requete);
+            pst.setInt(1,idEvent);
+            ResultSet rs = pst.executeQuery();
+           while (rs.next()) {
+                
+             ch =rs.getString(1);
+            }
+           return ch;
+        } catch (SQLException ex) {
+            System.err.println(ex.getMessage());
+        }
+
+        return ch; 
+    
+    
+    }
     
     
   

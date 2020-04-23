@@ -6,6 +6,7 @@
 package Service.Evenement;
 
 import Entitie.Evenement.Event;
+import Entitie.Evenement.Participants;
 import IService.Evenement.IServices;
 import static Test.Main.getDate;
 import Utils.DataSource;
@@ -114,7 +115,7 @@ Connection cnx=DataSource.getInstance().getCnx();
             PreparedStatement pst = cnx.prepareStatement(requete);
             ResultSet rs = pst.executeQuery();
             while (rs.next()) {
-                list.add(new Event(rs.getInt(1), rs.getString(2) , rs.getString(3), rs.getFloat(4),  rs.getString(5),  rs.getString(6)));
+                list.add(new Event(rs.getInt("id"), rs.getString("nom"), rs.getString("description") , rs.getFloat("prix"), rs.getString("photoEvent") , rs.getString("adresse") , rs.getFloat("longitude_Dep") , rs.getFloat("longitude_Arrv") , rs.getFloat("latitude_Dep") , rs.getFloat("latitude_Arrv") , rs.getDate("dateDebut") , rs.getDate("dateFin") , rs.getInt("nbrplace") , rs.getFloat("evaluation") , rs.getString ("niveau"), rs.getString("Type"), rs.getString("membre"), rs.getInt("tel"), rs.getString("email")));
             }
 
         } catch (SQLException ex) {
@@ -168,11 +169,11 @@ Connection cnx=DataSource.getInstance().getCnx();
           List<Event> list = new ArrayList<>();
 
         try {
-            String requete = "SELECT * FROM event where type like '%"+input+"%' OR Membre like '%"+input+"%' OR contenue LIKE '%"+input+"%' OR niveau like '%"+input+"%' Or nom like '%"+input+"%' ";
+            String requete = "SELECT * FROM event where type like '%"+input+"%' OR Membre like '%"+input+"%'  OR niveau like '%"+input+"%' Or nom like '%"+input+"%' ";
             PreparedStatement pst = cnx.prepareStatement(requete);
             ResultSet rs = pst.executeQuery();
             while (rs.next()) {
-                list.add(new Event(rs.getInt(1), rs.getString(2) , rs.getString(3), rs.getFloat(4),  rs.getString(5),  rs.getString(6)));
+                 list.add(new Event(rs.getInt("id"), rs.getString("nom"), rs.getString("description") , rs.getFloat("prix"), rs.getString("photoEvent") , rs.getString("adresse") , rs.getFloat("longitude_Dep") , rs.getFloat("longitude_Arrv") , rs.getFloat("latitude_Dep") , rs.getFloat("latitude_Arrv") , rs.getDate("dateDebut") , rs.getDate("dateFin") , rs.getInt("nbrplace") , rs.getFloat("evaluation") , rs.getString ("niveau"), rs.getString("Type"), rs.getString("membre"), rs.getInt("tel"), rs.getString("email")));
             }
 
         } catch (SQLException ex) {
@@ -182,4 +183,51 @@ Connection cnx=DataSource.getInstance().getCnx();
         return list;
     
         }
+     
+     
+     
+    
+    
+    public List<Participants> afficherParticipants(int id) {
+          List<Participants> list = new ArrayList<>();
+
+        try {
+            String requete = "SELECT * FROM participants where event=?";
+            
+            PreparedStatement pst = cnx.prepareStatement(requete);
+            pst.setInt(1, id);
+            ResultSet rs = pst.executeQuery();
+            while (rs.next()) {
+                list.add(new Participants(rs.getInt(1),rs.getInt(2),rs.getDate(3),rs.getInt(4)));
+            }
+
+        } catch (SQLException ex) {
+            System.err.println(ex.getMessage());
+        }
+
+        return list;
+    
+        } 
+     
+     public List<Event> afficherEventAcceuil() {
+          List<Event> list = new ArrayList<>();
+
+        try {
+            String requete = "SELECT * FROM event LIMIT 4";
+            PreparedStatement pst = cnx.prepareStatement(requete);
+            ResultSet rs = pst.executeQuery();
+            while (rs.next()) {
+                list.add(new Event(rs.getInt("id"), rs.getString("nom"), rs.getString("description") , rs.getFloat("prix"), rs.getString("photoEvent") , rs.getString("adresse") , rs.getFloat("longitude_Dep") , rs.getFloat("longitude_Arrv") , rs.getFloat("latitude_Dep") , rs.getFloat("latitude_Arrv") , rs.getDate("dateDebut") , rs.getDate("dateFin") , rs.getInt("nbrplace") , rs.getFloat("evaluation") , rs.getString ("niveau"), rs.getString("Type"), rs.getString("membre"), rs.getInt("tel"), rs.getString("email")));
+            }
+
+        } catch (SQLException ex) {
+            System.err.println(ex.getMessage());
+        }
+
+        return list;
+    
+        }
+    
+     
+     
 }

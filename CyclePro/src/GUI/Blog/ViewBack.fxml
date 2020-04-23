@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+
+<AnchorPane id="AnchorPane" prefHeight="712.0" prefWidth="1223.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.171" fx:controller="GUI.Blog.ViewBackController">
+   <children>
+      <Pane layoutX="222.0" layoutY="56.0" prefHeight="621.0" prefWidth="755.0" style="-fx-background-color: white;" styleClass="FormDesign" stylesheets="@blog.css">
+         <children>
+            <TextField fx:id="search" layoutX="23.0" layoutY="73.0" onKeyReleased="#search" prefHeight="25.0" prefWidth="235.0" text="Search...." />
+            <TableView fx:id="tabView" layoutX="17.0" layoutY="126.0" prefHeight="419.0" prefWidth="722.0">
+               <columns>
+                  <TableColumn fx:id="tabDate" prefWidth="100.0" text="Date View" />
+                  <TableColumn fx:id="tabUser" prefWidth="96.0" text="Nom User" />
+                  <TableColumn fx:id="tabRate" prefWidth="118.0" text="Rating" />
+                  <TableColumn fx:id="tabCont" prefWidth="224.0" text="Contenue" />
+               </columns>
+            </TableView>
+            <Text fill="#ae2626" layoutX="296.0" layoutY="38.0" stroke="#dd2727" strokeType="OUTSIDE" strokeWidth="0.0" text="View" textAlignment="CENTER" wrappingWidth="221.5625">
+               <font>
+                  <Font name="System Bold Italic" size="22.0" />
+               </font>
+            </Text>
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>

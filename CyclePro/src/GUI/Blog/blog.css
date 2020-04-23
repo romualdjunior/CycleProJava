@@ -61,6 +61,10 @@
 
 
 }
+.FormDesign{
+    -fx-effect: dropshadow(three-pass-box, rgb(2,0,0,0.7), 10, 0, 0, 0);
+     -fx-background-radius:6px;  
+}
 .Pagination{
     -fx-background-color: white;
     -fx-border-color: white;

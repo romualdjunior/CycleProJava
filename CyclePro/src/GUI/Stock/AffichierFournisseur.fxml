@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane id="AnchorPane" prefHeight="718.0" prefWidth="1084.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.Stock.AffichierFournisseurController">
+   <children>
+      <TableView fx:id="table" layoutX="31.0" layoutY="62.0" prefHeight="147.0" prefWidth="692.0">
+        <columns>
+          <TableColumn fx:id="id" prefWidth="113.33331298828125" text="Id" />
+          <TableColumn fx:id="r" prefWidth="110.66668701171875" text="Raison sociale" />
+            <TableColumn fx:id="m" prefWidth="113.33331298828125" text="matricule" />
+            <TableColumn fx:id="a" prefWidth="120.33331298828125" text="adresse" />
+            <TableColumn fx:id="mail" prefWidth="108.66668701171875" text="mail" />
+            <TableColumn fx:id="t" prefWidth="119.0" text="telephone" />
+        </columns>
+      </TableView>
+      <TableView fx:id="table2" layoutX="31.0" layoutY="272.0" prefHeight="147.0" prefWidth="692.0" AnchorPane.rightAnchor="361.0">
+        <columns>
+          <TableColumn fx:id="I1" prefWidth="22.0" text="id" />
+          <TableColumn fx:id="T2" prefWidth="56.000030517578125" text="marque" />
+            <TableColumn fx:id="T3" prefWidth="63.0" text="couleur" />
+            <TableColumn fx:id="I4" prefWidth="26.666656494140625" text="nbrDePlace" />
+            <TableColumn fx:id="T5" prefWidth="53.0" text="taille" />
+            <TableColumn fx:id="I6" prefWidth="55.33331298828125" text="qtEnStock" />
+            <TableColumn fx:id="I7" prefWidth="73.66668701171875" text="qtStockSecurite" />
+            <TableColumn fx:id="D8" prefWidth="64.33331298828125" text="prixAchat" />
+            <TableColumn fx:id="D9" prefWidth="55.33331298828125" text="prixLocH" />
+            <TableColumn fx:id="T10" minWidth="0.0" prefWidth="28.33331298828125" text="photoV" />
+            <TableColumn fx:id="I11" prefWidth="65.0" text="Fournisseur" />
+            <TableColumn fx:id="T12" prefWidth="69.66668701171875" text="categorie" />
+            <TableColumn fx:id="T13" prefWidth="78.0" text="description" />
+            <TableColumn fx:id="T14" prefWidth="42.6666259765625" text="etat" />
+            <TableColumn fx:id="I15" prefWidth="51.33331298828125" text="soldee" />
+            <TableColumn fx:id="T16" prefWidth="48.0" text="type" />
+            <TableColumn fx:id="T17" prefWidth="37.33331298828125" text="photoV1" />
+            <TableColumn fx:id="T18" prefWidth="32.0" text="photoV2" />
+            <TableColumn fx:id="T19" prefWidth="36.666748046875" text="photoV3" />
+            <TableColumn fx:id="T20" prefWidth="106.66650390625" text="Caracteristiques" />
+        </columns>
+      </TableView>
+      <Text layoutX="114.0" layoutY="42.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Fournisseur" textAlignment="CENTER">
+         <font>
+            <Font size="21.0" />
+         </font>
+      </Text>
+      <Text layoutX="114.0" layoutY="254.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Velo" textAlignment="CENTER">
+         <font>
+            <Font size="21.0" />
+         </font>
+      </Text>
+      <TableView fx:id="table3" layoutX="31.0" layoutY="476.0" prefHeight="147.0" prefWidth="692.0">
+        <columns>
+          <TableColumn fx:id="II1" prefWidth="75.0" text="id" />
+          <TableColumn fx:id="TT2" prefWidth="75.0" text="photoA" />
+            <TableColumn fx:id="TT3" prefWidth="75.0" text="nom" />
+            <TableColumn fx:id="TT4" prefWidth="75.0" text="marque" />
+            <TableColumn fx:id="TT5" prefWidth="75.0" text="categorie" />
+            <TableColumn fx:id="DD6" prefWidth="75.0" text="prix" />
+            <TableColumn fx:id="TT7" prefWidth="75.0" text="description" />
+            <TableColumn fx:id="TT8" prefWidth="75.0" text="photoA1" />
+            <TableColumn fx:id="TT9" prefWidth="75.0" text="photoA2" />
+            <TableColumn fx:id="TT10" prefWidth="75.0" text="photoA3" />
+            <TableColumn fx:id="II11" prefWidth="75.0" text="soldee" />
+            <TableColumn fx:id="TT12" prefWidth="75.0" text="Caracteristiques" />
+            <TableColumn fx:id="II13" prefWidth="75.0" text="qtEnStock" />
+        </columns>
+      </TableView>
+      <Text layoutX="102.0" layoutY="454.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Accessoires" textAlignment="CENTER">
+         <font>
+            <Font size="21.0" />
+         </font>
+      </Text>
+   </children>
+</AnchorPane>

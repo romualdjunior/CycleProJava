@@ -5,6 +5,7 @@
  */
 package Service.Blog;
 
+import Entitie.Blog.Article;
 import Entitie.Blog.CommentaireArticle;
 import IService.Blog.IServiceComt;
 import Utils.DataSource;
@@ -79,6 +80,35 @@ public class ServiceComt implements IServiceComt <CommentaireArticle>{
         }
     }
     
+  /*  @Override
+    public List<CommentaireArticle> readComt(){
+        List<CommentaireArticle> list = new ArrayList<>();
+        try{
+            String requete="SELECT * FROM commentaire order By date_comt DESC";
+            PreparedStatement pst=cnx.prepareStatement(requete);
+            
+            ResultSet rs = pst.executeQuery();
+            while (rs.next()) {
+                String titre=" SELECT titre from Article where id = ?";
+                PreparedStatement p=cnx.prepareStatement(requete);
+                p.setInt(0, rs.getInt("id"));
+                ResultSet r = p.executeQuery();
+                r.getString("titre");
+
+                list.add(new CommentaireArticle(
+                        rs.getInt("id"),
+                        rs.getInt("article"),
+                        rs.getInt("user"),
+                        rs.getString("contenue"),
+                        rs.getDate("date_comt")));
+            }
+            
+        }catch(SQLException ex){
+            System.out.println(ex.getMessage());
+        }
+        return list;   
+    }
+    */
     @Override
     public List<CommentaireArticle> readComt(){
         List<CommentaireArticle> list = new ArrayList<>();
@@ -88,19 +118,19 @@ public class ServiceComt implements IServiceComt <CommentaireArticle>{
             
             ResultSet rs = pst.executeQuery();
             while (rs.next()) {
-                list.add(new CommentaireArticle(rs.getInt("id"), rs.getInt("article"), rs.getInt("user"),
-                        rs.getString("contenue"),rs.getDate("date_comt")));
+                list.add(new CommentaireArticle(
+                        rs.getInt("id"),
+                        rs.getInt("article"),
+                        rs.getInt("user"),
+                        rs.getString("contenue"),
+                        rs.getDate("date_comt")));
             }
-
             
         }catch(SQLException ex){
             System.out.println(ex.getMessage());
         }
-        return list;
-        
+        return list;   
     }
-    
-    
     @Override
     public List<CommentaireArticle> readComtByUser(int id){
         List<CommentaireArticle> list = new ArrayList<>();
@@ -122,7 +152,28 @@ public class ServiceComt implements IServiceComt <CommentaireArticle>{
         
     }
 
-    @Override
+     @Override
+    public ArrayList<CommentaireArticle> getCommentsByArticle(int idArt) {
+                 ArrayList<CommentaireArticle> list = new ArrayList<>();
+try{
+            String requete="SELECT * FROM commentaire where article='"+idArt+"'";
+            PreparedStatement pst=cnx.prepareStatement(requete);
+            
+            ResultSet rs = pst.executeQuery();
+            while (rs.next()) {
+                list.add(new CommentaireArticle(rs.getInt("id"), rs.getInt("article"), rs.getInt("user"),
+                        rs.getString("contenue"),rs.getDate("date_comt")));
+            }
+
+            
+        }catch(SQLException ex){
+            System.out.println(ex.getMessage());
+        }
+        return list;
+        
+    }
+    
+   /* @Override
     public ArrayList<CommentaireArticle> getCommentsByArticle(int idArticle) {
          ArrayList<CommentaireArticle> list = new ArrayList<>();
         try{
@@ -147,5 +198,27 @@ public class ServiceComt implements IServiceComt <CommentaireArticle>{
     
 
     
-
+*/
+    @Override
+    public List<CommentaireArticle> readComtDeux(){
+        List<CommentaireArticle> list = new ArrayList<>();
+        try{
+            String requete="SELECT * FROM commentaire order by date_comt limit 2 ";
+            PreparedStatement pst=cnx.prepareStatement(requete);
+            
+            ResultSet rs = pst.executeQuery();
+            while (rs.next()) {
+                list.add(new CommentaireArticle(
+                        rs.getInt("id"),
+                        rs.getInt("article"),
+                        rs.getInt("user"),
+                        rs.getString("contenue"),
+                        rs.getDate("date_comt")));
+            }
+            
+        }catch(SQLException ex){
+            System.out.println(ex.getMessage());
+        }
+        return list;   
+    }
 }

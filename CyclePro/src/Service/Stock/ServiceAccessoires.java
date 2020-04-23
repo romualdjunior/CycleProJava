@@ -13,6 +13,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 
 /**
  *
@@ -59,25 +61,28 @@ public class ServiceAccessoires {
         }
     }
      
-      public List<Accessoires> afficher (){
-    List<Accessoires> list = new ArrayList <>();
-    
-    String reg ="select * from Accessoires ";
+    public ObservableList<Accessoires> affichier() {
+         ObservableList<Accessoires> c = FXCollections.observableArrayList();
+         
+       List<Accessoires> list = new ArrayList<>();
+
         try {
-            PreparedStatement pst=cnx.prepareStatement(reg);
-            ResultSet rs = pst.executeQuery(); //matrice
-            while (rs.next()){
-               Accessoires a ;
-                a = new Accessoires(rs.getInt(1)/*("id")*/, rs.getString(2),rs.getString(3), rs.getString(4),rs.getString(5),rs.getDouble(6),rs.getString(7), rs.getString(8), rs.getString(9), rs.getString(10),rs.getInt(11), rs.getString(12),rs.getInt(13));
-               list.add(a);
+            String requete = "SELECT * FROM Accessoires";
+            PreparedStatement pst = cnx.prepareStatement(requete);
+            ResultSet rs = pst.executeQuery();
+            while (rs.next()) {
+                c.add(      new Accessoires(rs.getInt(1)/*("id")*/, rs.getString(2),rs.getString(3), rs.getString(4),rs.getString(5),rs.getDouble(6),rs.getString(7), rs.getString(8), rs.getString(9), rs.getString(10),rs.getInt(11), rs.getString(12),rs.getInt(13)));
             }
+
         } catch (SQLException ex) {
-            System.out.println(ex.getMessage());
+            System.err.println(ex.getMessage());
         }
-    return list;
-    } 
+
+        return c;
+        
+         
+    }
     
-      
        public void modifier(Accessoires a) {
         try {
             String requete = "UPDATE accessoires SET photoA=?, nom=?, marque=?, categorie=?,prix=?,description=?,  photoA1=?, photoA2=?,  photoA3=?, soldee=?,Caracteristiques=?,qtEnStock=?  WHERE id=?";
@@ -102,5 +107,26 @@ public class ServiceAccessoires {
             System.err.println(ex.getMessage());
         }
     }
+ public ObservableList<Accessoires> search(String input) {
+         ObservableList<Accessoires> c = FXCollections.observableArrayList();
+         
+       List<Accessoires> list = new ArrayList<>();
 
+        try {
+            String requete = "SELECT * FROM Accessoires where nom like '%"+input+"%' OR marque like '%"+input+"%' OR categorie LIKE '%"+input+"%' ";
+            PreparedStatement pst = cnx.prepareStatement(requete);
+            ResultSet rs = pst.executeQuery();
+            while (rs.next()) {
+                c.add(new Accessoires(rs.getInt(1)/*("id")*/, rs.getString(2),rs.getString(3), rs.getString(4),rs.getString(5),rs.getDouble(6),rs.getString(7), rs.getString(8), rs.getString(9), rs.getString(10),rs.getInt(11), rs.getString(12),rs.getInt(13)));
+            }
+
+        } catch (SQLException ex) {
+            System.err.println(ex.getMessage());
+        }
+
+        return c;
+        
+         
+    }
+ 
 }

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.Group?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane id="AnchorPane" prefHeight="390.0" prefWidth="524.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.171" fx:controller="GUI.Stock.DetailsController">
+   <children>
+      <AnchorPane prefHeight="401.0" prefWidth="555.0" style="-fx-background-color: #ececec;">
+         <children>
+            <Group layoutX="159.0" layoutY="105.0" AnchorPane.bottomAnchor="95.0" AnchorPane.leftAnchor="130.0" AnchorPane.rightAnchor="169.0" AnchorPane.topAnchor="40.0">
+               <children>
+                  <HBox alignment="CENTER_LEFT" layoutX="-20.0" layoutY="160.0" prefHeight="41.0" prefWidth="292.0" />
+                  <Label fx:id="idUangKeluar" layoutX="138.0" layoutY="-62.0" text="Label" visible="false" />
+               </children>
+            </Group>
+            <Label fx:id="marque" layoutX="254.0" layoutY="14.0" text="dd">
+               <font>
+                  <Font name="Segoe UI Bold" size="18.0" />
+               </font>
+            </Label>
+            <Label fx:id="taille" layoutX="128.0" layoutY="211.0" text="Label" />
+            <Label fx:id="categorie" layoutX="128.0" layoutY="241.0" text="Label" />
+            <Label fx:id="description" layoutX="128.0" layoutY="275.0" text="Label" />
+            <ImageView fx:id="imagev" fitHeight="150.0" fitWidth="200.0" layoutX="177.0" layoutY="40.0" pickOnBounds="true" preserveRatio="true" />
+            <JFXButton fx:id="panier" layoutX="225.0" layoutY="351.0" onAction="#ajoutpanier" prefHeight="36.0" prefWidth="127.0" ripplerFill="WHITE" style="-fx-background-color: #106AD2; -fx-background-radius: 15px;" text="Ajouter au Panier" textFill="WHITE">
+               <font>
+                  <Font name="Source Sans Pro Semibold" size="12.0" />
+               </font>
+            </JFXButton>
+            <Label fx:id="prix" layoutX="248.0" layoutY="190.0" text="Label" />
+            <Label fx:id="id" layoutX="30.0" layoutY="94.0" text="Label" />
+         </children>
+         <effect>
+            <DropShadow />
+         </effect>
+      </AnchorPane>
+   </children>
+</AnchorPane>

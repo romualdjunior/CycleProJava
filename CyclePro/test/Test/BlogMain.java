@@ -42,6 +42,7 @@ public class BlogMain {
         Date d1= getDate(2019,10,10);
         Article AA=new Article(252,"contenue","titre","auteur","photo",d1,"category",10);
          SS.createArticle(AA);
+         
         System.out.println("********ALL articles ORDER BY LIKES************");
         SS.readAllArticle().forEach(System.out::println);
         

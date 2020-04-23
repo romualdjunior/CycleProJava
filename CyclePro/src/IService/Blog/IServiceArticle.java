@@ -5,6 +5,7 @@
  */
 package IService.Blog;
 
+import Entitie.Blog.Article;
 import java.util.List;
 //import objects.Article;
 
@@ -23,8 +24,10 @@ public interface IServiceArticle <A> {
     public List<A> searchByTitre(String titre);
     public List<A> searchByAuteur(String auteur);
     public List<A> searchRecent();
+    public Article readOne(int id);
+    public String readTitre(int id);
     
-    //Article searchCat(String category);
+    
 
 
 }

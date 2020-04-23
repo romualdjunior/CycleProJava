@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane id="AnchorPane" prefHeight="712.0" prefWidth="1223.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.Blog.ModifierArticleController">
+   <children>
+      <ScrollPane layoutX="10.0" layoutY="10.0" prefHeight="712.0" prefWidth="1223.0">
+         <content>
+            <AnchorPane id="AnchorPane" fx:id="ajt" prefHeight="712.0" prefWidth="1223.0" style="-fx-background-color: white;">
+               <children>
+                  <Pane layoutX="261.0" layoutY="44.0" prefHeight="621.0" prefWidth="700.0" style="-fx-background-color: white;" styleClass="FormDesign" stylesheets="@blog.css">
+                     <children>
+                        <Text fill="#ae2626" layoutX="239.0" layoutY="35.0" stroke="#dd2727" strokeType="OUTSIDE" strokeWidth="0.0" text="Modifier article" textAlignment="CENTER" wrappingWidth="221.5625">
+                           <font>
+                              <Font name="System Bold Italic" size="22.0" />
+                           </font>
+                        </Text>
+                        <DatePicker fx:id="dateD" layoutX="187.0" layoutY="275.0" prefHeight="35.0" prefWidth="273.0" promptText="Date création" />
+                        <Button layoutX="507.0" layoutY="551.0" mnemonicParsing="false" onAction="#Save" prefHeight="39.0" prefWidth="90.0" text="Save">
+                           <font>
+                              <Font name="System Bold Italic" size="13.0" />
+                           </font>
+                        </Button>
+                        <ComboBox fx:id="cbCat" layoutX="187.0" layoutY="95.0" prefHeight="35.0" prefWidth="273.0" />
+                        <Text layoutX="36.0" layoutY="117.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Categorie">
+                           <font>
+                              <Font name="System Bold Italic" size="13.0" />
+                           </font>
+                        </Text>
+                        <TextField fx:id="txT" layoutX="187.0" layoutY="158.0" prefHeight="35.0" prefWidth="273.0" promptText="Titre" />
+                        <TextField fx:id="txA" layoutX="187.0" layoutY="215.0" prefHeight="35.0" prefWidth="273.0" promptText="Auteur" />
+                        <TextArea fx:id="txC" layoutX="187.0" layoutY="336.0" prefHeight="150.0" prefWidth="411.0" promptText="Contenue" />
+                        <Text layoutX="36.0" layoutY="173.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Titre">
+                           <font>
+                              <Font name="System Bold Italic" size="13.0" />
+                           </font>
+                        </Text>
+                        <Text layoutX="36.0" layoutY="289.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Date création">
+                           <font>
+                              <Font name="System Bold Italic" size="13.0" />
+                           </font>
+                        </Text>
+                        <Text layoutX="36.0" layoutY="350.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Contenu">
+                           <font>
+                              <Font name="System Bold Italic" size="13.0" />
+                           </font>
+                        </Text>
+                        <Text layoutX="36.0" layoutY="229.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Auteur">
+                           <font>
+                              <Font name="System Bold Italic" size="13.0" />
+                           </font>
+                        </Text>
+                        <Text layoutX="36.0" layoutY="515.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Photo">
+                           <font>
+                              <Font name="System Bold Italic" size="13.0" />
+                           </font>
+                        </Text>
+                        <Pane fx:id="PanePhoto" layoutX="507.0" layoutY="72.0" prefHeight="200.0" prefWidth="200.0" />
+                        <Button fx:id="add1" layoutX="392.0" layoutY="498.0" mnemonicParsing="false" onAction="#Choose" prefHeight="24.0" prefWidth="60.0" text="Choose ">
+                           <font>
+                              <Font size="11.0" />
+                           </font>
+                        </Button>
+                        <TextField fx:id="txP" layoutX="187.0" layoutY="501.0" prefHeight="35.0" prefWidth="194.0" promptText="Choisir photo" />
+                     </children>
+                  </Pane>
+               </children>
+            </AnchorPane>
+         </content>
+      </ScrollPane>
+   </children>
+</AnchorPane>

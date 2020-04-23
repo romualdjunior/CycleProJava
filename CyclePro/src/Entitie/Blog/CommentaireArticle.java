@@ -21,6 +21,9 @@ public class CommentaireArticle {
     private Date date_comt;
     private String userName;
 
+    public CommentaireArticle() {
+    }
+
     public String getDateTime() {
     DateFormat date_comt = new SimpleDateFormat("yyyy/MM/dd");
     Date date = new Date();

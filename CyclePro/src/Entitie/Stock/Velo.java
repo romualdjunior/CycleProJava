@@ -5,6 +5,9 @@
  */
 package Entitie.Stock;
 
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+
 /**
  *
  * @author Yasmine
@@ -30,7 +33,26 @@ public class Velo {
     private String photoV1;
     private String photoV2;
     private String photoV3;
+    private ImageView image;
 
+    public Velo(int id, double prixAchat, String photoV, ImageView image) {
+        this.id = id;
+        this.prixAchat = prixAchat;
+        this.photoV = photoV;
+        this.image = image;
+    }
+
+    public Velo(int id, String marque, double prixAchat,String photoV, ImageView image) {
+        this.id = id;
+        this.marque = marque;
+        this.prixAchat = prixAchat;
+        this.photoV = photoV;
+        this.image = image;
+    }
+
+    public Velo() {
+    }
+    
     public int getId() {
         return id;
     }
@@ -243,6 +265,62 @@ public class Velo {
     @Override
     public String toString() {
         return "Velo{" + "id=" + id + ", marque=" + marque + ", couleur=" + couleur + ", nbrDePlace=" + nbrDePlace + ", taille=" + taille + ", qtEnStock=" + qtEnStock + ", qtStockSecurite=" + qtStockSecurite + ", prixAchat=" + prixAchat + ", prixLocH=" + prixLocH + ", photoV=" + photoV + ", Fournisseur=" + Fournisseur +   ", categorie=" + categorie +  ", description=" + description + ", etat=" + etat +    ", soldee=" + soldee +  ", type=" + type + ", photoV1=" + photoV1 + ", photoV2=" + photoV2 + ", photoV3=" + photoV3 + ", Caracteristiques=" + Caracteristiques +  '}';
+    }
+
+    public ImageView getImage() {
+        return image;
+    }
+
+    public void setImage(ImageView image) {
+        this.image = image;
+    }
+
+    public Velo(int id, String marque, String couleur, int nbrDePlace, String etat, String taille, int qtStockSecurite, int qtEnStock, String type, String categorie, int Fournisseur, String description, String Caracteristiques, double prixLocH, double prixAchat, int soldee, String photoV, String photoV1, String photoV2, String photoV3, ImageView image) {
+        this.id = id;
+        this.marque = marque;
+        this.couleur = couleur;
+        this.nbrDePlace = nbrDePlace;
+        this.etat = etat;
+        this.taille = taille;
+        this.qtStockSecurite = qtStockSecurite;
+        this.qtEnStock = qtEnStock;
+        this.type = type;
+        this.categorie = categorie;
+        this.Fournisseur = Fournisseur;
+        this.description = description;
+        this.Caracteristiques = Caracteristiques;
+        this.prixLocH = prixLocH;
+        this.prixAchat = prixAchat;
+        this.soldee = soldee;
+        this.photoV = photoV;
+        this.photoV1 = photoV1;
+        this.photoV2 = photoV2;
+        this.photoV3 = photoV3;
+        this.image = image;
+    }
+    
+    public Velo(int id, String marque, String couleur, int nbrDePlace, String taille,int qtEnStock,int qtStockSecurite,double prixAchat,double prixLocH, String photoV, int Fournisseur,String categorie, String description,String etat, int soldee,  String type,    String photoV1, String photoV2, String photoV3,   String Caracteristiques,ImageView image) {
+        this.id = id;
+        this.marque = marque;
+        this.couleur = couleur;
+        this.nbrDePlace = nbrDePlace;
+        this.etat = etat;
+        this.taille = taille;
+        this.qtStockSecurite = qtStockSecurite;
+        this.qtEnStock = qtEnStock;
+        this.type = type;
+        this.categorie = categorie;
+        this.Fournisseur = Fournisseur;
+        this.description = description;
+        this.Caracteristiques = Caracteristiques;
+        this.prixLocH = prixLocH;
+        this.prixAchat = prixAchat;
+        this.soldee = soldee;
+        this.photoV = photoV;
+        this.photoV1 = photoV1;
+        this.photoV2 = photoV2;
+        this.photoV3 = photoV3;
+        this.image=image;
     }
 
  

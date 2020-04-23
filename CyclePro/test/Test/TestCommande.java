@@ -3,7 +3,7 @@ package Test;
 import Entitie.Commande.Adresse;
 import Entitie.Commande.Commande;
 import Entitie.Commande.LignePanier;
-import Entitie.Commande.Paiement;
+import Entitie.Commande.Payment;
 import Entitie.Produit.Velo;
 import Service.Commande.ServiceAdresse;
 import Service.Commande.ServiceCommande;
@@ -323,7 +323,7 @@ public class TestCommande {
                 int anneeExpiration = scanner.nextInt();
 
                 ServiceCommande s = new ServiceCommande();
-                Paiement paiement = new Paiement(cardHolderName, cardNumber, securityCode, moiExpiration, anneeExpiration, s.getLastCommande());
+                Payment paiement = new Payment(cardHolderName, cardNumber, securityCode, moiExpiration, anneeExpiration, s.getLastCommande());
                 ServicePayment sp = new ServicePayment();
                 sp.ajouter(paiement);
                 s.update(s.getLastCommande());
