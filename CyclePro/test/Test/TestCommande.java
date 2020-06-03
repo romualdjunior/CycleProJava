@@ -3,7 +3,7 @@ package Test;
 import Entitie.Commande.Adresse;
 import Entitie.Commande.Commande;
 import Entitie.Commande.LignePanier;
-import Entitie.Commande.Payment;
+//import Entitie.Commande.Payment;
 import Entitie.Produit.Velo;
 import Service.Commande.ServiceAdresse;
 import Service.Commande.ServiceCommande;
@@ -53,7 +53,7 @@ public class TestCommande {
                     sc.readAll();
                     System.out.println("entrer un champ pour la recherche trie");
                     String champ = scanner.next();
-                    sc.readAll2(champ);
+                    //sc.readAll2(champ);
 
                 } else {
                     System.out.println("identifiants invalides");
@@ -323,9 +323,9 @@ public class TestCommande {
                 int anneeExpiration = scanner.nextInt();
 
                 ServiceCommande s = new ServiceCommande();
-                Payment paiement = new Payment(cardHolderName, cardNumber, securityCode, moiExpiration, anneeExpiration, s.getLastCommande());
+                //Payment paiement = new Payment(cardHolderName, cardNumber, securityCode, moiExpiration, anneeExpiration, s.getLastCommande());
                 ServicePayment sp = new ServicePayment();
-                sp.ajouter(paiement);
+                //sp.ajouter(paiement);
                 s.update(s.getLastCommande());
                 System.out.println("Votre historique des commandes ");
                 //s.historique();
