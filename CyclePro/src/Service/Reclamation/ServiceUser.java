@@ -5,64 +5,118 @@
  */
 package Service.Reclamation;
 
-import Entitie.Produit.Velo;
 import Entitie.Reclamation.Categorie;
+import Entitie.Reclamation.user;
+import Entitie.User.User;
 import IService.Reclamation.IService;
 import Utils.DataSource;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 import javax.swing.JOptionPane;
 
+
+  
 /**
  *
  * @author wiem
  */
-public class ServiceCategorie implements IService<Categorie>{
+public class ServiceUser {
 
-    @Override
-    public boolean ajouter(Categorie entity) throws SQLException {
+    
+    
+    
+    public boolean ajouter(User entity) throws SQLException {
         if (entity == null) return false;
-        String req = "insert into categories (label, description) values (?, ?)";
+        String req = "insert into user (username, username_canonical,email) values (?,?,? )";
         PreparedStatement pst = DataSource.getInstance().getCnx().prepareStatement(req);
-        pst.setString(1, entity.getLabel());
-        pst.setString(2, entity.getDescription());
-
-        return this.isUpdated(pst.executeUpdate(), "ajoutée");
+        pst.setString(1, entity.getUsername());
+        pst.setString(2, entity.getUsername_canonical());
+        pst.setString(3, entity.getEmail());
+       return this.isUpdated(pst.executeUpdate(), "ajoutée");
     }
-
+    
+    
+    
+     private boolean isUpdated(int rows, String action) {
+            if (rows > 0){
+                String message  = "User" + action;
+                System.out.printf(message);
+               // JOptionPane.showMessageDialog(null, message);
+                return true;
+            } else {
+                return false;
+            }
+    }
+     
+    
+    
+    public user getByNom(String nom) throws SQLException {
+        String req = "select id, nom, prenom,tel,mail,adresse from userreclam where nom = ?";
+        PreparedStatement pst = DataSource.getInstance().getCnx().prepareStatement(req);
+        pst.setString(1, nom);
+        ResultSet rs = pst.executeQuery();
+        while (rs.next()) {
+             user u  = user.builder().id(rs.getInt(1))
+                     .nom(rs.getString(2))
+                     .prenom(rs.getString(3))
+                      .tel(rs.getString(4))
+                       .mail(rs.getString(5))
+                      .adresse(rs.getString(6))
+                     .build();
+            return u ;
+        }
+        return null;
+    }
+     
+     
+     
+   /* 
+    
+    
+     
+     
+     
+    
     @Override
-    public Categorie getById(int id) throws SQLException {
-        String req = "select id, label, description from categories where id = ?";
+    public user getById(int id) throws SQLException {
+        String req = "select id, nom, prenom,tel,mail,adresse from userreclam where id = ?";
         PreparedStatement pst = DataSource.getInstance().getCnx().prepareStatement(req);
         pst.setInt(1, id);
         ResultSet rs = pst.executeQuery();
         while (rs.next()) {
-             Categorie c = Categorie.builder().id(rs.getInt(1))
-                     .label(rs.getString(2))
-                     .description(rs.getString(3))
+             user u  = user.builder().id(rs.getInt(1))
+                     .nom(rs.getString(2))
+                     .prenom(rs.getString(3))
+                      .tel(rs.getString(4))
+                       .mail(rs.getString(5))
+                      .adresse(rs.getString(6))
                      .build();
-            return c;
+            return u ;
         }
         return null;
     }
 
     @Override
-    public List<Categorie> getAll() throws SQLException {
-        String req = "select id, label, description from categories";
+    public List<user> getAll() throws SQLException {
+        String req = "select id, nom, prenom,tel,mail,adresse from userreclam ";
         PreparedStatement pst = DataSource.getInstance().getCnx().prepareStatement(req);
         ResultSet rs = pst.executeQuery();
-        List<Categorie> categories = new LinkedList<Categorie>();
+        List<user> user = new LinkedList<user>();
         while (rs.next()) {
-             categories.add(Categorie.builder().id(rs.getInt(1))
-                     .label(rs.getString(2))
-                     .description(rs.getString(3))
+             user.add(user.builder().id(rs.getInt(1))
+                     .nom(rs.getString(2))
+                     .prenom(rs.getString(3))
+                     .tel(rs.getString(4))
+                     .mail(rs.getString(5))
+                     .adresse(rs.getString(6))
+
+
                      .build());
         }
-        return categories;
+        return user;
     }
     
    
@@ -98,9 +152,6 @@ public class ServiceCategorie implements IService<Categorie>{
         return null;
     }
     
-     
-     
-     
     private Categorie getCategorie(ResultSet rs) throws SQLException{
         
         return Categorie.builder().id(rs.getInt(1))
@@ -150,4 +201,5 @@ public class ServiceCategorie implements IService<Categorie>{
                 return false;
             }
     }
-}
+*/
+} 

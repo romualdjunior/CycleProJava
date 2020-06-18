@@ -119,6 +119,13 @@ public class BackofficeController implements Initializable {
                 ajouter.setText("ajouter");
                 modifier.setText("modifier");
                 supprimer.setText("supprimer");
+                
+                
+                 if (page.equals("Contact")) {
+                ajouter.setText("Catégories");
+                modifier.setText("Reclamations");
+                supprimer.setText("");
+                
             } else {
                 ajouter.setText("Fournisseur");
                 modifier.setText("Velo");
@@ -126,7 +133,7 @@ public class BackofficeController implements Initializable {
             }
         }
 
-    }
+    }}
 
     @FXML
     void accueil(ActionEvent event) {
@@ -147,7 +154,7 @@ public class BackofficeController implements Initializable {
     void contact(ActionEvent event) {
         page = "Contact";
         this.topButton(page);
-        this.pageLoader("/GUI/Reclamation/Ajouter.fxml");
+        this.pageLoader("/GUI/Reclamation/AffichageReclamation.fxml");
 
     }
 
@@ -171,7 +178,7 @@ public class BackofficeController implements Initializable {
         } else if (page.equals("Shop")) {
             this.pageLoader("/GUI/Stock/fournisseurf.fxml");
         } else if (page.equals("Contact")) {
-            this.pageLoader("/GUI/Reclamation/Ajouter.fxml");
+            this.pageLoader("/GUI/Reclamation/AffichageCategorie.fxml");
         } else if (page.equals("Evenement") || page.equals("EvenementSingle")) {
             this.pageLoader("/GUI/Evenement/Ajouter.fxml");
         }
@@ -185,7 +192,7 @@ public class BackofficeController implements Initializable {
         } else if (page.equals("Shop")) {
             this.pageLoader("/GUI/Stock/Velo.fxml");
         } else if (page.equals("Contact")) {
-            this.pageLoader("/GUI/Reclamation/Modifier.fxml");
+            this.pageLoader("/GUI/Reclamation/AffichageReclamation.fxml");
         } else if (page.equals("Evenement") || page.equals("EvenementSingle")) {
             this.pageLoader("/GUI/Evenement/Afficher.fxml");
         }

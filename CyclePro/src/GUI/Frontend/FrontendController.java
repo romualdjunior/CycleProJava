@@ -199,9 +199,9 @@ public class FrontendController implements Initializable {
 
     @FXML
     void contact(ActionEvent event) {
-        page = "Contact";
+        page = "Reclamation";
         this.topButton(page);
-        this.pageLoader("/GUI/Reclamation/Contact.fxml",user);
+        this.pageLoader("/GUI/Reclamation/User.fxml",user);
 
     }
 
