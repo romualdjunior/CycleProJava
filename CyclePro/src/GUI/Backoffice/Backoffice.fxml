@@ -324,7 +324,7 @@
                         <Font name="Source Sans Pro" size="14.0" />
                      </font>
                   </JFXButton>
-                  <JFXButton layoutX="10.0" layoutY="277.0" onAction="#contact" prefHeight="35.0" prefWidth="213.0" styleClass="menuButton" stylesheets="@Backend.css" text="      Contact" textFill="#ffffffa6">
+                  <JFXButton layoutX="10.0" layoutY="277.0" onAction="#contact" prefHeight="35.0" prefWidth="213.0" styleClass="menuButton" stylesheets="@Backend.css" text="             Reclamation" textFill="#ffffffa6">
                      <graphic>
                         <ImageView fitHeight="24.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true">
                            <image>

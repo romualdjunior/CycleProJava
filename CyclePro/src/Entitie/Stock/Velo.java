@@ -23,7 +23,7 @@ public class Velo {
     private int qtEnStock ;
     private String type;
     private String categorie;
-    private String Fournisseur;
+    private int Fournisseur;
     private String description;
     private String Caracteristiques;
     private double prixLocH ;
@@ -133,11 +133,11 @@ public class Velo {
         this.categorie = categorie;
     }
 
-    public String getFournisseur() {
+    public int getFournisseur() {
         return Fournisseur;
     }
 
-    public void setFournisseur(String Fournisseur) {
+    public void setFournisseur(int Fournisseur) {
         this.Fournisseur = Fournisseur;
     }
 
@@ -212,9 +212,8 @@ public class Velo {
     public void setPhotoV3(String photoV3) {
         this.photoV3 = photoV3;
     }
-    
 
-    public Velo(int id, String marque, String couleur, int nbrDePlace, String taille,int qtEnStock,int qtStockSecurite,double prixAchat,double prixLocH, String photoV, String Fournisseur,String categorie, String description,String etat, int soldee,  String type,    String photoV1, String photoV2, String photoV3,   String Caracteristiques) {
+    public Velo(int id, String marque, String couleur, int nbrDePlace, String taille,int qtEnStock,int qtStockSecurite,double prixAchat,double prixLocH, String photoV, int Fournisseur,String categorie, String description,String etat, int soldee,  String type,    String photoV1, String photoV2, String photoV3,   String Caracteristiques) {
         this.id = id;
         this.marque = marque;
         this.couleur = couleur;
@@ -237,7 +236,7 @@ public class Velo {
         this.photoV3 = photoV3;
     }
 
-    public Velo(String marque, String couleur, int nbrDePlace, String taille,int qtEnStock,int qtStockSecurite,double prixAchat,double prixLocH, String photoV, String Fournisseur,String categorie, String description,String etat, int soldee,  String type,    String photoV1, String photoV2, String photoV3,   String Caracteristiques) {
+    public Velo(String marque, String couleur, int nbrDePlace, String taille,int qtEnStock,int qtStockSecurite,double prixAchat,double prixLocH, String photoV, int Fournisseur,String categorie, String description,String etat, int soldee,  String type,    String photoV1, String photoV2, String photoV3,   String Caracteristiques) {
         this.marque = marque;
         this.couleur = couleur;
         this.nbrDePlace = nbrDePlace;
@@ -276,7 +275,7 @@ public class Velo {
         this.image = image;
     }
 
-    public Velo(int id, String marque, String couleur, int nbrDePlace, String etat, String taille, int qtStockSecurite, int qtEnStock, String type, String categorie, String Fournisseur, String description, String Caracteristiques, double prixLocH, double prixAchat, int soldee, String photoV, String photoV1, String photoV2, String photoV3, ImageView image) {
+    public Velo(int id, String marque, String couleur, int nbrDePlace, String etat, String taille, int qtStockSecurite, int qtEnStock, String type, String categorie, int Fournisseur, String description, String Caracteristiques, double prixLocH, double prixAchat, int soldee, String photoV, String photoV1, String photoV2, String photoV3, ImageView image) {
         this.id = id;
         this.marque = marque;
         this.couleur = couleur;
@@ -300,7 +299,7 @@ public class Velo {
         this.image = image;
     }
     
-    public Velo(int id, String marque, String couleur, int nbrDePlace, String taille,int qtEnStock,int qtStockSecurite,double prixAchat,double prixLocH, String photoV, String Fournisseur,String categorie, String description,String etat, int soldee,  String type,    String photoV1, String photoV2, String photoV3,   String Caracteristiques,ImageView image) {
+    public Velo(int id, String marque, String couleur, int nbrDePlace, String taille,int qtEnStock,int qtStockSecurite,double prixAchat,double prixLocH, String photoV, int Fournisseur,String categorie, String description,String etat, int soldee,  String type,    String photoV1, String photoV2, String photoV3,   String Caracteristiques,ImageView image) {
         this.id = id;
         this.marque = marque;
         this.couleur = couleur;

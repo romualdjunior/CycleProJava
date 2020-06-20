@@ -61,7 +61,7 @@ import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import javafx.stage.Window;
 import javax.swing.JOptionPane;
-
+import reclamationEntities.Upload;
 
 /**
  * FXML Controller class
@@ -113,7 +113,7 @@ public class VeloController implements Initializable {
     @FXML private TableColumn<Velo,Double> D8;
     @FXML private TableColumn<Velo,Double> D9;
     @FXML private TableColumn<Velo,ImageView> T10;
-   @FXML  private TableColumn<Velo,String> I11;
+   @FXML  private TableColumn<Velo,Integer> I11;
     @FXML private TableColumn<Velo,String> T12;
    @FXML  private TableColumn<Velo,String> T13;
     @FXML private TableColumn<Velo,String> T14;
@@ -125,7 +125,7 @@ public class VeloController implements Initializable {
     @FXML private TableColumn<Velo,String> T20;
     private TextField S;
     private Button Photo1btn;
-    private  String img1="C:\\Users\\Yasmine\\Desktop\\Images";
+    private  String img1="C:\\Users\\Yasmine\\Desktop\\ProjetJava\\CycleProJava\\CyclePro\\src";
     @FXML
     private ComboBox<String> combobox_fournisseur;
     @FXML
@@ -219,16 +219,15 @@ public class VeloController implements Initializable {
             }
            return strings;
         } catch (SQLException ex) {
-            Logger.getLogger(FournisseurfController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(VeloController.class.getName()).log(Level.SEVERE, null, ex);
             return null;
         }
     }
-   
-
+    
     @FXML
     private void AjouterVelo(ActionEvent event) {
           ServiceVelo SV = new ServiceVelo();
-SV.ajouter(new Velo(txt1.getText(),combobox_couleur.getValue(), Integer.parseInt(txt3.getText()), combobox_taille.getValue(), Integer.parseInt(txt5.getText()), Integer.parseInt(txt6.getText()), (double)Integer.parseInt(txt7.getText()), (double)Integer.parseInt(txt8.getText()),label_photo.getText(), combobox_fournisseur.getValue(), combobox_categorie.getValue(), txt12.getText(), combobox_etat.getValue(), Integer.parseInt(txt14.getText()), combobox_type.getValue(), label_photo1.getText(), label_photo11.getText(), label_photo12.getText(), txt19.getText()));
+SV.ajouter(new Velo(txt1.getText(),combobox_couleur.getValue(), Integer.parseInt(txt3.getText()), combobox_taille.getValue(), Integer.parseInt(txt5.getText()), Integer.parseInt(txt6.getText()), (double)Integer.parseInt(txt7.getText()), (double)Integer.parseInt(txt8.getText()),label_photo.getText(), Integer.parseInt(combobox_fournisseur.getValue()), combobox_categorie.getValue(), txt12.getText(), combobox_etat.getValue(), Integer.parseInt(txt14.getText()), combobox_type.getValue(), label_photo1.getText(), label_photo11.getText(), label_photo12.getText(), txt19.getText()));
         JOptionPane.showMessageDialog(null, "velo ajoutée !");
         cls.clear();
         showVelo();
@@ -263,7 +262,6 @@ SV.ajouter(new Velo(txt1.getText(),combobox_couleur.getValue(), Integer.parseInt
             cls.add(new Velo(aux.getId(), aux.getMarque(), aux.getCouleur(), aux.getNbrDePlace(), aux.getTaille(),aux.getQtEnStock(),aux.getQtStockSecurite(),aux.getPrixAchat(),aux.getPrixLocH(),aux.getPhotoV(), aux.getFournisseur(),aux.getCategorie(),aux.getDescription(),aux.getEtat(), aux.getSoldee(),  aux.getType(),    aux.getPhotoV1(), aux.getPhotoV2(),aux.getPhotoV3(),aux.getCaracteristiques(),imagee));
             table2.setItems(cls);    
         }
-        
         I1.setCellValueFactory(new PropertyValueFactory<Velo,Integer>("id"));
     	T2.setCellValueFactory(new PropertyValueFactory<Velo,String>("marque"));
         T3.setCellValueFactory(new PropertyValueFactory<Velo,String>("couleur"));
@@ -275,7 +273,7 @@ SV.ajouter(new Velo(txt1.getText(),combobox_couleur.getValue(), Integer.parseInt
         D9.setCellValueFactory(new PropertyValueFactory<Velo,Double>("prixLocH"));
     	T10.setCellValueFactory(new PropertyValueFactory<Velo,ImageView>("image"));
         //T10.setCellValueFactory(new PropertyValueFactory<Velo,String>("photoV"));
-        I11.setCellValueFactory(new PropertyValueFactory<Velo,String>("Fournisseur"));
+        I11.setCellValueFactory(new PropertyValueFactory<Velo,Integer>("Fournisseur"));
     	T12.setCellValueFactory(new PropertyValueFactory<Velo,String>("categorie"));
         T13.setCellValueFactory(new PropertyValueFactory<Velo,String>("description"));
     	T14.setCellValueFactory(new PropertyValueFactory<Velo,String>("etat"));
@@ -291,7 +289,7 @@ SV.ajouter(new Velo(txt1.getText(),combobox_couleur.getValue(), Integer.parseInt
 
     private void Modifier(ActionEvent event) {
        ServiceVelo SV = new ServiceVelo();
-         SV.modifier(new Velo(txt1.getText(),combobox_couleur.getValue(), Integer.parseInt(txt3.getText()), combobox_taille.getValue(), Integer.parseInt(txt5.getText()), Integer.parseInt(txt6.getText()), (double)Integer.parseInt(txt7.getText()), (double)Integer.parseInt(txt8.getText()),label_photo.getText(), combobox_fournisseur.getValue(), combobox_categorie.getValue(), txt12.getText(), combobox_etat.getValue(), Integer.parseInt(txt14.getText()), combobox_type.getValue(), label_photo1.getText(), label_photo11.getText(), label_photo12.getText(), txt19.getText()));
+         SV.modifier(new Velo(txt1.getText(),combobox_couleur.getValue(), Integer.parseInt(txt3.getText()), combobox_taille.getValue(), Integer.parseInt(txt5.getText()), Integer.parseInt(txt6.getText()), (double)Integer.parseInt(txt7.getText()), (double)Integer.parseInt(txt8.getText()),label_photo.getText(), Integer.parseInt(combobox_fournisseur.getValue()), combobox_categorie.getValue(), txt12.getText(), combobox_etat.getValue(), Integer.parseInt(txt14.getText()), combobox_type.getValue(), label_photo1.getText(), label_photo11.getText(), label_photo12.getText(), txt19.getText()));
      JOptionPane.showMessageDialog(null, "Velo Modifier !");
      showVelo();
       RechercheAV();
@@ -309,7 +307,7 @@ SV.ajouter(new Velo(txt1.getText(),combobox_couleur.getValue(), Integer.parseInt
         D9.setCellValueFactory(new PropertyValueFactory<Velo,Double>("prixLocH"));
     	T10.setCellValueFactory(new PropertyValueFactory<Velo,ImageView>("image"));
         //T10.setCellValueFactory(new PropertyValueFactory<Velo,Image>("photoV"));
-        I11.setCellValueFactory(new PropertyValueFactory<Velo,String>("Fournisseur"));
+        I11.setCellValueFactory(new PropertyValueFactory<Velo,Integer>("Fournisseur"));
     	T12.setCellValueFactory(new PropertyValueFactory<Velo,String>("categorie"));
         T13.setCellValueFactory(new PropertyValueFactory<Velo,String>("description"));
     	T14.setCellValueFactory(new PropertyValueFactory<Velo,String>("etat"));
@@ -356,7 +354,7 @@ SV.ajouter(new Velo(txt1.getText(),combobox_couleur.getValue(), Integer.parseInt
     @FXML
     private void modifierVelo(ActionEvent event) {
         ServiceVelo vs = new ServiceVelo();
-        vs.modifier(new Velo(Integer.parseInt(label_id.getText()),txt1.getText(),combobox_couleur.getValue(), Integer.parseInt(txt3.getText()), combobox_taille.getValue(), Integer.parseInt(txt5.getText()), Integer.parseInt(txt6.getText()), Double.parseDouble(txt7.getText()), Double.parseDouble(txt8.getText()),label_photo.getText(), combobox_fournisseur.getValue(), combobox_categorie.getValue(), txt12.getText(), combobox_etat.getValue(), Integer.parseInt(txt14.getText()), combobox_type.getValue(), label_photo1.getText(), label_photo11.getText(), label_photo12.getText(), txt19.getText()));
+        vs.modifier(new Velo(Integer.parseInt(label_id.getText()),txt1.getText(),combobox_couleur.getValue(), Integer.parseInt(txt3.getText()), combobox_taille.getValue(), Integer.parseInt(txt5.getText()), Integer.parseInt(txt6.getText()), Double.parseDouble(txt7.getText()), Double.parseDouble(txt8.getText()),label_photo.getText(), Integer.parseInt(combobox_fournisseur.getValue()), combobox_categorie.getValue(), txt12.getText(), combobox_etat.getValue(), Integer.parseInt(txt14.getText()), combobox_type.getValue(), label_photo1.getText(), label_photo11.getText(), label_photo12.getText(), txt19.getText()));
         Veloclear();
         cls.clear();
         showVelo();

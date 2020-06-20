@@ -8,12 +8,12 @@ package GUI.Blog;
 import Entitie.Blog.Article;
 import Entitie.Blog.CommentaireArticle;
 import Entitie.Blog.FavoriArticle;
-import Entitie.Blog.RatingArticle;
+//import Entitie.Blog.RatingArticle;
 import Entitie.User.User;
 import Service.Blog.ServiceArticle;
 import Service.Blog.ServiceComt;
 import Service.Blog.ServiceFavori;
-import Service.Blog.ServiceRatingArticle;
+//import Service.Blog.ServiceRatingArticle;
 import Service.User.UserService;
 import animatefx.animation.Bounce;
 import com.itextpdf.text.Document;
@@ -454,12 +454,12 @@ public class BlogSingleController implements Initializable {
                         
             System.err.println("nbrRating"+rating.getRating());
 
-            ServiceRatingArticle sr=new ServiceRatingArticle();
+            /*ServiceRatingArticle sr=new ServiceRatingArticle();
             RatingArticle r=new RatingArticle();
             r.setIdArt(idArt);
             r.setIdUser(idUser);
             r.setNbrRating((int) rating.getRating());
-            sr.createRatingArticle(r);
+            sr.createRatingArticle(r);*/
             
           
         }

@@ -5,7 +5,6 @@
  */
 package Service.Stock;
 
-import Entitie.Stock.Fournisseur;
 import Entitie.Stock.Velo;
 import Utils.DataSource;
 import java.sql.Connection;
@@ -30,9 +29,7 @@ public class ServiceVelo {
                 + " prixAchat, prixLocH,photoV,  Fournisseur, categorie,"
                 + "  description, etat,  soldee,   type, photoV1,  photoV2,  photoV3, Caracteristiques)"
                 + " values (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?);";
-     ServiceFournisseur sf=new ServiceFournisseur();
-      Fournisseur f=new Fournisseur();
-    f=sf.getFournisseurNom(v.getFournisseur());
+    
     try{
             PreparedStatement pst=cnx.prepareStatement(reg);
             pst.setString(1, v.getMarque());
@@ -44,7 +41,7 @@ public class ServiceVelo {
             pst.setDouble(7, v.getPrixAchat());
             pst.setDouble(8, v.getPrixLocH());
              pst.setString(9, v.getPhotoV());
-             pst.setInt(10, f.getId());                        
+             pst.setInt(10, v.getFournisseur());                        
             pst.setString(11, v.getCategorie());
             pst.setString(12, v.getDescription());
             pst.setString(13, v.getEtat());
@@ -77,13 +74,13 @@ public class ServiceVelo {
       public ObservableList<Velo> affichier() {
          ObservableList<Velo> c = FXCollections.observableArrayList();
        List<Velo> list = new ArrayList<>();
-     
         try {
-            String requete = "SELECT * FROM Velo inner join fournisseur on Velo.Fournisseur=fournisseur.id";
+            String requete = "SELECT * FROM Velo";
             PreparedStatement pst = cnx.prepareStatement(requete);
             ResultSet rs = pst.executeQuery();
             while (rs.next()) {
-                c.add(new Velo (rs.getInt(1)/*("id")*/, rs.getString(2),rs.getString(3),rs.getInt(4), rs.getString(5),rs.getInt(6),rs.getInt(7),rs.getDouble(8),rs.getDouble(9),rs.getString(10),rs.getString(22), rs.getString(12),getString(13),rs.getString(14),rs.getInt(15),rs.getString(16),rs.getString(17),rs.getString(18),rs.getString(19),rs.getString(20)));}
+                c.add(new Velo (rs.getInt(1)/*("id")*/, rs.getString(2),rs.getString(3),rs.getInt(4), rs.getString(5),rs.getInt(6),rs.getInt(7),rs.getDouble(8),rs.getDouble(9),rs.getString(10),rs.getInt(11), rs.getString(12),getString(13),rs.getString(14),rs.getInt(15),rs.getString(16),rs.getString(17),rs.getString(18),rs.getString(19),rs.getString(20)));}
+            System.out.println("velo: "+c);
         } catch (SQLException ex) {
             System.err.println(ex.getMessage());
         }return c;}
@@ -97,15 +94,12 @@ public class ServiceVelo {
             pst.setString(1, type);
             ResultSet rs = pst.executeQuery();
             while (rs.next()) {
-                c.add(new Velo (rs.getInt(1)/*("id")*/, rs.getString(2),rs.getString(3),rs.getInt(4), rs.getString(5),rs.getInt(6),rs.getInt(7),rs.getDouble(8),rs.getDouble(9),rs.getString(10),rs.getString(11), rs.getString(12),getString(13),rs.getString(14),rs.getInt(15),rs.getString(16),rs.getString(17),rs.getString(18),rs.getString(19),rs.getString(20)));}
+                c.add(new Velo (rs.getInt(1)/*("id")*/, rs.getString(2),rs.getString(3),rs.getInt(4), rs.getString(5),rs.getInt(6),rs.getInt(7),rs.getDouble(8),rs.getDouble(9),rs.getString(10),rs.getInt(11), rs.getString(12),getString(13),rs.getString(14),rs.getInt(15),rs.getString(16),rs.getString(17),rs.getString(18),rs.getString(19),rs.getString(20)));}
         } catch (SQLException ex) {
             System.err.println(ex.getMessage());
         }return c;}
       public void modifier(Velo v) 
       {
-           ServiceFournisseur sf=new ServiceFournisseur();
-      Fournisseur f=new Fournisseur();
-    f=sf.getFournisseurNom(v.getFournisseur());
         try {
             String requete = "UPDATE velo SET marque=?,  couleur=?,  nbrDePlace=?,  taille=?, qtEnStock=?, qtStockSecurite=?, prixAchat=?, prixLocH=?,photoV=?,  Fournisseur=?, categorie=?,description=?, etat=?,  soldee=?,   type=?, photoV1=?,  photoV2=?,  photoV3=?, Caracteristiques=? WHERE id=?";
             PreparedStatement pst = cnx.prepareStatement(requete);
@@ -119,7 +113,7 @@ public class ServiceVelo {
             pst.setDouble(7, v.getPrixAchat());
             pst.setDouble(8, v.getPrixLocH());
              pst.setString(9, v.getPhotoV());
-             pst.setInt(10, f.getId());                        
+             pst.setInt(10, v.getFournisseur());                        
             pst.setString(11, v.getCategorie());
             pst.setString(12, v.getDescription());
             pst.setString(13, v.getEtat());
@@ -143,7 +137,7 @@ List<Velo> list = new ArrayList<>();
             PreparedStatement pst = cnx.prepareStatement(requete);
             ResultSet rs = pst.executeQuery();
             while (rs.next()) {
-                c.add(new Velo(rs.getInt(1)/*("id")*/, rs.getString(2),rs.getString(3),rs.getInt(4), rs.getString(5),rs.getInt(6),rs.getInt(7),rs.getDouble(8),rs.getDouble(9),rs.getString(10),rs.getString(11), rs.getString(12),getString(13),rs.getString(14),rs.getInt(15),rs.getString(16),rs.getString(17),rs.getString(18),rs.getString(19),rs.getString(20)));
+                c.add(new Velo(rs.getInt(1)/*("id")*/, rs.getString(2),rs.getString(3),rs.getInt(4), rs.getString(5),rs.getInt(6),rs.getInt(7),rs.getDouble(8),rs.getDouble(9),rs.getString(10),rs.getInt(11), rs.getString(12),getString(13),rs.getString(14),rs.getInt(15),rs.getString(16),rs.getString(17),rs.getString(18),rs.getString(19),rs.getString(20)));
             }
         } catch (SQLException ex) {
             System.err.println(ex.getMessage());
@@ -191,26 +185,7 @@ public int NbVelo() {
             PreparedStatement pst = cnx.prepareStatement(requete);
             ResultSet rs = pst.executeQuery();
             while (rs.next()) {
-                Velo v=new Velo(rs.getInt(1)/*("id")*/, rs.getString(2),rs.getString(3),rs.getInt(4), rs.getString(5),rs.getInt(6),rs.getInt(7),rs.getDouble(8),rs.getDouble(9),rs.getString(10),rs.getString(11), rs.getString(12),getString(13),rs.getString(14),rs.getInt(15),rs.getString(16),rs.getString(17),rs.getString(18),rs.getString(19),rs.getString(20));
-                return v;
-            }
-            
-        } catch (SQLException ex) {
-            System.err.println(ex.getMessage());
-        }
-
-        return null;
-      }
-      
-      public Velo getVeloMarque(String marque)
-      {
-          try {
-            String requete = "SELECT * FROM Velo where marque=?";
-            PreparedStatement pst = cnx.prepareStatement(requete);
-            pst.setString(1,marque);
-            ResultSet rs = pst.executeQuery();
-            while (rs.next()) {
-                Velo v=new Velo(rs.getInt(1)/*("id")*/, rs.getString(2),rs.getString(3),rs.getInt(4), rs.getString(5),rs.getInt(6),rs.getInt(7),rs.getDouble(8),rs.getDouble(9),rs.getString(10),rs.getString(11), rs.getString(12),getString(13),rs.getString(14),rs.getInt(15),rs.getString(16),rs.getString(17),rs.getString(18),rs.getString(19),rs.getString(20));
+                Velo v=new Velo(rs.getInt(1)/*("id")*/, rs.getString(2),rs.getString(3),rs.getInt(4), rs.getString(5),rs.getInt(6),rs.getInt(7),rs.getDouble(8),rs.getDouble(9),rs.getString(10),rs.getInt(11), rs.getString(12),getString(13),rs.getString(14),rs.getInt(15),rs.getString(16),rs.getString(17),rs.getString(18),rs.getString(19),rs.getString(20));
                 return v;
             }
             

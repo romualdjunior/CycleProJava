@@ -96,28 +96,11 @@ public class OffreController implements Initializable {
     @FXML
     private void ajouterO(ActionEvent event) {
           ServiceOffre SO = new ServiceOffre();
-          DatePicker tmpdate=(DatePicker) dateD;
-                String date= (String) tmpdate.getValue().toString();
-                date = date.substring(0,4)+'/'+date.substring(5,7)+'/'+date.substring(8);                
-                java.util.Date myDate = new java.util.Date(date);
-                java.sql.Date sqlDate = new java.sql.Date(myDate.getTime());
-                
-                DatePicker tmpdatee=(DatePicker) dateF;
-                String datee= (String) tmpdatee.getValue().toString();
-                datee = datee.substring(0,4)+'/'+datee.substring(5,7)+'/'+datee.substring(8);                
-                java.util.Date myDatee = new java.util.Date(datee);
-                java.sql.Date sqlDatee = new java.sql.Date(myDatee.getTime());
-          //(int pourcentage, int Velo, Date dateDebut, Date dateFin)
-    SO.ajouter(new Offre( Integer.parseInt(pourcentage.getText()),combobox_velo.getValue(),sqlDate,sqlDatee));
+//SO.ajouter(new Offre( Integer.parseInt(pourcentage.getText()),Integer.parseInt(combobox_velo.getValue()), (double)Integer.parseInt(nvprix.getText()),dateD.getText(),dateF.getText() ));
         JOptionPane.showMessageDialog(null, "offre ajoutée !");
         cls.clear();
        
     }
-    
-    
-    
-    
-    
     public void showOffre(){
         ServiceOffre rs = new ServiceOffre ();
         List<Offre> liste = rs.affichier();

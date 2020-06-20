@@ -6,7 +6,6 @@
 package Service.Stock;
 
 import Entitie.Stock.Offre;
-import Entitie.Stock.Velo;
 import Utils.DataSource;
 import static java.nio.file.Files.list;
 import static java.rmi.Naming.list;
@@ -28,18 +27,15 @@ public class ServiceOffre {
       Connection cnx = DataSource.getInstance().getCnx();
     public void ajouter (Offre o){
     String reg;
-        reg = "insert into offre (pourcentage,Velo,dateDebut,dateFin) values (?,?,?,?);";
-    ServiceVelo sv=new ServiceVelo();
-    Velo v=new Velo();
-    v=sv.getVeloMarque(o.getVelo());
+        reg = "insert into fournisseur (pourcentage,Velo,nvPrix,dateDebut,dateFin) values (?,?,?,?,?);";
+    
     try{
-            System.out.println(o.getVelo());
-            System.out.println(sv.getVeloMarque(o.getVelo()));
             PreparedStatement pst=cnx.prepareStatement(reg);
             pst.setInt(1, o.getPourcentage());
-            pst.setInt(2, v.getId());
-            pst.setDate(3, o.getDateDebut());
-            pst.setDate(4, o.getDateFin());
+            pst.setInt(2, o.getVelo());
+            pst.setDouble(3, o.getNvPrix());
+            pst.setDate(4, o.getDateDebut());
+            pst.setDate(5, o.getDateFin());
             pst.executeUpdate();
             System.out.println("offre ajoute");
             
@@ -57,7 +53,7 @@ public class ServiceOffre {
             PreparedStatement pst = cnx.prepareStatement(requete);
             ResultSet rs = pst.executeQuery();
             while (rs.next()) {
-                c.add(new Offre(rs.getInt(1), rs.getInt(2), rs.getString(3), rs.getDouble(4), rs.getDate(5), rs.getDate(6)));
+                c.add(new Offre(rs.getInt(1), rs.getInt(2), rs.getInt(3), rs.getDouble(4), rs.getDate(5), rs.getDate(6)));
             }
 
         } catch (SQLException ex) {
@@ -75,7 +71,7 @@ public class ServiceOffre {
             PreparedStatement pst = cnx.prepareStatement(requete);
             ResultSet rs = pst.executeQuery();
             while (rs.next()) {
-                Offre v=new Offre(rs.getInt(1), rs.getInt(2), rs.getString(3), rs.getDouble(4), rs.getDate(5), rs.getDate(6));
+                Offre v=new Offre(rs.getInt(1), rs.getInt(2), rs.getInt(3), rs.getDouble(4), rs.getDate(5), rs.getDate(6));
                 return v;
             }
             
@@ -117,7 +113,7 @@ public class ServiceOffre {
             PreparedStatement pst = cnx.prepareStatement(requete);
             ResultSet rs = pst.executeQuery();
             while (rs.next()) {
-                Offre o=new Offre(rs.getInt(1), rs.getInt(2), rs.getString(3), rs.getDouble(4), rs.getDate(5), rs.getDate(6));
+                Offre o=new Offre(rs.getInt(1), rs.getInt(2), rs.getInt(3), rs.getDouble(4), rs.getDate(5), rs.getDate(6));
                 if(o.getDateFin().getDay()< new java.util.Date().getDay())
                 {
                     this.supprimer(o);

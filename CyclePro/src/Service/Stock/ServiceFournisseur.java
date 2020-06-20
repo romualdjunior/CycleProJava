@@ -151,39 +151,5 @@ public class ServiceFournisseur {
 
         return null;
       }
-        public Fournisseur getFournisseurNom(String raisonSociale)
-      {
-          try {
-            String requete = "SELECT * FROM Fournisseur where raisonSociale=?";
-            PreparedStatement pst = cnx.prepareStatement(requete);
-            pst.setString(1,raisonSociale);
-            ResultSet rs = pst.executeQuery();
-            while (rs.next()) {
-                Fournisseur v=new Fournisseur(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5), rs.getString(6));
-                return v;
-            }
-            
-        } catch (SQLException ex) {
-            System.err.println(ex.getMessage());
-        }
-
-        return null;
-      }
-        public Fournisseur getFournisseurVelo(int idvelo)
-      {
-          try {
-            String requete = "SELECT fournisseur.* FROM Velo inner join fournisseur on Velo.Fournisseur=fournisseur.id where velo.id="+idvelo;
-            PreparedStatement pst = cnx.prepareStatement(requete);
-            ResultSet rs = pst.executeQuery();
-            while (rs.next()) {
-                Fournisseur  f=new Fournisseur(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5), rs.getString(6));
-                return f;
-            }
-            
-        } catch (SQLException ex) {
-            System.err.println(ex.getMessage());
-        }
-
-        return null;
-      }
+       
 }

@@ -64,17 +64,12 @@ public class CommandeVController implements Initializable {
         v=SV.getVelo(Integer.parseInt(id_velo.getText()));
         ServiceFournisseur Fs = new ServiceFournisseur();
         Fournisseur f=new Fournisseur();
-        System.out.println("velo id:");
-        System.out.println(v.getId());
-        f=Fs.getFournisseurVelo(v.getId());
-       
+        f=Fs.getFournisseur(v.getFournisseur());
         pdf p=new pdf();
         p.GeneratePdf("velo",v,Integer.parseInt( quantité.getText()));
-        System.out.println("Nom:");
-        System.out.println(f.getMail());
         Mail m = new Mail();
-        m.sendMail(f.getMail());
-       JOptionPane.showMessageDialog(null, "Commande envoyé !");
+        Mail.sendMail(f.getMail());
+        JOptionPane.showMessageDialog(null, "Commande envoyé !");
     }
     
 }
