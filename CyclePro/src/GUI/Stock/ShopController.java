@@ -80,7 +80,7 @@ public class ShopController implements Initializable {
                 ImageView imagee=ImageViewBuilder.create()
                 .image(new Image(file.toURI().toString()))
                 .build();   
-                showVelo(aux.getId(),aux.getMarque(),aux.getPrixLocH(),imag);
+                showVelo(aux.getId(),aux.getMarque(),aux.getPrixAchat(),imag);
             }
             
         } catch (IOException ex) {
@@ -89,7 +89,7 @@ public class ShopController implements Initializable {
  
     }
         
-    public void showVelo(int id,String marque,double prix,Image image) throws IOException
+    public void showVelo(int id,String marque,double prixAchat,Image image) throws IOException
     {
         FXMLLoader Loader = new FXMLLoader();
         Loader.setLocation(getClass().getResource("Card.fxml"));
@@ -97,7 +97,7 @@ public class ShopController implements Initializable {
         new FadeInRightTransition(p).play();
         AnchorPane pane = Loader.load();
         CardController c = Loader.getController();
-        c.setData(id,marque,prix,image);
+        c.setData(id,marque,prixAchat,image);
         p.getChildren().setAll(pane);
         VBox v=new VBox(p);
         vbox.getChildren().add(v);
@@ -119,7 +119,7 @@ public class ShopController implements Initializable {
                 ImageView imagee=ImageViewBuilder.create()
                 .image(new Image(file.toURI().toString()))
                 .build();   
-                showVelo(aux.getId(),aux.getMarque(),aux.getPrixLocH(),imag);
+                showVelo(aux.getId(),aux.getMarque(),aux.getPrixAchat(),imag);
             }
             
         } catch (IOException ex) {

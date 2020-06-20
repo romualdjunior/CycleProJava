@@ -70,12 +70,13 @@ public class CardController implements Initializable {
         soldee.setVisible(false);
         logo_solde.setVisible(false);
     }    
-    public void setData(int id,String marque,double prix,Image image)
+    public void setData(int id,String marque,double prixAchat,Image image)
     {
         this.id.setText(String.valueOf(id));
          this.marque.setText(marque);
-        this.prix.setText(String.valueOf(prix)+" DT");
+        this.prix.setText(String.valueOf(prixAchat)+" DT");
         this.image.setImage(image);
+        
         ServiceOffre Os=new ServiceOffre();
         Os.checkVerifOffre();
         Offre o=new Offre();
@@ -85,7 +86,7 @@ public class CardController implements Initializable {
             soldee.setVisible(true);
             logo_solde.setVisible(true);
             soldee.setText("-"+String.valueOf(o.getPourcentage())+"%");
-            double prixx=prix- ((prix/100)*o.getPourcentage());
+            double prixx=prixAchat- ((prixAchat/100)*o.getPourcentage());
             this.prix.setText(String.valueOf(prixx)+" DT");
         }
     }
@@ -108,7 +109,7 @@ public class CardController implements Initializable {
                 ImageView imagee=ImageViewBuilder.create()
                 .image(new Image(file.toURI().toString()))
                 .build();
-        c.setData(v.getId(),v.getPrixLocH(),imag,v.getTaille(),v.getCategorie(),v.getMarque(),v.getDescription());
+        c.setData(v.getId(),v.getPrixAchat(),imag,v.getTaille(),v.getCategorie(),v.getMarque(),v.getDescription());
         loadPane.getChildren().setAll(pane);
         
     }

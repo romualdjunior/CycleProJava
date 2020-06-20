@@ -15,7 +15,7 @@ import java.sql.SQLException;
  */
 public class DataSource {
     public static DataSource instance;
-    private final String URL="jdbc:mysql://localhost:3306/pidev";
+    private final String URL="jdbc:mysql://localhost:3306/cyclepro";
     private final String LOGIN="root";
     private final String PWD="";
     private Connection cnx;

@@ -14,10 +14,17 @@ import java.sql.Date;
 public class Offre {
      public int id;
      public int pourcentage ;
-     public int Velo ;
+     public String Velo ;
      public double nvPrix ;
-     public Date dateDebut ;
-     public Date dateFin ;
+     public java.sql.Date dateDebut ;
+     public java.sql.Date dateFin ;
+
+    public Offre(int pourcentage, String Velo, java.sql.Date dateDebut, java.sql.Date dateFin) {
+        this.pourcentage = pourcentage;
+        this.Velo = Velo;
+        this.dateDebut = dateDebut;
+        this.dateFin = dateFin;
+    }
 
     public int getId() {
         return id;
@@ -35,11 +42,11 @@ public class Offre {
         this.pourcentage = pourcentage;
     }
 
-    public int getVelo() {
+    public String getVelo() {
         return Velo;
     }
 
-    public void setVelo(int Velo) {
+    public void setVelo(String Velo) {
         this.Velo = Velo;
     }
 
@@ -70,7 +77,7 @@ public class Offre {
     public Offre() {
     }
 
-    public Offre(int id, int pourcentage, int Velo, double nvPrix, Date dateDebut, Date dateFin) {
+    public Offre(int id, int pourcentage, String Velo, double nvPrix, Date dateDebut, Date dateFin) {
         this.id = id;
         this.pourcentage = pourcentage;
         this.Velo = Velo;
@@ -79,7 +86,7 @@ public class Offre {
         this.dateFin = dateFin;
     }
 
-    public Offre(int pourcentage, int Velo, double nvPrix, Date dateDebut, Date dateFin) {
+    public Offre(int pourcentage, String Velo, double nvPrix, Date dateDebut, Date dateFin) {
         this.pourcentage = pourcentage;
         this.Velo = Velo;
         this.nvPrix = nvPrix;

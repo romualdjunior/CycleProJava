@@ -5,6 +5,8 @@
  */
 package GUI.Stock;
 
+import Entitie.Stock.Offre;
+import Service.Stock.ServiceOffre;
 import com.jfoenix.controls.JFXButton;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -36,6 +38,8 @@ public class DetailsController implements Initializable {
     private JFXButton panier;
     @FXML
     private Label prix;
+     @FXML
+    private Label soldee;
     @FXML
     private Label id;
 
@@ -48,16 +52,31 @@ public class DetailsController implements Initializable {
         this.id.setVisible(false);
     }    
 
-    public void setData(int id,double prix,Image image,String taille,String categorie,String marque,String description)
+    public void setData(int id,double prixAchat,Image image,String taille,String categorie,String marque,String description)
     {
+         soldee.setVisible(false);
         this.id.setText(String.valueOf(id));
-        this.prix.setText(String.valueOf(prix)+" DT");
+        this.prix.setText(String.valueOf(prixAchat)+" DT");
         this.imagev.setImage(image);
         this.categorie.setText(categorie);
         this.taille.setText(taille);
         this.description.setText(description);
         this.marque.setText(marque);
+        
+        ServiceOffre Os=new ServiceOffre();
+        Os.checkVerifOffre();
+        Offre o=new Offre();
+        o=Os.getOffre(id);
+        if(o!=null)
+        {
+            soldee.setVisible(true);
+           
+            soldee.setText("-"+String.valueOf(o.getPourcentage())+"%");
+            double prixx=prixAchat- ((prixAchat/100)*o.getPourcentage());
+            this.prix.setText(String.valueOf(prixx)+" DT");
+        }
     }
+    
     @FXML
     private void ajoutpanier(ActionEvent event) {
         // Todo

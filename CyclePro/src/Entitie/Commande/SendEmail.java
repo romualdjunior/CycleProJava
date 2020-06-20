@@ -18,7 +18,7 @@ import javax.activation.*;
 public class SendEmail {
 
     final String senderEmailID = "romuald.motchehokamguia@esprit.tn";
-    final String senderPassword = "MON amour00?";
+    final String senderPassword = "MON amour00!";
     final String emailSMTPserver = "smtp.gmail.com";
     final String emailServerPort = "465";
     String receiverEmailID = null;
